@@ -1,0 +1,7 @@
+Develop a landing hero page on home page route. This page will have a mac like bottom tab navigation with theme toggle between light and dark mode. In th bottom tab navigation it should consists of home, about, project, contact me. 
+In the content area, start with greating the audiance, who am I (which i am a full stack developer), and some small description. Next 2 CTA to view project and View CV
+In the second section, show top 3 work experience is a simple way where it only mention company name, photo, position and working start and end year.
+In 3rd section, shows a badges of skills they I have in pill shape. This page will come in a enterin animation 
+
+https://portfolio-magicui.vercel.app/
+https://sidefolio.vercel.app/
