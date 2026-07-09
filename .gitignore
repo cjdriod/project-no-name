@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# project ignores
+build/
+*.log
+.env*
+Thumbs.db
+*.tmp
+*.swp
+.vscode/

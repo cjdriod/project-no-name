@@ -11,5 +11,35 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [icon()]
+  integrations: [
+    icon({
+      include: {
+        'material-symbols': [
+          'account-tree-outline-rounded',
+          'crisis-alert-rounded',
+          'dark-mode-outline-rounded',
+          'description-outline-rounded',
+          'fact-check-outline-rounded',
+          'folder-outline-rounded',
+          'grid-view-outline-rounded',
+          'home-outline-rounded',
+          'light-mode-outline-rounded',
+          'mail-outline-rounded',
+          'monitoring-rounded',
+          'person-outline-rounded',
+          'security-rounded',
+          'sync-alt-rounded'
+        ],
+        'simple-icons': [
+          'amazonwebservices',
+          'angular',
+          'javascript',
+          'microsoftazure',
+          'openjdk',
+          'typescript',
+          'vuedotjs'
+        ]
+      }
+    })
+  ]
 });

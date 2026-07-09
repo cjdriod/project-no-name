@@ -1,0 +1,56 @@
+﻿javascript:
+  name: JavaScript
+  icon: simple-icons:javascript
+  order: 1
+typescript:
+  name: TypeScript
+  icon: simple-icons:typescript
+  order: 2
+vue:
+  name: Vue
+  icon: simple-icons:vuedotjs
+  order: 3
+angular:
+  name: Angular
+  icon: simple-icons:angular
+  order: 4
+java:
+  name: Java
+  icon: simple-icons:openjdk
+  order: 5
+aws:
+  name: AWS
+  icon: simple-icons:amazonwebservices
+  order: 6
+azure:
+  name: Azure
+  icon: simple-icons:microsoftazure
+  order: 7
+system-design:
+  name: System Design
+  icon: material-symbols:account-tree-outline-rounded
+  order: 8
+devsecops:
+  name: DevSecOps
+  icon: material-symbols:security-rounded
+  order: 9
+ci-cd:
+  name: CI/CD
+  icon: material-symbols:sync-alt-rounded
+  order: 10
+observability:
+  name: Observability
+  icon: material-symbols:monitoring-rounded
+  order: 11
+incident-management:
+  name: Incident Management
+  icon: material-symbols:crisis-alert-rounded
+  order: 12
+qa-governance:
+  name: QA Governance
+  icon: material-symbols:fact-check-outline-rounded
+  order: 13
+cloud-native:
+  name: Cloud-native Platforms
+  order: 14
+

@@ -1,0 +1,14 @@
+﻿profile:
+  tagline: System design & sustainable solutions
+  greeting: Hi, I'm
+  name: Alex Carter
+  role: Full Stack Developer
+  description: >-
+    I design and build secure, scalable cloud-native platforms on AWS and Azure,
+    and lead engineering teams to ship high-traffic systems across e-commerce and
+    agriculture. My focus is DevSecOps, reliable services, and mentoring the
+    engineers around me — building software that keeps delivering long after launch.
+  photo: /images/portrait-placeholder.svg
+  photoAlt: Portrait placeholder for Alex Carter
+  projectsHref: /projects
+  cvHref: /cv
