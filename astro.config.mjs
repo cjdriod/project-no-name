@@ -26,18 +26,28 @@ export default defineConfig({
           'light-mode-outline-rounded',
           'mail-outline-rounded',
           'monitoring-rounded',
+          'open-in-new-rounded',
           'person-outline-rounded',
           'security-rounded',
           'sync-alt-rounded'
         ],
         'simple-icons': [
-          'amazonwebservices',
-          'angular',
+          'github',
+          'linkedin'
+        ],
+        'logos': [
+          'angular-icon',
+          'aws',
+          'docker-icon',
+          'github-actions',
+          'java',
           'javascript',
-          'microsoftazure',
-          'openjdk',
-          'typescript',
-          'vuedotjs'
+          'microsoft-azure',
+          'nodejs-icon',
+          'react',
+          'spring-icon',
+          'typescript-icon',
+          'vue'
         ]
       }
     })

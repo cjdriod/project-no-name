@@ -1,0 +1,21 @@
+- id: 001-commerce-forge
+  company: Commerce Forge
+  position: Full Stack Developer
+  photo: /images/logos/company-c.svg
+  photoAlt: Commerce Forge logo placeholder
+  start: Jun-2017
+  end: Feb-2020
+- id: 002-harvest-cloud
+  company: Harvest Cloud
+  position: Senior Full Stack Developer
+  photo: /images/logos/company-b.svg
+  photoAlt: Harvest Cloud logo placeholder
+  start: Mar-2020
+  end: Dec-2022
+- id: 003-aurora-systems
+  company: Aurora Systems
+  position: Platform Engineering Lead
+  photo: /images/logos/company-a.svg
+  photoAlt: Aurora Systems logo placeholder
+  start: Jan-2023
+  end: Present

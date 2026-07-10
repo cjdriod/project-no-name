@@ -1,8 +1,10 @@
 ﻿import { defineCollection, z } from 'astro:content';
-import { file, glob } from 'astro/loaders';
+import { file } from 'astro/loaders';
 
 const period = /^[A-Z][a-z]{2}-\d{4}$/;
 const iconName = /^[a-z0-9-]+:[a-z0-9-]+$/;
+const pageFlag = z.enum(['home', 'about', 'cv']);
+const contactChannel = z.enum(['email', 'linkedin', 'github']);
 
 const profile = defineCollection({
   loader: file('src/content/profile.yaml'),
@@ -16,28 +18,38 @@ const profile = defineCollection({
     photoAlt: z.string().min(1),
     projectsHref: z.string().default('/projects'),
     cvHref: z.string().default('/cv'),
+    contacts: z.array(z.object({
+      channel: contactChannel,
+      label: z.string().min(1),
+      href: z.string().min(1),
+      icon: z.string().regex(iconName),
+    })).min(1),
   }),
 });
 
 const experience = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/experience' }),
+  loader: file('src/content/experience.yaml'),
   schema: z.object({
+    id: z.string().min(1),
     company: z.string().min(1),
     position: z.string().min(1),
     photo: z.string().min(1),
     photoAlt: z.string().optional(),
     start: z.string().regex(period),
     end: z.union([z.string().regex(period), z.literal('Present')]),
-    order: z.number().int().positive(),
   }),
 });
 
 const skills = defineCollection({
   loader: file('src/content/skills.yaml'),
   schema: z.object({
+    id: z.string().min(1),
     name: z.string().min(1),
-    icon: z.string().regex(iconName).optional(),
-    order: z.number().optional(),
+    pages: z.array(pageFlag).min(1),
+    skills: z.array(z.object({
+      name: z.string().min(1),
+      icon: z.string().regex(iconName).optional(),
+    })).min(1),
   }),
 });
 

@@ -6,7 +6,6 @@ const items = [
   { label: 'Home', href: '/', icon: 'material-symbols:home-outline-rounded', priority: 'home' },
   { label: 'About', href: '/about', icon: 'material-symbols:person-outline-rounded', priority: 'about' },
   { label: 'Projects', href: '/projects', icon: 'material-symbols:folder-outline-rounded', priority: 'projects' },
-  { label: 'Contact me', href: '/contact', icon: 'material-symbols:mail-outline-rounded', priority: 'contact' },
 ];
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -43,5 +42,5 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
   .bottom-nav__separator { width: 1px; height: 28px; background: var(--border); }
   @media (min-width: 1024px) { .bottom-nav { gap: var(--space-3); padding: var(--space-2) var(--space-3); } .bottom-nav__list { gap: var(--space-2); } .bottom-nav__link { padding: 0 var(--space-4); } }
   @media (max-width: 440px) { .bottom-nav__item--projects { display: none; } }
-  @media (max-width: 360px) { .bottom-nav__item--contact { display: none; } .bottom-nav { max-width: calc(100vw - var(--space-2)); gap: var(--space-1); padding: var(--space-1); } }
+  @media (max-width: 360px) { .bottom-nav { max-width: calc(100vw - var(--space-2)); gap: var(--space-1); padding: var(--space-1); } }
 </style>

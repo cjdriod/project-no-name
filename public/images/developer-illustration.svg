@@ -1,0 +1,70 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Happy developer working at a laptop</title>
+  <desc id="desc">A clean 3D-style illustration of a smiling developer sitting at a desk with a laptop, with soft blurred code lines and system diagram nodes in the background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9F1FF"/>
+      <stop offset="0.55" stop-color="#F6F9FF"/>
+      <stop offset="1" stop-color="#EAF7F1"/>
+    </linearGradient>
+    <linearGradient id="deskTop" x1="120" y1="470" x2="520" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F8CFF"/>
+      <stop offset="1" stop-color="#37C59A"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="255" y1="300" x2="385" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A7BE0"/>
+      <stop offset="1" stop-color="#3F5CC0"/>
+    </linearGradient>
+    <linearGradient id="laptop" x1="240" y1="380" x2="400" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7E5FF"/>
+      <stop offset="1" stop-color="#B9CEF3"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#1B2A4A" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="640" height="640" rx="88" fill="url(#bg)"/>
+
+  <g filter="url(#soft)" opacity="0.30">
+    <rect x="92" y="120" width="120" height="12" rx="6" fill="#4F8CFF"/>
+    <rect x="92" y="148" width="176" height="12" rx="6" fill="#8FA8DE"/>
+    <rect x="120" y="176" width="96" height="12" rx="6" fill="#37C59A"/>
+    <rect x="92" y="204" width="140" height="12" rx="6" fill="#8FA8DE"/>
+  </g>
+  <g filter="url(#soft)" opacity="0.30">
+    <circle cx="486" cy="150" r="20" fill="#4F8CFF"/>
+    <circle cx="556" cy="214" r="20" fill="#37C59A"/>
+    <circle cx="470" cy="238" r="16" fill="#8FA8DE"/>
+    <path d="M486 150l70 64m-70-64l-16 88" fill="none" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <ellipse cx="320" cy="556" rx="188" ry="30" fill="#1B2A4A" opacity="0.12"/>
+
+  <g filter="url(#shadow)">
+    <rect x="250" y="250" width="140" height="150" rx="40" fill="#D8E2F4"/>
+    <circle cx="320" cy="212" r="52" fill="#F2B98E"/>
+    <path d="M268 206c2-40 30-66 68-60 26 4 44 24 46 52-18-8-30-18-40-34-10 22-40 28-74 42z" fill="#2A3A63"/>
+    <circle cx="270" cy="214" r="9" fill="#F2B98E"/>
+    <circle cx="370" cy="214" r="9" fill="#F2B98E"/>
+    <circle cx="302" cy="212" r="6" fill="#2A3A63"/>
+    <circle cx="338" cy="212" r="6" fill="#2A3A63"/>
+    <path d="M304 232c10 10 22 10 32 0" fill="none" stroke="#2A3A63" stroke-width="7" stroke-linecap="round"/>
+    <rect x="306" y="256" width="28" height="26" rx="12" fill="#E0A578"/>
+    <path d="M262 306c8-24 30-40 58-40s50 16 58 40l16 118H246l16-118z" fill="url(#shirt)"/>
+    <path d="M268 320c-24 22-34 52-30 84" fill="none" stroke="#4F6ACB" stroke-width="26" stroke-linecap="round"/>
+    <path d="M372 320c24 22 34 52 30 84" fill="none" stroke="#4F6ACB" stroke-width="26" stroke-linecap="round"/>
+    <circle cx="250" cy="410" r="15" fill="#F2B98E"/>
+    <circle cx="390" cy="410" r="15" fill="#F2B98E"/>
+    <rect x="150" y="452" width="340" height="20" rx="10" fill="url(#deskTop)"/>
+    <rect x="266" y="386" width="108" height="70" rx="10" fill="url(#laptop)"/>
+    <rect x="266" y="386" width="108" height="70" rx="10" fill="none" stroke="#9FB6E4" stroke-width="3"/>
+    <rect x="284" y="404" width="56" height="8" rx="4" fill="#4F8CFF"/>
+    <rect x="284" y="420" width="72" height="8" rx="4" fill="#37C59A"/>
+    <rect x="284" y="436" width="40" height="8" rx="4" fill="#8FA8DE"/>
+    <rect x="252" y="452" width="136" height="12" rx="6" fill="#3C5AA6"/>
+  </g>
+</svg>

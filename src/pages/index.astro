@@ -1,9 +1,10 @@
 ﻿---
 import { getCollection, getEntry } from 'astro:content';
+import ContactSection from '../components/ContactSection.astro';
+import CoreExpertiseSection from '../components/CoreExpertiseSection.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
 import Hero from '../components/Hero.astro';
 import NavBar from '../components/NavBar.astro';
-import SkillsSection from '../components/SkillsSection.astro';
 import Layout from '../layouts/Layout.astro';
 
 const profile = await getEntry('profile', 'profile');
@@ -11,19 +12,18 @@ if (!profile) {
   throw new Error('Missing profile content entry.');
 }
 
-const experience = (await getCollection('experience'))
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+const experience = (await getCollection('experience')).toReversed().slice(0, 3);
 
-const skills = (await getCollection('skills')).sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
+const skillCategories = await getCollection('skills');
 ---
 
 <Layout>
   <a class="skip-link" href="#home">Skip to content</a>
   <main id="home" class="home-shell" aria-labelledby="hero-title">
     <Hero profile={profile} />
+    <CoreExpertiseSection categories={skillCategories} />
     <ExperienceSection items={experience} />
-    <SkillsSection skills={skills} />
+    <ContactSection contacts={profile.data.contacts} />
   </main>
   <NavBar />
 </Layout>
