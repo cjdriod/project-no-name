@@ -5,3 +5,214 @@ In 3rd section, shows a badges of skills they I have in pill shape. This page wi
 
 https://portfolio-magicui.vercel.app/
 https://sidefolio.vercel.app/
+
+-- home
+I want to refine my original bottom navigation bar. there is no need of contact tab anymore, is safe to remove it.3
+I want to refine my home page structure abit the sequence will remains the same just sligh adjustment.
+1. Hero (existing)
+2. Core experties (new)
+3. ExperienceSection (existing)
+4. Contact (new)
+5. Skills (existing, to remove)
+
+In Core experties section  to include content like below
+Backend Engineering — Java, Spring Boot, Node.js
+Cloud Architecture — AWS, Azure, Serverless
+Frontend Development — React, Vue
+Microservices & APIs — RESTful services, event-driven systems
+DevOps — Docker, CI/CD, GitHub Actions
+
+In Contact footer section
+I want to show 3 options for the reader to Get in Touch via email, linkedin, Github
+
+The existing skills section can be remove.
+
+// specify
+ For the tool kit section will be using skills.yaml file but the data structure will need to be refined. it need to breakdown into multiple category
+ (Backend Development, Cloud Architecture, Frontend Development, Microservices & APIs, DevOps, Data, others), each page have diffrent category to dispaly
+ so a flag is needed for home, about, cv page. In home page only show the top 3 for each eligible category based on array index. the UI presentation still use the pill design where 
+ it has an icon and text. if there is no match icon can ignore icon just showing name
+
+ for the contact me section, to provide icon and text and make it as external link element, when user click on it, it should open new tab.
+
+ for the image placeholder, i would like to replace the iamge with a happy developer working in front of a laptop, the backeground some blur line of code and system diagram. the svg should be a 3d feel illustration design.
+ for the ExperienceSection, i would like to refine the order abit on the yaml file, it can use array index as order. i would like it to be decending order, as i append it, the newest would be at the last element in array, but when disaply it should reverse, so that the latest at the top
+
+
+-- end home
+
+-- about page
+Devlope a about page with a layout as below
+1. Professional Summary, Highlights
+2. skills set by category (Skills)
+3. work experience
+4. Archievement
+5. Education
+
+// specify
+for Professional Summary, Highlights section there will be a paragraphy for professional summart and the key highlights will be in points form
+for work experience, to display experience in reverse order, no need to follow order attributes, but follow index. when i append the data the latest 
+will be at the end, when comes to rendering, it should be latest until oldest. In this section, would render the page in timeline visual vertically
+it should include the comapny image, working period ({month-year} and present for current), a short summary. instead of showing cv long bulletins on acheivment, show the summary instead.
+never the least the role.
+Skills set by category will be showing skills set by category, the UI presentation still use the pill design where 
+ it has an icon and text. if there is no match icon can ignore icon just showing name
+Education section will be showing in timeline but only have 1 item for now, the contetn which having an iamge, duration, course name, school name. also provide an external link 
+
+
+
+-- end about page
+
+A good personal website is not a resume copied onto web pages. Each page should answer a different question:
+
+Home: "Why should I keep reading?"
+About: "Who are you and how do you work?"
+CV: "What exactly can you do?"
+
+Many developers repeat the same skill list on every page, which creates redundancy. Instead, let each page serve a distinct purpose.
+
+Home page
+
+Keep it concise. Visitors decide within seconds whether to continue.
+
+Show:
+
+Short introduction
+Current role
+4–8 strongest skills
+Call-to-action
+
+Example:
+
+Full-Stack Software Engineer specializing in scalable backend systems, cloud architecture, and modern web applications.
+
+Core Expertise
+✓ Java (Spring Boot)
+✓ Node.js & Express
+✓ React
+✓ AWS & Azure
+✓ Microservices
+✓ CI/CD
+
+Then support those strengths with the technologies you use.
+
+For example:
+
+Backend Architecture
+Java • Spring Boot • Hibernate • Node.js • Go
+
+Cloud-native Applications
+AWS • Azure • Docker • Serverless
+
+Frontend
+React • Vue • Angular • Tailwind
+
+Data
+PostgreSQL • MySQL • MongoDB • SQL Server
+
+
+This communicates capabilities first, technologies second.
+
+A simple content strategy
+Page	Goal	Skills shown
+Home	Make a strong first impression	Top 5–8 signature skills only
+About	Explain what kind of engineer you are	Grouped capabilities with representative technologies
+CV	Comprehensive technical reference	Complete categorized skills list
+
+This progression mirrors how hiring managers and clients typically evaluate candidates: they first want to know what you're known for, then how you work, and finally the full breadth of your technical experience.
+
+which section to use highlight?
+
+I'd use Highlights in both the Home and About pages, but for different purposes.
+
+Home page: Technical highlights
+
+The home page should answer, "What are you best at?"
+
+Keep it short—around 4–6 cards or bullet points.
+
+Example:
+
+What I Do
+Backend Engineering — Java, Spring Boot, Node.js
+Cloud Architecture — AWS, Azure, Serverless
+Frontend Development — React, Vue
+Microservices & APIs — RESTful services, event-driven systems
+DevOps — Docker, CI/CD, GitHub Actions
+
+This gives visitors an immediate understanding of your expertise without overwhelming them.
+
+About page: Professional highlights
+
+The About page answers, "What kind of engineer are you?"
+
+Instead of focusing on technologies, highlight your strengths and working style.
+
+For example:
+
+Highlights
+5+ years building enterprise web applications
+Experience across backend, frontend, and cloud platforms
+Passionate about scalable system design and clean architecture
+Strong advocate of automated testing and CI/CD
+Comfortable collaborating in Agile teams
+
+Then follow with your grouped technical skills:
+
+Backend Engineering
+Java • Spring Boot • Node.js • Python • Go
+
+Cloud & Architecture
+AWS • Azure • Microservices • Serverless
+
+Frontend
+React • Vue • Angular
+
+Data
+PostgreSQL • MySQL • MongoDB
+
+DevOps
+Docker • Git • CI/CD • Linux
+CV page: No "Highlights" section needed
+
+The CV is meant to be comprehensive. Recruiters expect to see everything, so organize your skills into categories such as Languages, Backend, Frontend, Cloud, Databases, DevOps, Testing, and Monitoring.
+
+My recommendation for your site
+Home
+├── Hero
+├── Featured Projects
+├── Technical Highlights ⭐
+├── Selected Experience
+└── Contact
+
+About
+├── My Story
+├── Professional Highlights ⭐
+├── Engineering Philosophy
+├── Technical Skills (grouped)
+└── Interests
+
+CV
+├── Experience
+├── Projects
+├── Education
+├── Certifications
+└── Complete Skills Matrix
+
+This structure creates a natural flow: visitors first see what you excel at, then who you are as an engineer, and finally the full details if they want to dive deeper. It avoids repeating the same long list of technologies on every page while still making your expertise easy to discover.
+
+
+
+Java — Spring Boot | Hibernate | Maven | Android
+JavaScript — Node.js, Express, ECMA 6+
+Python — Flask | Numpy | Pandas
+Golang — Gin
+Cloud computing — Azure | AWS | Serverless | Microservices
+Database — MySQL | MsSQL | Postgres | MongoDB | JPA & ORM | SQLite
+Monitoring and Analytics — Google analytic | Piano analytic | New Relic
+Frontend framework — React | Vue | Angular | Ionic | Bootstrap | Tailwind | Webpack | Vite | HTML5
+Development paradigm — Test-Driven Development | Event Driven Development | Object-Oriented
+Programming | Agile
+Continuous Integration and Continuous Delivery (CI/CD) — Github | Bitbucket | Gitlab | Azure DevOps |
+Jira | Teamcity | Git | Docker | Linux | Jest
+Search Engine Optimization (SEO)
