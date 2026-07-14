@@ -1,0 +1,27 @@
+﻿profile:
+  tagline: System design & sustainable solutions
+  greeting: Hi, I'm
+  name: Alex Carter
+  role: Full Stack Developer
+  description: >-
+    I design and build secure, scalable cloud-native platforms on AWS and Azure,
+    and lead engineering teams to ship high-traffic systems across e-commerce and
+    agriculture. My focus is DevSecOps, reliable services, and mentoring the
+    engineers around me — building software that keeps delivering long after launch.
+  photo: /images/developer-illustration.svg
+  photoAlt: 3D-style illustration of a happy developer working at a laptop with blurred code and system diagrams behind them
+  projectsHref: /projects
+  cvHref: /cv
+  contacts:
+    - channel: email
+      label: Email
+      href: mailto:alex.carter@example.com
+      icon: material-symbols:mail-outline-rounded
+    - channel: linkedin
+      label: LinkedIn
+      href: https://www.linkedin.com/in/alex-carter-dev
+      icon: simple-icons:linkedin
+    - channel: github
+      label: GitHub
+      href: https://github.com/alex-carter-dev
+      icon: simple-icons:github

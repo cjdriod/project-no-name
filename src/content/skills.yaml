@@ -1,0 +1,71 @@
+- id: backend-development
+  name: Backend Development
+  pages: [home, about, cv]
+  skills:
+    - name: Java
+      icon: logos:java
+    - name: Spring Boot
+      icon: logos:spring-icon
+    - name: Node.js
+      icon: logos:nodejs-icon
+    - name: TypeScript
+      icon: logos:typescript-icon
+- id: cloud-architecture
+  name: Cloud Architecture
+  pages: [home, about, cv]
+  skills:
+    - name: AWS
+      icon: logos:aws
+    - name: Azure
+      icon: logos:microsoft-azure
+    - name: Serverless
+    - name: Cloud-native Platforms
+- id: frontend-development
+  name: Frontend Development
+  pages: [home, about, cv]
+  skills:
+    - name: React
+      icon: logos:react
+    - name: Vue
+      icon: logos:vue
+    - name: JavaScript
+      icon: logos:javascript
+    - name: Angular
+      icon: logos:angular-icon
+- id: microservices-apis
+  name: Microservices & APIs
+  pages: [home, cv]
+  skills:
+    - name: RESTful services
+    - name: Event-driven systems
+    - name: System Design
+      icon: material-symbols:account-tree-outline-rounded
+    - name: Observability
+      icon: material-symbols:monitoring-rounded
+- id: devops
+  name: DevOps
+  pages: [home, about, cv]
+  skills:
+    - name: Docker
+      icon: logos:docker-icon
+    - name: CI/CD
+      icon: material-symbols:sync-alt-rounded
+    - name: GitHub Actions
+      icon: logos:github-actions
+    - name: DevSecOps
+      icon: material-symbols:security-rounded
+- id: data
+  name: Data
+  pages: [cv]
+  skills:
+    - name: Data modeling
+    - name: Reporting pipelines
+    - name: Analytics-ready services
+- id: others
+  name: others
+  pages: [about, cv]
+  skills:
+    - name: Incident Management
+      icon: material-symbols:crisis-alert-rounded
+    - name: QA Governance
+      icon: material-symbols:fact-check-outline-rounded
