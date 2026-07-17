@@ -5,6 +5,10 @@
   photoAlt: Commerce Forge logo placeholder
   start: Jun-2017
   end: Feb-2020
+  summary: >-
+    Built and maintained customer-facing e-commerce features and internal tooling using Java
+    and Spring Boot. Improved checkout reliability and led the migration of key services to
+    a containerised deployment model with Docker.
 - id: 002-harvest-cloud
   company: Harvest Cloud
   position: Senior Full Stack Developer
@@ -12,6 +16,10 @@
   photoAlt: Harvest Cloud logo placeholder
   start: Mar-2020
   end: Dec-2022
+  summary: >-
+    Designed and delivered a cloud-native data-ingestion platform on AWS, reducing processing
+    latency by 60%. Led a cross-functional team of five engineers, established CI/CD pipelines
+    with GitHub Actions, and introduced observability practices across the platform.
 - id: 003-aurora-systems
   company: Aurora Systems
   position: Platform Engineering Lead
@@ -19,3 +27,7 @@
   photoAlt: Aurora Systems logo placeholder
   start: Jan-2023
   end: Present
+  summary: >-
+    Leading platform engineering across reliability, developer experience, and DevSecOps.
+    Architecting multi-region serverless services on AWS and Azure, driving infrastructure-as-code
+    adoption, and mentoring a team of eight engineers.

@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  description: string;
+  highlights: string[];
+}
+
+const { description, highlights } = Astro.props;
+---
+
+<section class="section" id="summary" aria-labelledby="summary-title">
+  <div class="section__intro" data-reveal>
+    <p class="section__eyebrow">About me</p>
+    <h2 id="summary-title">Professional Summary</h2>
+  </div>
+  <div class="summary-body" data-reveal style="--reveal-delay: 80ms">
+    <p class="summary-text">{description}</p>
+    <ul class="highlights-list" aria-label="Highlights">
+      {highlights.map((item) => (
+        <li class="highlights-item">
+          <Icon name="material-symbols:check-rounded" class="highlights-icon" aria-hidden="true" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .section { padding-block: var(--space-12); }
+  .section__intro { margin-bottom: var(--space-6); }
+  .section__eyebrow { margin: 0 0 var(--space-2); color: var(--accent); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+  h2 { margin: 0; color: var(--text); font-size: var(--text-3xl); letter-spacing: -0.015em; line-height: var(--leading-tight); }
+  .summary-body { max-width: var(--container-prose); }
+  .summary-text { margin: 0 0 var(--space-6); color: var(--text-muted); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
+  .highlights-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+  .highlights-item { display: flex; align-items: flex-start; gap: var(--space-2); color: var(--text-muted); line-height: var(--leading-relaxed); }
+  .highlights-icon { width: 1.1em; height: 1.1em; flex-shrink: 0; margin-top: 0.2em; color: var(--accent); }
+</style>

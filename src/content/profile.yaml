@@ -8,10 +8,16 @@
     and lead engineering teams to ship high-traffic systems across e-commerce and
     agriculture. My focus is DevSecOps, reliable services, and mentoring the
     engineers around me — building software that keeps delivering long after launch.
-  photo: /images/developer-illustration.svg
+  photo: /images/profile-portrait.png
   photoAlt: 3D-style illustration of a happy developer working at a laptop with blurred code and system diagrams behind them
   projectsHref: /projects
   cvHref: /cv
+  highlights:
+    - 8+ years building cloud-native platforms on AWS and Azure
+    - Led platform engineering across reliability, CI/CD, and developer experience
+    - Shipped high-traffic e-commerce and agriculture systems serving millions of users
+    - DevSecOps advocate — security and observability built in from day one
+    - Passionate about mentoring engineers and growing high-performing teams
   contacts:
     - channel: email
       label: Email

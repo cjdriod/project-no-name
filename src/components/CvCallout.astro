@@ -1,0 +1,50 @@
+---
+interface Props {
+  cvHref: string;
+}
+
+const { cvHref } = Astro.props;
+---
+
+<section class="section" id="cv-callout" aria-labelledby="cv-title" data-reveal>
+  <div class="section__intro">
+    <p class="section__eyebrow">Resources</p>
+    <h2 id="cv-title">Looking for more details?</h2>
+  </div>
+  <p class="section__body">Get a comprehensive view of my full experience, qualifications, and achievements in my Curriculum Vitae.</p>
+  <a href={cvHref} class="cta-btn" aria-label="View my complete Curriculum Vitae (opens PDF)">
+    <span class="cta-btn__text">View Complete CV</span>
+    <span class="cta-btn__arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
+<style>
+  .section { padding-block: var(--space-12) var(--space-8); }
+  .section__intro { margin-bottom: var(--space-4); }
+  .section__eyebrow { margin: 0 0 var(--space-2); color: var(--accent); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+  h2 { margin: 0; color: var(--text); font-size: var(--text-3xl); letter-spacing: -0.015em; line-height: var(--leading-tight); }
+  .section__body { margin: 0 0 var(--space-8); max-width: var(--container-prose); color: var(--text-muted); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    border: var(--border-thin) solid var(--accent);
+    color: var(--surface);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.04em;
+    padding: var(--space-3) var(--space-6);
+    text-decoration: none;
+    transition: background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+  }
+  .cta-btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+  .cta-btn:active { transform: translateY(1px); }
+  .cta-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cta-btn__arrow {
+    display: inline-block;
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  .cta-btn:hover .cta-btn__arrow { transform: translateX(4px); }
+</style>

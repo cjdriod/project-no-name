@@ -26,6 +26,7 @@ export default defineConfig({
           'light-mode-outline-rounded',
           'mail-outline-rounded',
           'monitoring-rounded',
+          'check-rounded',
           'open-in-new-rounded',
           'person-outline-rounded',
           'security-rounded',

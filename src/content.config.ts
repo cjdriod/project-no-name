@@ -2,6 +2,7 @@
 import { file } from 'astro/loaders';
 
 const period = /^[A-Z][a-z]{2}-\d{4}$/;
+const year = /^\d{4}$/;
 const iconName = /^[a-z0-9-]+:[a-z0-9-]+$/;
 const pageFlag = z.enum(['home', 'about', 'cv']);
 const contactChannel = z.enum(['email', 'linkedin', 'github']);
@@ -24,6 +25,7 @@ const profile = defineCollection({
       href: z.string().min(1),
       icon: z.string().regex(iconName),
     })).min(1),
+    highlights: z.array(z.string().min(1)).min(1),
   }),
 });
 
@@ -37,6 +39,7 @@ const experience = defineCollection({
     photoAlt: z.string().optional(),
     start: z.string().regex(period),
     end: z.union([z.string().regex(period), z.literal('Present')]),
+    summary: z.string().min(1),
   }),
 });
 
@@ -53,4 +56,28 @@ const skills = defineCollection({
   }),
 });
 
-export const collections = { profile, experience, skills };
+const education = defineCollection({
+  loader: file('src/content/education.yaml'),
+  schema: z.object({
+    id: z.string().min(1),
+    photo: z.string().min(1),
+    photoAlt: z.string().optional(),
+    school: z.string().min(1),
+    course: z.string().min(1),
+    start: z.string().regex(year),
+    end: z.union([z.string().regex(year), z.literal('Present')]),
+  }),
+});
+
+const achievements = defineCollection({
+  loader: file('src/content/achievements.yaml'),
+  schema: z.object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    issuer: z.string().optional(),
+    date: z.string().optional(),
+    link: z.string().url().optional(),
+  }),
+});
+
+export const collections = { profile, experience, skills, education, achievements };
