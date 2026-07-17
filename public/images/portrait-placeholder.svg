@@ -1,9 +1,0 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
-  <title id="title">Portrait placeholder</title>
-  <desc id="desc">Abstract portrait placeholder for the portfolio owner.</desc>
-  <rect width="640" height="640" rx="96" fill="#F3F1EC"/>
-  <circle cx="320" cy="250" r="112" fill="#3B5BA5" opacity="0.18"/>
-  <path d="M160 532c24-112 104-172 160-172s136 60 160 172" fill="#3B5BA5" opacity="0.22"/>
-  <circle cx="320" cy="250" r="86" fill="#FFFFFF" opacity="0.74"/>
-  <path d="M204 524c31-78 78-116 116-116s85 38 116 116" fill="#FFFFFF" opacity="0.74"/>
-</svg>

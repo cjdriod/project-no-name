@@ -1,0 +1,14 @@
+- id: 001-aws-hackathon
+  title: AWS Regional Hackathon Winner
+  issuer: Amazon Web Services
+  date: "2021"
+- id: 002-devcon-speaker
+  title: Featured Speaker — Cloud-Native Patterns
+  issuer: DevCon Asia
+  date: "2022"
+  link: https://example.com/devcon-2022
+- id: 003-aws-sa-pro
+  title: AWS Certified Solutions Architect — Professional
+  issuer: Amazon Web Services
+  date: "2023"
+  link: https://example.com/aws-sa-pro
