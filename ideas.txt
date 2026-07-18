@@ -216,3 +216,130 @@ Programming | Agile
 Continuous Integration and Continuous Delivery (CI/CD) — Github | Bitbucket | Gitlab | Azure DevOps |
 Jira | Teamcity | Git | Docker | Linux | Jest
 Search Engine Optimization (SEO)
+
+
+
+--- cv page ----
+I want to develop a cv page route as /cv. This page will need to design diffrently, it should looks like a proper CV docuemnt, no animation needed, no eye brown design for each section, share fucntion and a print function for this.
+Before we dive in deep for this page. I would like to improve the linkage towards this page. In src/components/NavBar.astro i want to append this /cv route towards the third element. Which means if the smallesst viewport
+unable to show all the element, this tab remain hidden until md viewport which have more space then will be shown. Then follow by /project route. Feel free to ask question if not clear.
+
+In this page there will be consist of multiple section with sequence General information -> profile for professional summary -> professional experience -> Certificate -> Skills -> Education -> Recent activities -> Language. First in the general information section: There is a left and right section, left section will be as below format
+My legal name
+Role
+email  | phone 
+linkin url | github url
+------
+And the right side will be a qr code for this page. the url will be current page domain +/cv.
+As for phone number i will be dispaly as "Upon Request", but if query string have the attrubute, will render the value.
+for the linkinurl and github url does not need to render protocol.
+the contact part just loop through the availablle contact available in profile.yml. Until this section. value still can be gotten from profile.yml.
+
+2nd section - profile. A section title will be dispaly with thick underline
+then follow by paragraph of professional summary. this copies will be picking from profile yaml professional summary. 
+
+3rd section - professional experience. A section title will be dispaly with thick underline and content to be render in timeline format
+The experience section rendering is the higher the array the higher the order. meaning last item in the array is the 1st element to render. This section consists of company name, role, working duration and key acheivement in order list format. acheviement will come from experience and a seperate key for each employment as array datat type.
+
+4th section - Certification. A section title will be dispaly with thick underline
+This section show as a list and source from achievements.yaml. sorting wise the same as previous the higher the array the higher the order when rendering. 
+Each entry will have 2 lines, the 1st line which is the cert title follow by a trailing open new tab icon if applicable, and should be clickable and open new tab. then 2nd line follow by some keywords. no other data to be present. 
+
+5th section - skills. A section title will be dispaly with thick underline
+This section will be render all the skills by category
+
+6th section - Education. A section title will be dispaly with thick underline
+The education section rendering is the higher the array the higher the order. meaning last item in the array is the 1st element to render. This section consists of school name, course, study duration and key acheivement in order list format.
+
+7th section - Recent activities. A section title will be dispaly with thick underline
+The Recent activities section rendering list is the higher the array the higher the order. there will be a new content yaml be created. This section will only have title and year.
+
+8th section - Language. A section title will be dispaly with thick underline
+This section will render langauge list , seperate by |. the info can be get from profile.yml
+
+on the last section, i would want a non obvious UI/UX section to 2 action item (print, share)
+for share fucntion. when user click on it, it will show a popup modal asking for phone no. follow by an button which show skip if input is empty or else it change to share, by default the input is +60 country code, and the field only allow phone number up to 10 digit. if the input value >= 9 then append tel={input_phone_number} into query string. and share the url. technical implementation will disclose later.
+
+for print function, the application need to print entire content in A4 size via browser print view setup. Let me know if there is technical diffculty and how you will do it 1st.
+
+-- plan
+share fucntion
+await navigator.share({
+        title: document.title,          // Title of the shared content
+        text: docuemnt.description', // Descriptive text
+        url: window.location.href       // Absolute URL to share
+      });
+- printing wise clarification
+- qr code 
+npm install qrcode
+npm install -D @types/qrcode
+---
+// src/components/StaticQRCode.astro
+import QRCode from 'qrcode';
+
+interface Props {
+  data: string;
+  size?: number;
+}
+
+const { data, size = 200 } = Astro.props;
+
+let qrDataUrl = '';
+try {
+  qrDataUrl = await QRCode.toDataURL(data, {
+    width: size,
+    margin: 2,
+    color: {
+      dark: '#000000',
+      light: '#FFFFFF'
+    }
+  });
+} catch (error) {
+  console.error('Failed to generate QR code:', error);
+}
+---
+
+{qrDataUrl && <img src={qrDataUrl} width={size} height={size} alt={`QR code for ${data}`} />}
+-share fucntion
+
+- use Image for optimization use /images dir for all the image
+---
+import { Image } from "astro:assets";
+import { getImage } from "@/lib/images";
+
+const hero = getImage(data.hero);
+---
+
+<Image src={hero} alt="" />
+
+import { defineCollection, z } from "astro:content";
+
+const products = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      cover: image(),
+      gallery: z.array(image()).optional(),
+    }),
+});
+
+export const collections = {
+  products,
+};
+
+---
+import { Image } from "astro:assets";
+
+const { data } = Astro.props;
+---
+
+<Image
+  src={data.cover}
+  alt={data.title}
+  width={800}
+/>
+
+- deployment config
+site: process.env.SITE_URL,
+base: process.env.BASE_PATH ?? "/",
+
