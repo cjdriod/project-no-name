@@ -1,5 +1,6 @@
 ﻿---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -29,7 +30,7 @@ const data = profile.data;
     </div>
   </div>
   <figure class="hero__portrait" data-reveal style="--reveal-delay: 360ms">
-    <img src={data.photo} alt={data.photoAlt} width="640" height="640" loading="eager" decoding="async" />
+    <Image src={data.photo} alt={data.photoAlt} width={640} height={640} loading="eager" decoding="async" />
   </figure>
 </section>
 

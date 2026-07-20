@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components';
 interface Contact {
   channel: 'email' | 'linkedin' | 'github';
   label: string;
+  description: string;
   href: string;
   icon: string;
 }
@@ -14,11 +15,6 @@ interface Props {
 
 const { contacts } = Astro.props;
 const availableContacts = contacts.filter((contact) => contact.href.trim().length > 0);
-const channelColors = {
-  email: '#B7791F',
-  linkedin: '#0A66C2',
-  github: 'var(--text)',
-};
 ---
 
 <section class="section contact-section" id="contact" aria-labelledby="contact-title">
@@ -31,11 +27,16 @@ const channelColors = {
     {availableContacts.map((contact) => (
       <li>
         <a class="contact-link" href={contact.href} target="_blank" rel="noopener noreferrer" aria-label={`${contact.label} (opens in a new tab)`}>
-          <span class="contact-link__channel-icon" style={`--contact-icon-color: ${channelColors[contact.channel]}`} aria-hidden="true">
+          <span class="contact-link__channel-icon" data-channel={contact.channel} aria-hidden="true">
             <Icon name={contact.icon} aria-hidden="true" />
           </span>
-          <span>{contact.label}</span>
-          <Icon class="contact-link__external-icon" name="material-symbols:open-in-new-rounded" aria-hidden="true" />
+          <span class="contact-link__body">
+            <span class="contact-link__header">
+              <span class="contact-link__title">{contact.label}</span>
+              <Icon class="contact-link__external-icon" name="material-symbols:open-in-new-rounded" aria-hidden="true" />
+            </span>
+            <span class="contact-link__description">{contact.description}</span>
+          </span>
         </a>
       </li>
     ))}
@@ -50,13 +51,22 @@ const channelColors = {
   h2 { color: var(--text); font-size: var(--text-3xl); letter-spacing: -0.015em; line-height: var(--leading-tight); }
   p { margin-top: var(--space-3); color: var(--text-muted); font-size: var(--text-lg); line-height: var(--leading-relaxed); }
   .contact-list { display: flex; flex-wrap: wrap; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
-  .contact-link { display: inline-flex; min-width: 9.5rem; min-height: 48px; align-items: center; justify-content: center; gap: var(--space-3); border: var(--border-thin) solid var(--border); border-radius: var(--radius-lg); background: var(--surface); color: var(--text); font-weight: var(--weight-semibold); padding: var(--space-3) var(--space-6); text-decoration: none; transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); }
+  .contact-list > li { flex: 1 1 16rem; }
+  .contact-link { display: flex; align-items: flex-start; gap: var(--space-3); min-width: 16rem; min-height: 48px; border: var(--border-thin) solid var(--border); border-radius: var(--radius-lg); background: var(--surface); color: var(--text); font-weight: var(--weight-semibold); padding: var(--space-3) var(--space-4); text-decoration: none; transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); }
   .contact-link:hover, .contact-link:focus-visible { border-color: var(--accent); color: var(--accent); }
   .contact-link:active { transform: translateY(1px); }
   .contact-link svg { flex: 0 0 auto; }
-  .contact-link__channel-icon { display: inline-flex; width: 1.2rem; height: 1.2rem; flex: 0 0 1.2rem; align-items: center; justify-content: center; color: var(--contact-icon-color, var(--text)); line-height: 0; }
-  .contact-link__channel-icon :global(svg) { display: block; width: 100%; height: 100%; color: inherit; }
-  .contact-link__external-icon { width: 0.95rem; height: 0.95rem; margin-left: var(--space-1); color: var(--text-faint); transition: color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); }
+  .contact-link__channel-icon { display: inline-flex; width: 1.2rem; height: 1.2rem; flex: 0 0 1.2rem; align-items: center; justify-content: center; margin-top: 0.15rem; line-height: 0; }
+  .contact-link__channel-icon :global(svg) { display: block; width: 100%; height: 100%; }
+  /* The GitHub logo is a fixed near-black fill, invert it in dark mode so it stays visible on the dark surface. */
+  :global(html[data-theme='dark']) .contact-link__channel-icon[data-channel='github'] :global(svg) { filter: invert(1); }
+  /* The LinkedIn logo's "in" lettering is a cutout that reveals the background; force it white in both themes. */
+  .contact-link__channel-icon[data-channel='linkedin'] { background: #fff; border-radius: 20%; }
+  .contact-link__body { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; flex: 1 1 auto; }
+  .contact-link__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+  .contact-link__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .contact-link__description { color: var(--text-muted); font-size: var(--text-sm); font-weight: var(--weight-normal); line-height: var(--leading-snug); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .contact-link__external-icon { width: 0.95rem; height: 0.95rem; flex: 0 0 auto; color: var(--text-faint); transition: color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); }
   .contact-link:hover .contact-link__external-icon, .contact-link:focus-visible .contact-link__external-icon { color: currentColor; transform: translate(1px, -1px); }
   @media (max-width: 420px) { .contact-list { display: grid; } .contact-link { width: 100%; } }
 </style>

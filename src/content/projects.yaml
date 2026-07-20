@@ -1,0 +1,56 @@
+- id: 001-task-forge
+  title: Task Forge
+  description: A collaborative task board with real-time updates and role-based access.
+  image: ../assets/images/projects/task-forge.svg
+  imageAlt: Task Forge kanban board interface with columns of task cards
+  technologies:
+    - TypeScript
+    - React
+    - Node.js
+  sourceHref: https://github.com/alex-carter-dev/task-forge
+  siteHref: https://task-forge.example.com
+
+- id: 002-harvest-insights
+  title: Harvest Insights
+  description: An agriculture analytics dashboard turning sensor data into yield forecasts.
+  image: ../assets/images/projects/harvest-insights.svg
+  imageAlt: Harvest Insights dashboard showing charts of crop yield metrics
+  technologies:
+    - Vue
+    - AWS
+  sourceHref: https://github.com/alex-carter-dev/harvest-insights
+
+- id: 003-ledger-lens
+  title: Ledger Lens
+  description: A self-hosted personal finance tracker with automated categorisation.
+  image: ../assets/images/projects/ledger-lens.svg
+  imageAlt: Ledger Lens transaction list with categorised spending chart
+  technologies:
+    - TypeScript
+    - PostgreSQL
+    - Docker
+  sourceHref: https://github.com/alex-carter-dev/ledger-lens
+  siteHref: https://ledger-lens.example.com
+
+- id: 004-signal-relay
+  title: Signal Relay
+  description: A lightweight incident-alerting service that routes alerts to on-call engineers.
+  image: ../assets/images/projects/signal-relay.svg
+  imageAlt: Signal Relay dashboard showing active on-call incident alerts
+  technologies:
+    - Java
+    - Spring Boot
+    - AWS
+  sourceHref: https://github.com/alex-carter-dev/signal-relay
+
+- id: 005-orbit-notes
+  title: Orbit Notes
+  description: A fast, offline-first note-taking app with end-to-end encrypted sync.
+  image: ../assets/images/projects/orbit-notes.svg
+  imageAlt: Orbit Notes editor showing a synced note list and encrypted note view
+  technologies:
+    - React
+    - Node.js
+    - Docker
+  sourceHref: https://github.com/alex-carter-dev/orbit-notes
+  siteHref: https://orbit-notes.example.com

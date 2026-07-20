@@ -7,6 +7,10 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/404': '#'
+  },
+
   vite: {
     plugins: [tailwindcss()]
   },
@@ -24,17 +28,14 @@ export default defineConfig({
           'grid-view-outline-rounded',
           'home-outline-rounded',
           'light-mode-outline-rounded',
-          'mail-outline-rounded',
           'monitoring-rounded',
           'check-rounded',
+          'code-rounded',
           'open-in-new-rounded',
+          'public',
           'person-outline-rounded',
           'security-rounded',
           'sync-alt-rounded'
-        ],
-        'simple-icons': [
-          'github',
-          'linkedin'
         ],
         'logos': [
           'angular-icon',
@@ -48,7 +49,10 @@ export default defineConfig({
           'react',
           'spring-icon',
           'typescript-icon',
-          'vue'
+          'vue',
+          'google-gmail',
+          'linkedin-icon',
+          'github-icon'
         ]
       }
     })
