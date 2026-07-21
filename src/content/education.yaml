@@ -1,12 +1,12 @@
 - id: 001-metro-college
-  photo: /images/education/metro-college.svg
+  photo: ../assets/images/education/metro-college.svg
   photoAlt: Metro College logo placeholder
   school: Metro College
   course: Diploma in Software Engineering
   start: "2011"
   end: "2013"
 - id: 002-state-university
-  photo: /images/education/state-university.svg
+  photo: ../assets/images/education/state-university.svg
   photoAlt: State University logo placeholder
   school: State University
   course: BSc Computer Science

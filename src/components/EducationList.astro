@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
   items: CollectionEntry<'education'>[];
@@ -18,11 +19,11 @@ const { items } = Astro.props;
       const { school, course, photo, photoAlt, start, end } = item.data;
       return (
         <li class="edu-entry" data-reveal style={`--reveal-delay: ${index * 70}ms`}>
-          <img
+          <Image
             src={photo}
             alt={photoAlt ?? `${school} logo`}
-            width="64"
-            height="64"
+            width={64}
+            height={64}
             loading="lazy"
             decoding="async"
             class="edu-entry__logo"

@@ -9,19 +9,20 @@ const contactChannel = z.enum(['email', 'linkedin', 'github']);
 
 const profile = defineCollection({
   loader: file('src/content/profile.yaml'),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     tagline: z.string().min(1),
     greeting: z.string().min(1),
     name: z.string().min(1),
     role: z.string().min(1),
     description: z.string().min(1),
-    photo: z.string().min(1),
+    photo: image(),
     photoAlt: z.string().min(1),
     projectsHref: z.string().default('/projects'),
     cvHref: z.string().default('/cv'),
     contacts: z.array(z.object({
       channel: contactChannel,
       label: z.string().min(1),
+      description: z.string().min(1),
       href: z.string().min(1),
       icon: z.string().regex(iconName),
     })).min(1),
@@ -31,11 +32,11 @@ const profile = defineCollection({
 
 const experience = defineCollection({
   loader: file('src/content/experience.yaml'),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     id: z.string().min(1),
     company: z.string().min(1),
     position: z.string().min(1),
-    photo: z.string().min(1),
+    photo: image(),
     photoAlt: z.string().optional(),
     start: z.string().regex(period),
     end: z.union([z.string().regex(period), z.literal('Present')]),
@@ -58,9 +59,9 @@ const skills = defineCollection({
 
 const education = defineCollection({
   loader: file('src/content/education.yaml'),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     id: z.string().min(1),
-    photo: z.string().min(1),
+    photo: image(),
     photoAlt: z.string().optional(),
     school: z.string().min(1),
     course: z.string().min(1),
@@ -80,4 +81,18 @@ const achievements = defineCollection({
   }),
 });
 
-export const collections = { profile, experience, skills, education, achievements };
+const projects = defineCollection({
+  loader: file('src/content/projects.yaml'),
+  schema: ({ image }) => z.object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    description: z.string().min(1),
+    image: image(),
+    imageAlt: z.string().min(1),
+    technologies: z.array(z.string().min(1)).min(1),
+    sourceHref: z.string().url(),
+    siteHref: z.string().url().optional(),
+  }),
+});
+
+export const collections = { profile, experience, skills, education, achievements, projects };

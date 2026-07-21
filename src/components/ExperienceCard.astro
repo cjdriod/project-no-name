@@ -1,8 +1,10 @@
 ﻿---
+import { Image } from 'astro:assets';
+
 interface Props {
   company: string;
   position: string;
-  photo: string;
+  photo: ImageMetadata;
   photoAlt?: string;
   start: string;
   end: string;
@@ -12,7 +14,7 @@ const { company, position, photo, photoAlt, start, end } = Astro.props;
 ---
 
 <article class="experience-card">
-  <img src={photo} alt={photoAlt ?? `${company} logo`} width="160" height="160" loading="lazy" decoding="async" />
+  <Image src={photo} alt={photoAlt ?? `${company} logo`} width={160} height={160} loading="lazy" decoding="async" />
   <div class="experience-card__body">
     <h3>{company}</h3>
     <p class="experience-card__position">{position}</p>
