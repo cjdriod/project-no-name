@@ -2,11 +2,13 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<button class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
-  <Icon class="theme-toggle__icon theme-toggle__icon--light" name="material-symbols:light-mode-outline-rounded"
-        aria-hidden="true"/>
-  <Icon class="theme-toggle__icon theme-toggle__icon--dark" name="material-symbols:dark-mode-outline-rounded"
-        aria-hidden="true"/>
+<button
+  class="theme-toggle relative inline-flex h-11 w-11 min-w-11 items-center justify-center rounded-full border-0 bg-surface-muted text-text cursor-pointer transition-colors duration-150 ease-out"
+  type="button" aria-label="Toggle light and dark theme">
+  <Icon class="theme-toggle__icon theme-toggle__icon--light absolute transition-opacity duration-150 ease-out"
+        name="material-symbols:light-mode-outline-rounded" aria-hidden="true"/>
+  <Icon class="theme-toggle__icon theme-toggle__icon--dark absolute transition-opacity duration-150 ease-out"
+        name="material-symbols:dark-mode-outline-rounded" aria-hidden="true"/>
 </button>
 
 <script>
@@ -28,32 +30,14 @@ import { Icon } from 'astro-icon/components';
 </script>
 
 <style>
-  .theme-toggle {
-    position: relative;
-    display: inline-flex;
-    width: 44px;
-    min-width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: var(--radius-full);
-    background: var(--surface-muted);
-    color: var(--text);
-    cursor: pointer;
-    transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
-  }
-
   .theme-toggle:hover {
     background: color-mix(in srgb, var(--accent) 16%, var(--surface-muted));
     color: var(--accent);
   }
 
   .theme-toggle__icon {
-    position: absolute;
     width: 1.2rem;
     height: 1.2rem;
-    transition: opacity var(--duration-fast) var(--ease-out);
   }
 
   .theme-toggle__icon--dark, .theme-toggle[data-theme="dark"] .theme-toggle__icon--light {

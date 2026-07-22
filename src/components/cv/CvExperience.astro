@@ -10,21 +10,21 @@ const { items } = Astro.props;
 ---
 
 <CvSection title="Professional experience" id="experience">
-  <ul class="cv-timeline" role="list">
+  <ul class="flex flex-col gap-6 m-0 p-0 list-none" role="list">
     {items.map((item) => {
       const { company, position, start, end, summary, achievements } = item.data;
       return (
-        <li class="cv-timeline__entry">
-          <div class="cv-timeline__header">
-            <h3 class="cv-timeline__company">{company}</h3>
-            <span class="cv-timeline__period">{start} — {end}</span>
+        <li class="break-inside-avoid">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="m-0 text-lg font-semibold text-text">{company}</h3>
+            <span class="font-mono text-sm whitespace-nowrap text-faint">{start} — {end}</span>
           </div>
-          <p class="cv-timeline__position">{position}</p>
-          <p class="cv-timeline__summary">{summary}</p>
+          <p class="my-1 font-medium text-accent">{position}</p>
+          <p class="m-0">{summary}</p>
           {achievements && achievements.length > 0 && (
-            <ul class="cv-timeline__achievements">
+            <ul class="mt-2 flex flex-col gap-1 list-disc pl-6">
               {achievements.map((achievement) =>
-                <li>{achievement}</li>)}
+                <li class="list-item">{achievement}</li>)}
             </ul>
           )}
         </li>
@@ -32,64 +32,3 @@ const { items } = Astro.props;
     })}
   </ul>
 </CvSection>
-
-<style>
-  .cv-timeline {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .cv-timeline__entry {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .cv-timeline__header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-2);
-  }
-
-  .cv-timeline__company {
-    margin: 0;
-    color: var(--text);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-  }
-
-  .cv-timeline__period {
-    color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    white-space: nowrap;
-  }
-
-  .cv-timeline__position {
-    margin: var(--space-1) 0;
-    color: var(--accent);
-    font-weight: var(--weight-medium);
-  }
-
-  .cv-timeline__summary {
-    margin: 0;
-  }
-
-  .cv-timeline__achievements {
-    margin: var(--space-2) 0 0;
-    padding-left: var(--space-6);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    list-style: disc;
-  }
-
-  .cv-timeline__achievements li {
-    display: list-item;
-  }
-</style>

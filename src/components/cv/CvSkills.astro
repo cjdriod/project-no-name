@@ -15,7 +15,7 @@ const cvCategories = categories.filter((c) => c.data.pages.includes('cv'));
     {cvCategories.map((category) => (
       <div class="cv-skill-category">
         <h3 class="cv-skill-category__name">{category.data.name}</h3>
-        <ul class="cv-skill-category__list" aria-label={`${category.data.name} skills`}>
+        <ul class="cv-skill-category__list font-mono" aria-label={`${category.data.name} skills`}>
           {category.data.skills.map((skill) => (
             <li class="cv-skill-category__item">{skill.name}</li>
           ))}

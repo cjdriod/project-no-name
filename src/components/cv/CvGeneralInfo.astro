@@ -27,33 +27,33 @@ const github = contacts.find((c) => c.channel === 'github');
 const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
 ---
 
-<div class="cv-general" id="general-info">
+<div class="cv-general grid gap-6 py-6" id="general-info">
   <div class="cv-general__left">
     <p class="cv-general__legal-name">{legalName}</p>
-    <p class="cv-general__role">{role}</p>
-    <ul class="cv-general__contacts" role="list">
-      <li class="cv-general__contact-line">
+    <p class="mt-1 mb-4 text-lg font-medium text-muted">{role}</p>
+    <ul class="m-0 flex list-none flex-col gap-2 p-0" role="list">
+      <li class="flex flex-wrap gap-2 md:gap-4">
         {email && (
-          <span class="cv-general__contact">
-            <Icon name={email.monoIcon} aria-hidden="true"/>
+          <span class="inline-flex items-center gap-2 text-base text-text">
+            <Icon name={email.monoIcon} class="cv-general__icon flex-none text-accent" aria-hidden="true"/>
             <span>{email.description}</span>
           </span>
         )}
-        <span class="cv-general__contact" data-cv-phone data-default="Upon Request">
-          <Icon name="material-symbols:public" aria-hidden="true"/>
+        <span class="inline-flex items-center gap-2 text-base text-text" data-cv-phone data-default="Upon Request">
+          <Icon name="material-symbols:public" class="cv-general__icon flex-none text-accent" aria-hidden="true"/>
           <span data-cv-phone-value>Upon Request</span>
         </span>
       </li>
-      <li class="cv-general__contact-line">
+      <li class="flex flex-wrap gap-2 md:gap-4">
         {linkedin && (
-          <span class="cv-general__contact">
-            <Icon name={linkedin.monoIcon} aria-hidden="true"/>
+          <span class="inline-flex items-center gap-2 text-base text-text">
+            <Icon name={linkedin.monoIcon} class="cv-general__icon flex-none text-accent" aria-hidden="true"/>
             <span>{stripProtocol(linkedin.href)}</span>
           </span>
         )}
         {github && (
-          <span class="cv-general__contact">
-            <Icon name={github.monoIcon} aria-hidden="true"/>
+          <span class="inline-flex items-center gap-2 text-base text-text">
+            <Icon name={github.monoIcon} class="cv-general__icon flex-none text-accent" aria-hidden="true"/>
             <span>{stripProtocol(github.href)}</span>
           </span>
         )}
@@ -62,7 +62,7 @@ const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
   </div>
   <div class="cv-general__right">
     {qrSvg && (
-      <div class="cv-general__qr" role="img" aria-label={`QR code linking to ${cvUrl}`} set:html={qrSvg}/>
+      <div class="cv-general__qr h-32 w-32" role="img" aria-label={`QR code linking to ${cvUrl}`} set:html={qrSvg}/>
     )}
   </div>
 </div>
@@ -80,11 +80,20 @@ const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
 </script>
 
 <style>
+  /*
+    Kept as scoped CSS:
+    - .cv-general__legal-name: font-size/letter-spacing/line-height use
+      project tokens (fluid clamp() / values) that don't match Tailwind's
+      default type scale, so the whole rule stays together for readability.
+    - grid-template-columns tracks (1fr auto) and the .cv-general__right
+      responsive/print visibility are tied to the same breakpoints and use
+      a non-standard "auto" track, so they remain grouped here.
+    - .cv-general__icon: 1.1rem icon size has no matching Tailwind token.
+    - .cv-general__qr svg sizing/dark-mode filter target markup injected via
+      set:html, so classes can't be applied directly to it.
+  */
   .cv-general {
-    display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-6);
-    padding-block: var(--space-6);
   }
 
   .cv-general__legal-name {
@@ -97,50 +106,13 @@ const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
     white-space: nowrap;
   }
 
-  .cv-general__role {
-    margin: var(--space-1) 0 var(--space-4);
-    color: var(--text-muted);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-medium);
-  }
-
-  .cv-general__contacts {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .cv-general__contact-line {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-  }
-
-  .cv-general__contact {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--text);
-    font-size: var(--text-base);
-  }
-
-  .cv-general__contact :global(svg) {
+  .cv-general__icon {
     width: 1.1rem;
     height: 1.1rem;
-    flex: 0 0 auto;
-    color: var(--accent);
   }
 
   .cv-general__right {
     display: none;
-  }
-
-  .cv-general__qr {
-    width: 128px;
-    height: 128px;
   }
 
   .cv-general__qr :global(svg) {

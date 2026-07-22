@@ -1,0 +1,31 @@
+﻿---
+import { Image } from 'astro:assets';
+
+interface Props {
+  company: string;
+  position: string;
+  photo: ImageMetadata;
+  photoAlt?: string;
+  start: string;
+  end: string;
+}
+
+const { company, position, photo, photoAlt, start, end } = Astro.props;
+---
+
+<article class="experience-card grid items-center gap-4 rounded-lg border border-border bg-surface p-4">
+  <Image class="h-16 w-16 rounded-md border border-border bg-surface-muted object-cover" src={photo}
+         alt={photoAlt ?? `${company} logo`} width={160} height={160} loading="lazy" decoding="async"/>
+  <div>
+    <h3 class="m-0 text-xl leading-snug text-text">{company}</h3>
+    <p class="mt-1 font-medium text-muted">{position}</p>
+    <p class="mt-2 font-mono text-sm text-muted">{start} — {end}</p>
+  </div>
+</article>
+
+<style>
+  .experience-card {
+    grid-template-columns: 4rem minmax(0, 1fr);
+  }
+</style>
+

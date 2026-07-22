@@ -12,82 +12,37 @@ const items = [
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
-<nav class="bottom-nav" aria-label="Primary">
-  <ul class="bottom-nav__list">
+<nav
+  class="bottom-nav fixed left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-surface p-2 lg:gap-3 lg:px-3"
+  aria-label="Primary">
+  <ul class="m-0 flex list-none items-center gap-1 p-0 lg:gap-2">
     {items.map((item) => {
       const isCurrent = pathname === item.href;
+      const orderClass = item.priority === 'cv' ? 'order-1' : item.priority === 'projects' ? 'order-2' : '';
+      const visibilityClass = item.priority === 'cv' || item.priority === 'projects' ? 'hidden md:block' : 'block';
       return (
-        <li class={`bottom-nav__item bottom-nav__item--${item.priority}`}>
-          <a class="bottom-nav__link" href={item.href} aria-label={item.label}
-             aria-current={isCurrent ? 'page' : undefined} data-tooltip={item.label}>
-            <Icon name={item.icon} aria-hidden="true"/>
+        <li class={`${visibilityClass} ${orderClass}`}>
+          <a
+            class="bottom-nav__link relative inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 text-sm font-semibold text-muted no-underline transition duration-150 ease-out hover:bg-surface-muted hover:text-text focus-visible:bg-surface-muted focus-visible:text-text lg:px-4"
+            href={item.href} aria-label={item.label}
+            aria-current={isCurrent ? 'page' : undefined} data-tooltip={item.label}>
+            <Icon class="h-5 w-5 flex-none" name={item.icon} aria-hidden="true"/>
             <span>{item.label}</span>
           </a>
         </li>
       );
     })}
   </ul>
-  <span class="bottom-nav__separator" aria-hidden="true"></span>
+  <span class="h-7 w-px bg-border" aria-hidden="true"></span>
   <ThemeToggle/>
 </nav>
 
 <style>
   .bottom-nav {
-    position: fixed;
     bottom: max(var(--space-4), env(safe-area-inset-bottom));
-    left: 50%;
     z-index: var(--z-header);
-    display: flex;
     max-width: calc(100vw - var(--space-4));
-    align-items: center;
-    gap: var(--space-2);
-    transform: translateX(-50%);
-    border: var(--border-thin) solid var(--border);
-    border-radius: var(--radius-full);
-    background: var(--surface);
     box-shadow: var(--shadow-lg);
-    padding: var(--space-2);
-  }
-
-  .bottom-nav__list {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .bottom-nav__item {
-    display: block;
-  }
-
-  .bottom-nav__link {
-    position: relative;
-    display: inline-flex;
-    min-width: 44px;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    border-radius: var(--radius-full);
-    color: var(--text-muted);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    padding: 0 var(--space-3);
-    text-decoration: none;
-    transition: background-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
-  }
-
-  .bottom-nav__link svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    flex: 0 0 auto;
-  }
-
-  .bottom-nav__link:hover, .bottom-nav__link:focus-visible {
-    background: var(--surface-muted);
-    color: var(--text);
   }
 
   .bottom-nav__link[aria-current="page"] {
@@ -118,50 +73,6 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
   .bottom-nav__link:hover::after, .bottom-nav__link:focus-visible::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
-  }
-
-  .bottom-nav__separator {
-    width: 1px;
-    height: 28px;
-    background: var(--border);
-  }
-
-  @media (min-width: 1024px) {
-    .bottom-nav {
-      gap: var(--space-3);
-      padding: var(--space-2) var(--space-3);
-    }
-
-    .bottom-nav__list {
-      gap: var(--space-2);
-    }
-
-    .bottom-nav__link {
-      padding: 0 var(--space-4);
-    }
-  }
-
-  .bottom-nav__item--projects {
-    display: none;
-  }
-
-  .bottom-nav__item--cv {
-    display: none;
-    order: 1;
-  }
-
-  .bottom-nav__item--projects {
-    order: 2;
-  }
-
-  @media (min-width: 768px) {
-    .bottom-nav__item--projects {
-      display: block;
-    }
-
-    .bottom-nav__item--cv {
-      display: block;
-    }
   }
 
   @media (max-width: 360px) {

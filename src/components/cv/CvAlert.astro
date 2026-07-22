@@ -4,11 +4,20 @@ interface Props {
 }
 ---
 
-<div class="cv-alert" id="cv-alert" data-cv-alert>
-  <p>
-    Looking for a simpler view? <a href="/about">click here</a>.
+<div
+  class="cv-alert flex items-center justify-between gap-4 border-b border-border bg-surface-muted py-3 text-sm text-muted print:hidden"
+  id="cv-alert"
+  data-cv-alert
+>
+  <p class="m-0">
+    Looking for a simpler view? <a class="font-semibold text-accent! underline underline-offset-2" href="/about">click here</a>.
   </p>
-  <button type="button" class="cv-alert__dismiss" data-cv-alert-dismiss aria-label="Dismiss this message">
+  <button
+    type="button"
+    class="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center border-none bg-transparent text-xl leading-none text-muted hover:text-text focus-visible:text-text"
+    data-cv-alert-dismiss
+    aria-label="Dismiss this message"
+  >
     &times;
   </button>
 </div>
@@ -22,50 +31,8 @@ interface Props {
 </script>
 
 <style>
+  /* --gutter is a responsive clamp() token with no Tailwind equivalent. */
   .cv-alert {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    border-bottom: var(--border-thin) solid var(--border);
-    background: var(--surface-muted);
-    color: var(--text-muted);
-    font-size: var(--text-sm);
-    padding: var(--space-3) var(--gutter);
-  }
-
-  .cv-alert p {
-    margin: 0;
-  }
-
-  .cv-alert a {
-    color: var(--accent);
-    font-weight: var(--weight-semibold);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .cv-alert__dismiss {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    font-size: var(--text-xl);
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .cv-alert__dismiss:hover, .cv-alert__dismiss:focus-visible {
-    color: var(--text);
-  }
-
-  @media print {
-    .cv-alert {
-      display: none;
-    }
+    padding-inline: var(--gutter);
   }
 </style>

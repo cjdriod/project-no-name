@@ -45,9 +45,9 @@ try {
   title={`${profile.data.name} | CV`}
   description={`Comprehensive curriculum vitae for ${profile.data.name}, ${profile.data.role}.`}
 >
-  <a class="skip-link" href="#general-info">Skip to content</a>
+  <a class="skip-link" href="#cv">Skip to content</a>
   <CvAlert/>
-  <main id="cv" class="cv-shell">
+  <main id="cv" class="page-shell page-shell--narrow">
     <h1 class="visually-hidden">{profile.data.legalName} — Curriculum Vitae</h1>
     <CvGeneralInfo
       legalName={profile.data.legalName}
@@ -75,23 +75,6 @@ try {
 </Layout>
 
 <style>
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: var(--space-4);
-    z-index: var(--z-header);
-    border-radius: var(--radius-md);
-    background: var(--accent);
-    color: var(--surface);
-    font-weight: var(--weight-semibold);
-    padding: var(--space-2) var(--space-4);
-    text-decoration: none;
-  }
-
-  .skip-link:focus {
-    top: var(--space-4);
-  }
-
   .visually-hidden {
     position: absolute;
     width: 1px;
@@ -104,13 +87,6 @@ try {
     border: 0;
   }
 
-  .cv-shell {
-    width: min(100%, var(--container-content));
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-    padding-bottom: calc(var(--space-32) + env(safe-area-inset-bottom));
-  }
-
   .cv-summary {
     margin: 0;
     max-width: var(--container-prose);
@@ -118,7 +94,7 @@ try {
   }
 
   @media print {
-    .cv-shell {
+    #cv {
       width: 100%;
       padding: 0;
     }
