@@ -1,0 +1,90 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CvSection from './CvSection.astro';
+
+interface Props {
+  items: CollectionEntry<'education'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<CvSection title="Education" id="education">
+  <ul class="cv-edu-list" role="list">
+    {items.map((item) => {
+      const { school, course, start, end, achievements } = item.data;
+      return (
+        <li class="cv-edu-entry">
+          <div class="cv-edu-entry__header">
+            <h3 class="cv-edu-entry__school">{school}</h3>
+            <span class="cv-edu-entry__period">{start} — {end}</span>
+          </div>
+          <p class="cv-edu-entry__course">{course}</p>
+          {achievements && achievements.length > 0 && (
+            <ul class="cv-edu-entry__achievements">
+              {achievements.map((achievement) =>
+                <li>{achievement}</li>)}
+            </ul>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</CvSection>
+
+<style>
+  .cv-edu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .cv-edu-entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-edu-entry__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .cv-edu-entry__school {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-edu-entry__period {
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .cv-edu-entry__course {
+    margin: var(--space-1) 0 0;
+    color: var(--accent);
+    font-weight: var(--weight-medium);
+  }
+
+  .cv-edu-entry__achievements {
+    margin: var(--space-2) 0 0;
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    list-style: disc;
+  }
+
+  .cv-edu-entry__achievements li {
+    display: list-item;
+  }
+</style>

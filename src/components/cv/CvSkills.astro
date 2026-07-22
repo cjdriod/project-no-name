@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CvSection from './CvSection.astro';
+
+interface Props {
+  categories: CollectionEntry<'skills'>[];
+}
+
+const { categories } = Astro.props;
+const cvCategories = categories.filter((c) => c.data.pages.includes('cv'));
+---
+
+<CvSection title="Skills" id="skills">
+  <div class="cv-skills-grid">
+    {cvCategories.map((category) => (
+      <div class="cv-skill-category">
+        <h3 class="cv-skill-category__name">{category.data.name}</h3>
+        <ul class="cv-skill-category__list" aria-label={`${category.data.name} skills`}>
+          {category.data.skills.map((skill) => (
+            <li class="cv-skill-category__item">{skill.name}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</CvSection>
+
+<style>
+  .cv-skills-grid {
+    display: block;
+  }
+
+  .cv-skill-category {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-skill-category:not(:first-child) {
+    margin-top: var(--space-6);
+  }
+
+  .cv-skill-category__name {
+    margin: 0 0 var(--space-2);
+    color: var(--text);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-skill-category__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .cv-skill-category__item + .cv-skill-category__item::before {
+    content: '\2022';
+    margin-inline-end: var(--space-2);
+    color: var(--text-faint);
+  }
+
+  @media (min-width: 768px) {
+    .cv-skills-grid {
+      column-count: 2;
+      column-gap: var(--space-8);
+    }
+
+    .cv-skill-category:not(:first-child) {
+      margin-top: 0;
+    }
+
+    .cv-skill-category {
+      margin-bottom: var(--space-6);
+    }
+  }
+</style>

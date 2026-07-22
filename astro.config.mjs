@@ -7,9 +7,9 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  redirects: {
-    '/404': '#'
-  },
+  // TODO: replace with the real personal GitHub Pages URL before production deploy.
+  site: 'https://USERNAME.github.io',
+  base: '/',
 
   vite: {
     plugins: [tailwindcss()]
@@ -18,6 +18,11 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
+        'simple-icons': [
+          'linkedin',
+          'github',
+          'gmail'
+        ],
         'material-symbols': [
           'account-tree-outline-rounded',
           'crisis-alert-rounded',
@@ -35,7 +40,9 @@ export default defineConfig({
           'public',
           'person-outline-rounded',
           'security-rounded',
-          'sync-alt-rounded'
+          'sync-alt-rounded',
+          'print-outline-rounded',
+          'send-rounded'
         ],
         'logos': [
           'angular-icon',

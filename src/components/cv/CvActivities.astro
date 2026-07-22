@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CvSection from './CvSection.astro';
+
+interface Props {
+  items: CollectionEntry<'activities'>[];
+}
+
+const { items } = Astro.props;
+---
+
+{items.length > 0 && (
+<CvSection title="Recent activities" id="activities">
+  <ul class="cv-activities-list" role="list">
+    {items.map((item) => {
+      const { title, year } = item.data;
+      return (
+        <li class="cv-activities-entry">
+          <span>{title}</span>
+          <span class="cv-activities-entry__year">{year}</span>
+        </li>
+      );
+    })}
+  </ul>
+</CvSection>
+  )}
+
+<style>
+  .cv-activities-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .cv-activities-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-activities-entry__year {
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .cv-activities-entry {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+  }
+</style>

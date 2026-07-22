@@ -1,0 +1,71 @@
+---
+interface Props {
+  dismissLabel?: string;
+}
+---
+
+<div class="cv-alert" id="cv-alert" data-cv-alert>
+  <p>
+    Looking for a simpler view? <a href="/about">click here</a>.
+  </p>
+  <button type="button" class="cv-alert__dismiss" data-cv-alert-dismiss aria-label="Dismiss this message">
+    &times;
+  </button>
+</div>
+
+<script>
+  const alertEl = document.querySelector('[data-cv-alert]');
+  const dismissBtn = document.querySelector('[data-cv-alert-dismiss]');
+  dismissBtn?.addEventListener('click', () => {
+    alertEl?.remove();
+  });
+</script>
+
+<style>
+  .cv-alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-bottom: var(--border-thin) solid var(--border);
+    background: var(--surface-muted);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    padding: var(--space-3) var(--gutter);
+  }
+
+  .cv-alert p {
+    margin: 0;
+  }
+
+  .cv-alert a {
+    color: var(--accent);
+    font-weight: var(--weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cv-alert__dismiss {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: var(--text-xl);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .cv-alert__dismiss:hover, .cv-alert__dismiss:focus-visible {
+    color: var(--text);
+  }
+
+  @media print {
+    .cv-alert {
+      display: none;
+    }
+  }
+</style>

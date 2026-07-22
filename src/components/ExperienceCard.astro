@@ -14,7 +14,7 @@ const { company, position, photo, photoAlt, start, end } = Astro.props;
 ---
 
 <article class="experience-card">
-  <Image src={photo} alt={photoAlt ?? `${company} logo`} width={160} height={160} loading="lazy" decoding="async" />
+  <Image src={photo} alt={photoAlt ?? `${company} logo`} width={160} height={160} loading="lazy" decoding="async"/>
   <div class="experience-card__body">
     <h3>{company}</h3>
     <p class="experience-card__position">{position}</p>
@@ -23,11 +23,48 @@ const { company, position, photo, photoAlt, start, end } = Astro.props;
 </article>
 
 <style>
-  .experience-card { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: var(--space-4); align-items: center; border: var(--border-thin) solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-sm); padding: var(--space-4); }
-  img { width: 4rem; height: 4rem; border: var(--border-thin) solid var(--border); border-radius: var(--radius-md); background: var(--surface-muted); object-fit: cover; }
-  h3, p { margin: 0; }
-  h3 { color: var(--text); font-size: var(--text-xl); line-height: var(--leading-snug); }
-  .experience-card__position { margin-top: var(--space-1); color: var(--text-muted); font-weight: var(--weight-medium); }
-  .experience-card__period { margin-top: var(--space-2); color: var(--text-muted); font-family: var(--font-mono); font-size: var(--text-sm); }
+  .experience-card {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: center;
+    border: var(--border-thin) solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-4);
+  }
+
+  img {
+    width: 4rem;
+    height: 4rem;
+    border: var(--border-thin) solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface-muted);
+    object-fit: cover;
+  }
+
+  h3, p {
+    margin: 0;
+  }
+
+  h3 {
+    color: var(--text);
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+  }
+
+  .experience-card__position {
+    margin-top: var(--space-1);
+    color: var(--text-muted);
+    font-weight: var(--weight-medium);
+  }
+
+  .experience-card__period {
+    margin-top: var(--space-2);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
 </style>
 

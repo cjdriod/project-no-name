@@ -1,5 +1,8 @@
 ﻿---
-import { getCollection, getEntry } from 'astro:content';
+import {
+  getCollection,
+  getEntry
+} from 'astro:content';
 import ContactSection from '../components/ContactSection.astro';
 import CoreExpertiseSection from '../components/CoreExpertiseSection.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
@@ -20,14 +23,19 @@ const skillCategories = await getCollection('skills');
 <Layout>
   <a class="skip-link" href="#home">Skip to content</a>
   <main id="home" class="home-shell" aria-labelledby="hero-title">
-    <Hero profile={profile} />
-    <CoreExpertiseSection categories={skillCategories} />
-    <ExperienceSection items={experience} />
-    <ContactSection contacts={profile.data.contacts} />
+    <Hero profile={profile}/>
+    <CoreExpertiseSection categories={skillCategories}/>
+    <ExperienceSection items={experience}/>
+    <ContactSection contacts={profile.data.contacts}/>
   </main>
-  <NavBar />
+  <NavBar/>
 </Layout>
 
 <style>
-  .home-shell { width: min(100%, var(--container-wide)); margin-inline: auto; padding-inline: var(--gutter); padding-bottom: calc(var(--space-32) + env(safe-area-inset-bottom)); }
+  .home-shell {
+    width: min(100%, var(--container-wide));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    padding-bottom: calc(var(--space-32) + env(safe-area-inset-bottom));
+  }
 </style>

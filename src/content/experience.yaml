@@ -1,5 +1,3 @@
-
-
 - id: 001-commerce-forge
   company: Commerce Forge
   position: Full Stack Developer
@@ -11,6 +9,9 @@
     Built and maintained customer-facing e-commerce features and internal tooling using Java
     and Spring Boot. Improved checkout reliability and led the migration of key services to
     a containerised deployment model with Docker.
+  achievements:
+    - Reduced checkout failure rate by 35% through targeted reliability fixes
+    - Migrated three core services to Docker-based deployments
 - id: 002-harvest-cloud
   company: Harvest Cloud
   position: Senior Full Stack Developer
@@ -22,6 +23,10 @@
     Designed and delivered a cloud-native data-ingestion platform on AWS, reducing processing
     latency by 60%. Led a cross-functional team of five engineers, established CI/CD pipelines
     with GitHub Actions, and introduced observability practices across the platform.
+  achievements:
+    - Reduced data-ingestion latency by 60% with a redesigned streaming pipeline
+    - Established CI/CD pipelines with GitHub Actions across five services
+    - Introduced platform-wide observability, cutting incident detection time in half
 - id: 003-aurora-systems
   company: Aurora Systems
   position: Platform Engineering Lead
@@ -33,3 +38,8 @@
     Leading platform engineering across reliability, developer experience, and DevSecOps.
     Architecting multi-region serverless services on AWS and Azure, driving infrastructure-as-code
     adoption, and mentoring a team of eight engineers.
+  achievements:
+    - Architected multi-region serverless services across AWS and Azure
+    - Drove infrastructure-as-code adoption across the engineering org
+    - Mentored a team of eight engineers, growing two into senior roles
+

@@ -1,0 +1,246 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  shareTitle: string;
+  shareText: string;
+  shareUrl: string;
+}
+
+const { shareTitle, shareText, shareUrl } = Astro.props;
+---
+
+<section
+  class="cv-actions"
+  aria-label="CV actions"
+  data-cv-actions
+  data-cv-share-title={`${shareTitle}`}
+  data-cv-share-text={shareText}
+  data-cv-share-url={shareUrl}
+>
+  <button type="button" class="cv-actions__button" data-cv-print aria-label="Print this CV">
+    <Icon name="material-symbols:print-outline-rounded" aria-hidden="true"/>
+    <span>Print</span>
+  </button>
+  <span class="cv-actions__separator" aria-hidden="true">|</span>
+  <button type="button" class="cv-actions__button" data-cv-share-trigger aria-label="Share this CV"
+          aria-haspopup="dialog">
+    <Icon name="material-symbols:send-rounded" aria-hidden="true"/>
+    <span>Share</span>
+  </button>
+</section>
+
+<div class="cv-share-modal" data-cv-share-modal hidden>
+  <div class="cv-share-modal__backdrop" data-cv-share-backdrop></div>
+  <div class="cv-share-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cv-share-title"
+       data-cv-share-dialog>
+    <h2 id="cv-share-title" class="cv-share-modal__title">Share this CV</h2>
+    <label class="cv-share-modal__label" for="cv-share-phone">Phone</label>
+    <div class="cv-share-modal__phone">
+      <span class="cv-share-modal__prefix" aria-hidden="true">+60</span>
+      <input
+        id="cv-share-phone"
+        class="cv-share-modal__input"
+        type="tel"
+        inputmode="numeric"
+        autocomplete="off"
+        maxlength="10"
+        placeholder="191234567"
+        aria-label="Local phone number (without country code)"
+        data-cv-share-phone
+      />
+    </div>
+    <button type="button" class="cv-share-modal__submit" data-cv-share-submit>
+      <Icon name="material-symbols:send-rounded" aria-hidden="true"/>
+      <span>Share</span>
+    </button>
+  </div>
+</div>
+
+<div class="cv-toast" data-cv-toast hidden>Copied</div>
+
+<script>
+  import { initCvShare } from '../../scripts/cv-share';
+
+  const printBtn = document.querySelector<HTMLButtonElement>('[data-cv-print]');
+  printBtn?.addEventListener('click', () => window.print());
+
+  const actionsEl = document.querySelector<HTMLElement>('[data-cv-actions]');
+
+  initCvShare({
+    triggerEl: document.querySelector('[data-cv-share-trigger]'),
+    modalEl: document.querySelector('[data-cv-share-modal]'),
+    dialogEl: document.querySelector('[data-cv-share-dialog]'),
+    backdropEl: document.querySelector('[data-cv-share-backdrop]'),
+    phoneInputEl: document.querySelector('[data-cv-share-phone]'),
+    submitBtnEl: document.querySelector('[data-cv-share-submit]'),
+    toastEl: document.querySelector('[data-cv-toast]'),
+    shareTitle: actionsEl?.dataset.cvShareTitle ?? document.title,
+    shareText: actionsEl?.dataset.cvShareText ?? '',
+    shareUrl: actionsEl?.dataset.cvShareUrl ?? location.href,
+  });
+</script>
+
+<style>
+  .cv-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--space-2);
+    padding-block: var(--space-6);
+  }
+
+  .cv-actions__separator {
+    color: var(--border);
+    user-select: none;
+  }
+
+  .cv-actions__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    min-height: 44px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-faint);
+    padding: 0 var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+  }
+
+  .cv-actions__button :global(svg) {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .cv-actions__button:hover, .cv-actions__button:focus-visible {
+    color: var(--text);
+    background: var(--surface-muted);
+  }
+
+  .cv-share-modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+  }
+
+  .cv-share-modal[hidden] {
+    display: none;
+  }
+
+  .cv-share-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, black 45%, transparent);
+  }
+
+  .cv-share-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(90vw, 360px);
+    margin: 15vh auto 0;
+    border: var(--border-thin) solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-6);
+  }
+
+  .cv-share-modal__title {
+    margin: 0 0 var(--space-4);
+    color: var(--text);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-share-modal__label {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .cv-share-modal__phone {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .cv-share-modal__prefix {
+    display: inline-flex;
+    align-items: center;
+    border: var(--border-thin) solid var(--border);
+    border-inline-end: none;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    background: var(--surface-muted);
+    color: var(--text-muted);
+    padding: 0 var(--space-3);
+    font-family: var(--font-mono);
+    font-weight: var(--weight-medium);
+  }
+
+  .cv-share-modal__input {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    border: var(--border-thin) solid var(--border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: var(--bg);
+    color: var(--text);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-base);
+  }
+
+  .cv-share-modal__submit {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    margin-top: var(--space-6);
+    border: var(--border-thin) solid var(--accent);
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    color: var(--surface);
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+  }
+
+  .cv-share-modal__submit :global(svg) {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .cv-share-modal__submit:hover, .cv-share-modal__submit:focus-visible {
+    background: var(--accent-hover);
+  }
+
+  .cv-toast {
+    position: fixed;
+    bottom: var(--space-4);
+    left: 50%;
+    z-index: var(--z-tooltip);
+    transform: translate(-50%, 0);
+    border-radius: var(--radius-full);
+    background: var(--text);
+    color: var(--surface);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-2) var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-toast[hidden] {
+    display: none;
+  }
+
+  @media print {
+    .cv-actions, .cv-share-modal, .cv-toast {
+      display: none !important;
+    }
+  }
+</style>
+
