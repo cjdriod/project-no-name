@@ -109,7 +109,9 @@
   --color-accent-hover: var(--accent-hover);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   min-width: 320px;
@@ -120,8 +122,13 @@ html {
   scroll-behavior: smooth;
 }
 
-html[data-theme="light"] { color-scheme: light; }
-html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
 
 body {
   min-height: 100vh;
@@ -143,9 +150,17 @@ body::before {
   background: radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 11%, transparent), transparent 34rem), linear-gradient(180deg, color-mix(in srgb, var(--surface-muted) 55%, transparent), transparent 38rem);
 }
 
-img, svg { display: block; }
-a { color: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
+img, svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -153,7 +168,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-radius: var(--radius-sm);
 }
 
-.no-transition *, .no-transition *::before, .no-transition *::after { transition: none !important; }
+.no-transition *, .no-transition *::before, .no-transition *::after {
+  transition: none !important;
+}
 
 .skip-link {
   position: fixed;
@@ -172,7 +189,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
-.skip-link:focus-visible { transform: translateY(0); }
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
 
 [data-reveal] {
   opacity: 0;
@@ -183,6 +202,29 @@ button, a { -webkit-tap-highlight-color: transparent; }
   opacity: 1;
   transform: translateY(0);
   transition: opacity 250ms var(--ease-out) var(--reveal-delay, 0ms), transform 250ms var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+/* CV page (/cv) print output: A4 geometry, forced light theme, hidden chrome. */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  html {
+    --bg: #FAF9F6 !important;
+    --surface: #FFFFFF !important;
+    --surface-muted: #F3F1EC !important;
+    --border: #E5E2DA !important;
+    --text: #2B2B2B !important;
+    --text-muted: #6B6B6B !important;
+    --text-faint: #9A9A9A !important;
+    --accent: #3B5BA5 !important;
+  }
+
+  nav.bottom-nav {
+    display: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

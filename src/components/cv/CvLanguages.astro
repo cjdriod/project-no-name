@@ -1,0 +1,36 @@
+---
+import CvSection from './CvSection.astro';
+
+interface Props {
+  languages: string[];
+}
+
+const { languages } = Astro.props;
+---
+
+<CvSection title="Language" id="language">
+  <ul class="cv-languages" aria-label="Languages">
+    {languages.map((language) => (
+      <li class="cv-languages__item">{language}</li>
+    ))}
+  </ul>
+</CvSection>
+
+<style>
+  .cv-languages {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--text-muted);
+  }
+
+  .cv-languages__item + .cv-languages__item::before {
+    content: '\2022';
+    margin-inline-end: var(--space-2);
+    color: var(--text-faint);
+  }
+</style>

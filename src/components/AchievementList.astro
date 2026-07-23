@@ -65,13 +65,41 @@ const { items } = Astro.props;
 </section>
 
 <style>
-  .section { padding-block: var(--space-12); }
-  .section__intro { margin-bottom: var(--space-6); }
-  .section__eyebrow { margin: 0 0 var(--space-2); color: var(--accent); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
-  h2 { margin: 0; color: var(--text); font-size: var(--text-3xl); letter-spacing: -0.015em; line-height: var(--leading-tight); }
+  .section {
+    padding-block: var(--space-12);
+  }
 
-  .ach-list { margin: 0; padding: 0; list-style: none; border-top: var(--border-thin) solid var(--border); }
-  .ach-entry { border-bottom: var(--border-thin) solid var(--border); }
+  .section__intro {
+    margin-bottom: var(--space-6);
+  }
+
+  .section__eyebrow {
+    margin: 0 0 var(--space-2);
+    color: var(--accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-3xl);
+    letter-spacing: -0.015em;
+    line-height: var(--leading-tight);
+  }
+
+  .ach-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--border-thin) solid var(--border);
+  }
+
+  .ach-entry {
+    border-bottom: var(--border-thin) solid var(--border);
+  }
 
   /* Row: title left, meta right; wraps meta to a new line on narrow screens */
   .ach-row {
@@ -84,14 +112,25 @@ const { items } = Astro.props;
     min-height: 44px;
     color: inherit;
   }
+
   .ach-row--link {
     text-decoration: none;
     border-radius: var(--radius-sm);
     transition: color var(--duration-fast) var(--ease-out);
   }
-  .ach-row--link:hover { color: var(--accent); }
-  .ach-row--link:hover .ach-ext-icon { color: var(--accent); }
-  .ach-row--link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .ach-row--link:hover {
+    color: var(--accent);
+  }
+
+  .ach-row--link:hover .ach-ext-icon {
+    color: var(--accent);
+  }
+
+  .ach-row--link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 
   /* Left: title + optional icon inline */
   .ach-left {
@@ -100,12 +139,14 @@ const { items } = Astro.props;
     gap: var(--space-2);
     min-width: 0;
   }
+
   .ach-title {
     color: var(--text);
     font-size: var(--text-xl);
     font-weight: var(--weight-semibold);
     line-height: var(--leading-snug);
   }
+
   .ach-ext-icon {
     display: inline-block;
     width: 0.875rem;
@@ -126,5 +167,8 @@ const { items } = Astro.props;
     font-size: var(--text-sm);
     white-space: nowrap;
   }
-  .ach-meta__dot { color: var(--text-faint); }
+
+  .ach-meta__dot {
+    color: var(--text-faint);
+  }
 </style>

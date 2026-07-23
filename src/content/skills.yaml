@@ -1,6 +1,6 @@
 - id: backend-development
   name: Backend Development
-  pages: [home, about, cv]
+  pages: [ home, about, cv ]
   skills:
     - name: Java
       icon: logos:java
@@ -12,7 +12,7 @@
       icon: logos:typescript-icon
 - id: cloud-architecture
   name: Cloud Architecture
-  pages: [home, about, cv]
+  pages: [ home, about, cv ]
   skills:
     - name: AWS
       icon: logos:aws
@@ -22,7 +22,7 @@
     - name: Cloud-native Platforms
 - id: frontend-development
   name: Frontend Development
-  pages: [home, about, cv]
+  pages: [ home, about, cv ]
   skills:
     - name: React
       icon: logos:react
@@ -34,7 +34,7 @@
       icon: logos:angular-icon
 - id: microservices-apis
   name: Microservices & APIs
-  pages: [home, cv]
+  pages: [ home, cv ]
   skills:
     - name: RESTful services
     - name: Event-driven systems
@@ -44,7 +44,7 @@
       icon: material-symbols:monitoring-rounded
 - id: devops
   name: DevOps
-  pages: [home, about, cv]
+  pages: [ home, about, cv ]
   skills:
     - name: Docker
       icon: logos:docker-icon
@@ -56,14 +56,14 @@
       icon: material-symbols:security-rounded
 - id: data
   name: Data
-  pages: [cv]
+  pages: [ cv ]
   skills:
     - name: Data modeling
     - name: Reporting pipelines
     - name: Analytics-ready services
 - id: others
   name: others
-  pages: [about, cv]
+  pages: [ about, cv ]
   skills:
     - name: Incident Management
       icon: material-symbols:crisis-alert-rounded

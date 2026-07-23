@@ -1,4 +1,7 @@
-﻿import { defineCollection, z } from 'astro:content';
+﻿import {
+  defineCollection,
+  z
+} from 'astro:content';
 import { file } from 'astro/loaders';
 
 const period = /^[A-Z][a-z]{2}-\d{4}$/;
@@ -13,8 +16,11 @@ const profile = defineCollection({
     tagline: z.string().min(1),
     greeting: z.string().min(1),
     name: z.string().min(1),
+    legalName: z.string().min(1),
     role: z.string().min(1),
     description: z.string().min(1),
+    professionalSummary: z.string().min(1),
+    languages: z.array(z.string().min(1)).min(1),
     photo: image(),
     photoAlt: z.string().min(1),
     projectsHref: z.string().default('/projects'),
@@ -25,6 +31,7 @@ const profile = defineCollection({
       description: z.string().min(1),
       href: z.string().min(1),
       icon: z.string().regex(iconName),
+      monoIcon: z.string().regex(iconName),
     })).min(1),
     highlights: z.array(z.string().min(1)).min(1),
   }),
@@ -41,6 +48,7 @@ const experience = defineCollection({
     start: z.string().regex(period),
     end: z.union([z.string().regex(period), z.literal('Present')]),
     summary: z.string().min(1),
+    achievements: z.array(z.string().min(1)).optional(),
   }),
 });
 
@@ -67,6 +75,7 @@ const education = defineCollection({
     course: z.string().min(1),
     start: z.string().regex(year),
     end: z.union([z.string().regex(year), z.literal('Present')]),
+    achievements: z.array(z.string().min(1)).optional(),
   }),
 });
 
@@ -95,4 +104,13 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { profile, experience, skills, education, achievements, projects };
+const activities = defineCollection({
+  loader: file('src/content/activities.yaml'),
+  schema: z.object({
+    id: z.string().min(1),
+    title: z.string().min(1),
+    year: z.string().regex(year),
+  }),
+});
+
+export const collections = { profile, experience, skills, education, achievements, projects, activities };

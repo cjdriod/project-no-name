@@ -1,0 +1,178 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Contact {
+  channel: 'email' | 'linkedin' | 'github';
+  label: string;
+  description: string;
+  href: string;
+  icon: string;
+  monoIcon: string;
+}
+
+interface Props {
+  legalName: string;
+  role: string;
+  contacts: Contact[];
+  qrSvg: string | null;
+  cvUrl: string;
+}
+
+const { legalName, role, contacts, qrSvg, cvUrl } = Astro.props;
+
+const email = contacts.find((c) => c.channel === 'email');
+const linkedin = contacts.find((c) => c.channel === 'linkedin');
+const github = contacts.find((c) => c.channel === 'github');
+
+const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
+---
+
+<div class="cv-general" id="general-info">
+  <div class="cv-general__left">
+    <p class="cv-general__legal-name">{legalName}</p>
+    <p class="cv-general__role">{role}</p>
+    <ul class="cv-general__contacts" role="list">
+      <li class="cv-general__contact-line">
+        {email && (
+          <span class="cv-general__contact">
+            <Icon name={email.monoIcon} aria-hidden="true"/>
+            <span>{email.description}</span>
+          </span>
+        )}
+        <span class="cv-general__contact" data-cv-phone data-default="Upon Request">
+          <Icon name="material-symbols:public" aria-hidden="true"/>
+          <span data-cv-phone-value>Upon Request</span>
+        </span>
+      </li>
+      <li class="cv-general__contact-line">
+        {linkedin && (
+          <span class="cv-general__contact">
+            <Icon name={linkedin.monoIcon} aria-hidden="true"/>
+            <span>{stripProtocol(linkedin.href)}</span>
+          </span>
+        )}
+        {github && (
+          <span class="cv-general__contact">
+            <Icon name={github.monoIcon} aria-hidden="true"/>
+            <span>{stripProtocol(github.href)}</span>
+          </span>
+        )}
+      </li>
+    </ul>
+  </div>
+  <div class="cv-general__right">
+    {qrSvg && (
+      <div class="cv-general__qr" role="img" aria-label={`QR code linking to ${cvUrl}`} set:html={qrSvg}/>
+    )}
+  </div>
+</div>
+
+<script>
+  import { fromTelParam } from '../../scripts/cv-phone';
+  import { format } from '../../scripts/cv-phone';
+
+  const params = new URLSearchParams(location.search);
+  const digits = fromTelParam(params.get('tel'));
+  if (digits) {
+    const el = document.querySelector('[data-cv-phone-value]');
+    if (el) el.textContent = format(digits);
+  }
+</script>
+
+<style>
+  .cv-general {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block: var(--space-6);
+  }
+
+  .cv-general__legal-name {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    white-space: nowrap;
+  }
+
+  .cv-general__role {
+    margin: var(--space-1) 0 var(--space-4);
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+  }
+
+  .cv-general__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cv-general__contact-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .cv-general__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text);
+    font-size: var(--text-base);
+  }
+
+  .cv-general__contact :global(svg) {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex: 0 0 auto;
+    color: var(--accent);
+  }
+
+  .cv-general__right {
+    display: none;
+  }
+
+  .cv-general__qr {
+    width: 128px;
+    height: 128px;
+  }
+
+  .cv-general__qr :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen {
+    :global(html[data-theme='dark']) .cv-general__qr {
+      filter: invert(1);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .cv-general {
+      grid-template-columns: 1fr auto;
+      align-items: start;
+    }
+
+    .cv-general__right {
+      display: block;
+    }
+  }
+
+  @media print {
+    .cv-general {
+      grid-template-columns: 1fr auto;
+    }
+
+    .cv-general__right {
+      display: block;
+    }
+  }
+</style>

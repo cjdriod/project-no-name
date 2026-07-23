@@ -5,6 +5,8 @@
   course: Diploma in Software Engineering
   start: "2011"
   end: "2013"
+  achievements:
+    - Graduated with distinction
 - id: 002-state-university
   photo: ../assets/images/education/state-university.svg
   photoAlt: State University logo placeholder
@@ -12,3 +14,7 @@
   course: BSc Computer Science
   start: "2013"
   end: "2016"
+  achievements:
+    - Dean's List, all six semesters
+    - Final-year project on distributed systems scheduling
+

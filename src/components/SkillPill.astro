@@ -10,11 +10,28 @@ const { name, icon } = Astro.props;
 ---
 
 <span class="skill-pill">
-  {icon && <Icon name={icon} aria-hidden="true" />}
+  {icon &&
+    <Icon name={icon} aria-hidden="true"/>}
   <span>{name}</span>
 </span>
 
 <style>
-  .skill-pill { display: inline-flex; min-height: 36px; align-items: center; gap: var(--space-2); border-radius: var(--radius-full); background: var(--surface-muted); color: var(--text-muted); font-size: var(--text-sm); font-weight: var(--weight-medium); padding: var(--space-2) var(--space-4); }
-  .skill-pill svg { width: 1rem; height: 1rem; color: var(--text); }
+  .skill-pill {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    gap: var(--space-2);
+    border-radius: var(--radius-full);
+    background: var(--surface-muted);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .skill-pill svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--text);
+  }
 </style>

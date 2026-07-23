@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CvSection from './CvSection.astro';
+
+interface Props {
+  items: CollectionEntry<'experience'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<CvSection title="Professional experience" id="experience">
+  <ul class="cv-timeline" role="list">
+    {items.map((item) => {
+      const { company, position, start, end, summary, achievements } = item.data;
+      return (
+        <li class="cv-timeline__entry">
+          <div class="cv-timeline__header">
+            <h3 class="cv-timeline__company">{company}</h3>
+            <span class="cv-timeline__period">{start} — {end}</span>
+          </div>
+          <p class="cv-timeline__position">{position}</p>
+          <p class="cv-timeline__summary">{summary}</p>
+          {achievements && achievements.length > 0 && (
+            <ul class="cv-timeline__achievements">
+              {achievements.map((achievement) =>
+                <li>{achievement}</li>)}
+            </ul>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</CvSection>
+
+<style>
+  .cv-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .cv-timeline__entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-timeline__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .cv-timeline__company {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-timeline__period {
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .cv-timeline__position {
+    margin: var(--space-1) 0;
+    color: var(--accent);
+    font-weight: var(--weight-medium);
+  }
+
+  .cv-timeline__summary {
+    margin: 0;
+  }
+
+  .cv-timeline__achievements {
+    margin: var(--space-2) 0 0;
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    list-style: disc;
+  }
+
+  .cv-timeline__achievements li {
+    display: list-item;
+  }
+</style>

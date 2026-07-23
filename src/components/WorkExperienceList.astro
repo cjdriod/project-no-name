@@ -43,17 +43,95 @@ const { items } = Astro.props;
 </section>
 
 <style>
-  .section { padding-block: var(--space-12); }
-  .section__intro { margin-bottom: var(--space-6); }
-  .section__eyebrow { margin: 0 0 var(--space-2); color: var(--accent); font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
-  h2 { margin: 0; color: var(--text); font-size: var(--text-3xl); letter-spacing: -0.015em; line-height: var(--leading-tight); }
-  .exp-list { margin: 0; padding: 0; list-style: none; border-top: var(--border-thin) solid var(--border); }
-  .exp-entry { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: var(--space-4); align-items: start; padding-block: var(--space-6); border-bottom: var(--border-thin) solid var(--border); }
-  .exp-entry__logo { width: 3.5rem; height: 3.5rem; border: var(--border-thin) solid var(--border); border-radius: var(--radius-md); background: var(--surface-muted); object-fit: cover; flex-shrink: 0; }
-  .exp-entry__header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-1); }
-  .exp-entry__company { margin: 0; color: var(--text); font-size: var(--text-xl); font-weight: var(--weight-semibold); line-height: var(--leading-snug); }
-  .exp-entry__period { color: var(--text-faint); font-family: var(--font-mono); font-size: var(--text-sm); white-space: nowrap; }
-  .exp-entry__position { margin: 0 0 var(--space-3); color: var(--accent); font-size: var(--text-base); font-weight: var(--weight-medium); }
-  .exp-entry__summary { margin: 0; color: var(--text-muted); line-height: var(--leading-relaxed); }
-  p { margin: 0; }
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .section__intro {
+    margin-bottom: var(--space-6);
+  }
+
+  .section__eyebrow {
+    margin: 0 0 var(--space-2);
+    color: var(--accent);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-3xl);
+    letter-spacing: -0.015em;
+    line-height: var(--leading-tight);
+  }
+
+  .exp-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--border-thin) solid var(--border);
+  }
+
+  .exp-entry {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+    padding-block: var(--space-6);
+    border-bottom: var(--border-thin) solid var(--border);
+  }
+
+  .exp-entry__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: var(--border-thin) solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface-muted);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .exp-entry__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+  }
+
+  .exp-entry__company {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-snug);
+  }
+
+  .exp-entry__period {
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .exp-entry__position {
+    margin: 0 0 var(--space-3);
+    color: var(--accent);
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+  }
+
+  .exp-entry__summary {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+  }
+
+  p {
+    margin: 0;
+  }
 </style>

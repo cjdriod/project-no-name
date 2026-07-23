@@ -1,0 +1,84 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+import CvSection from './CvSection.astro';
+
+interface Props {
+  items: CollectionEntry<'achievements'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<CvSection title="Certification" id="certification">
+  <ul class="cv-cert-list" role="list">
+    {items.map((item) => {
+      const { title, issuer, date, link } = item.data;
+      const meta = [issuer, date].filter(Boolean);
+      return (
+        <li class="cv-cert-entry">
+          <p class="cv-cert-entry__title">
+            {link ? (
+              <a href={link} target="_blank" rel="noopener noreferrer"
+                 aria-label={`${title} (opens in a new tab)`}>
+                {title}
+                <Icon name="material-symbols:open-in-new-rounded" aria-hidden="true"
+                      class="cv-cert-entry__icon"/>
+              </a>
+            ) : (
+              title
+            )}
+          </p>
+          {meta.length > 0 && <p class="cv-cert-entry__meta">{meta.join(' · ')}</p>}
+        </li>
+      );
+    })}
+  </ul>
+</CvSection>
+
+<style>
+  .cv-cert-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .cv-cert-entry {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-cert-entry__title {
+    margin: 0;
+    color: var(--text);
+    font-weight: var(--weight-semibold);
+  }
+
+  .cv-cert-entry__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .cv-cert-entry__title a:hover, .cv-cert-entry__title a:focus-visible {
+    color: var(--accent);
+  }
+
+  .cv-cert-entry__icon {
+    display: inline-block;
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-inline-start: var(--space-1);
+    vertical-align: middle;
+    color: var(--text-faint);
+  }
+
+  .cv-cert-entry__meta {
+    margin: var(--space-1) 0 0;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+</style>
