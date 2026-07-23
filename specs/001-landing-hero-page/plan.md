@@ -7,12 +7,12 @@
 ## Summary
 
 Build the home-route (`/`) landing page as a static, mobile-first Astro page styled with
-Tailwind CSS v4 mapped to the `design.md` design tokens. The page has three stacked content
+Tailwind CSS v4 mapped to the `.skills/design.md` design tokens. The page has three stacked content
 sections — hero (tagline, greeting, identity, description, and two CTAs "View Projects" →
 `/projects` and "View CV" → `/cv`), a top-3 work-experience list, and an icon+text skill-pill
 section — plus a persistent pill-style bottom navigation bar (Home, About, Projects, Contact
 me) with a light/dark theme toggle. Content flows full-width on small viewports and is capped
-to a centered `--container-wide` (1200px) container on desktop (home sections, `design.md` §4.1). Content (profile, experience, skills) is modeled as
+to a centered `--container-wide` (1200px) container on desktop (home sections, `.skills/design.md` §4.1). Content (profile, experience, skills) is modeled as
 type-safe Astro Content Collections validated by Zod (Constitution V). Icons use `astro-icon`
 (Material Symbols for UI/nav; brand logo sets for skills). A subtle, reduced-motion-aware
 enter animation reveals content on load.
@@ -38,13 +38,13 @@ the skills section. Both packs are present — the previously-open icon dependen
 
 **Project Type**: Single project — Astro static web app.
 
-**Performance Goals**: Per `design.md` / Constitution II — Lighthouse Performance ≥ 95,
+**Performance Goals**: Per `.skills/design.md` / Constitution II — Lighthouse Performance ≥ 95,
 Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05. Reading page ships effectively zero client
 JS except a tiny theme island.
 
 **Constraints**: Mobile-first (base styles target smallest viewport, `min-width` breakpoints
 up). Full-width content below `lg`; centered `--container-wide` (1200px) at `lg`+ (home
-sections per `design.md` §4.1). Tap targets ≥ 44px. No-flash theme init before first paint.
+sections per `.skills/design.md` §4.1). Tap targets ≥ 44px. No-flash theme init before first paint.
 Honors `prefers-reduced-motion`. AA contrast in both themes. One `<h1>`, landmark regions, and
 a "Skip to content" link as the first focusable element (FR-019); descriptive alt text on the
 hero portrait and experience photos (FR-020). Bottom navigation is pill-style; the active route
@@ -70,21 +70,21 @@ per owner direction — no Motion One dependency is added.
 | IV. Minimal, Purposeful Interactivity | PASS (owner-approved deviation) | Theme toggle + nav active-state highlight + on-load reveal only; all reduced-motion-aware. Motion is deliberately minimal and implemented in pure CSS (no Motion One) per explicit owner direction (2026-07-08: "minimal motion, CSS is sufficient") — see Complexity Tracking. |
 | V. Type-Safe Content Model | PASS | Profile/experience/skills modeled as Content Collections with Zod schemas; build fails on malformed content. No hardcoded content in components. |
 
-**Technology Constraints**: Astro + TypeScript + Tailwind (tokens from `design.md`) + Iconify
+**Technology Constraints**: Astro + TypeScript + Tailwind (tokens from `.skills/design.md`) + Iconify
 via astro-icon — all match the fixed stack. GitHub Pages static output preserved.
 
 **Gate result**: PASS (one justified deviation recorded in Complexity Tracking).
 
-**Design-system note (design.md reconciliation)**: `design.md` §7.1 specifies a sticky *top*
+**Design-system note (.skills/design.md reconciliation)**: `.skills/design.md` §7.1 specifies a sticky *top*
 nav bar whose active link is weight-600 + underline ("not a colored pill") and which collapses
 to a mobile menu (§7.12). This feature instead uses a **persistent bottom, pill-style navigation
 bar** with a highlighted active pill + `aria-current="page"` (owner clarification 2026-07-08:
 "modern bottom navigation, glow/highlight active state, no more mac-like"). Per Constitution
-governance (the constitution supersedes and `design.md` is reconciled to it) this is an
-owner-directed deviation. Styling still reuses `design.md` tokens: pill shape from §7.4
+governance (the constitution supersedes and `.skills/design.md` is reconciled to it) this is an
+owner-directed deviation. Styling still reuses `.skills/design.md` tokens: pill shape from §7.4
 (`--radius-full`), **solid `--surface` fill** + hairline `--border` + `--shadow-sm` (§7.1
 "solid fill preferred"), sun/moon toggle per §7.13, and motion within §8 budgets (fade / ≤8px,
-no magnify/scale). Follow-up: update `design.md` §7.1/§7.12 to document the bottom pill nav.
+no magnify/scale). Follow-up: update `.skills/design.md` §7.1/§7.12 to document the bottom pill nav.
 
 ## Project Structure
 

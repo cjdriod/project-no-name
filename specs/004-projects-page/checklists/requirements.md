@@ -32,4 +32,4 @@
 ## Notes
 
 - Items marked incomplete require spec updates before `/speckit.clarify` or `/speckit.plan`
-- Validation passed on first iteration. Scope intentionally limited to the projects index/listing page; per-project detail pages and filter controls from design.md §2.3 are deferred and noted in Assumptions.
+- Validation passed on first iteration. Scope intentionally limited to the projects index/listing page; per-project detail pages and filter controls from .skills/design.md §2.3 are deferred and noted in Assumptions.

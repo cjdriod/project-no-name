@@ -51,7 +51,7 @@ npx astro check      # TypeScript: no errors
 
 - Content validation: invalid/missing fields in `projects.yaml` fail the build.
 - Accessibility: keyboard nav, visible focus, one `<h1>`, AA contrast in both themes.
-- Performance: Lighthouse budgets from design.md met (no CLS from card images).
+- Performance: Lighthouse budgets from .skills/design.md met (no CLS from card images).
 
 ## Expected result
 

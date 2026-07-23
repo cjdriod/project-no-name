@@ -28,9 +28,9 @@ All open questions were resolved during `/speckit.clarify` and the plan input. N
 
 ## R5. Responsive layout & grid
 
-- **Decision**: Base layout is a single-column stacked card list. At the `lg` (1024px) breakpoint switch to a multi-column project grid (`--container-wide` shell) per design.md §4 (`--container-wide` = 1200px, 3-column desktop grid). Cards follow design.md §7.3/§7.6 (surface bg, 1px border, `--radius-lg`, `--shadow-sm`, hover lift `-2px`); tech labels are plain-text pill tags per §7.4 (no icons). Card content uses a vertical flex layout so the links sit in a **card action group anchored at the bottom** — cards in a row keep aligned action rows regardless of description length.
-- **Rationale**: design.md is explicit that mobile and tablet share one single-column tier and only desktop gets the 3-column grid; constitution Principle III mandates mobile-first authoring.
-- **Alternatives considered**: An intermediate tablet grid — explicitly disallowed by design.md §4/§5.
+- **Decision**: Base layout is a single-column stacked card list. At the `lg` (1024px) breakpoint switch to a multi-column project grid (`--container-wide` shell) per .skills/design.md §4 (`--container-wide` = 1200px, 3-column desktop grid). Cards follow .skills/design.md §7.3/§7.6 (surface bg, 1px border, `--radius-lg`, `--shadow-sm`, hover lift `-2px`); tech labels are plain-text pill tags per §7.4 (no icons). Card content uses a vertical flex layout so the links sit in a **card action group anchored at the bottom** — cards in a row keep aligned action rows regardless of description length.
+- **Rationale**: .skills/design.md is explicit that mobile and tablet share one single-column tier and only desktop gets the 3-column grid; constitution Principle III mandates mobile-first authoring.
+- **Alternatives considered**: An intermediate tablet grid — explicitly disallowed by .skills/design.md §4/§5.
 
 ## R6. Bottom-nav Projects tab visibility & active state
 

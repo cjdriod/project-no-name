@@ -12,11 +12,11 @@
 
 ### Session 2026-07-14
 
-- Q: Which design system governs the About page's visual and interaction design? → A: The existing design system in `design.md` (tokens, typography, color, layout, components, motion) — a long-form, reading-optimized single-column page consistent with the rest of the site.
+- Q: Which design system governs the About page's visual and interaction design? → A: The existing design system in `.skills/design.md` (tokens, typography, color, layout, components, motion) — a long-form, reading-optimized single-column page consistent with the rest of the site.
 - Q: What fields should each Achievement entry carry? → A: Title, issuer/company, optional date, and optional link; when a link is present it shows an "open in new tab" icon and opens the target in a new browser tab.
 - Q: What fields should each Education entry carry? → A: Institution, qualification/field of study, and a period (start–end years).
 - Q: How should Work Experience on the About page differ from the home page? → A: Show all roles (not just the latest 3), ordered by index descending (higher index = more recent), each showing the employer, the working period formatted as "{month} {year}", the role/position, and a short summary of the job.
-- Q: How to reconcile design.md's extra About content (engineering philosophy, interests, certifications) with the 5-section layout? → A: Keep only the five requested sections; certifications are represented as achievements; engineering philosophy and interests are out of scope for this feature (design.md reconciled to the spec).
+- Q: How to reconcile .skills/design.md's extra About content (engineering philosophy, interests, certifications) with the 5-section layout? → A: Keep only the five requested sections; certifications are represented as achievements; engineering philosophy and interests are out of scope for this feature (.skills/design.md reconciled to the spec).
 
 ### Session 2026-07-15
 
@@ -137,7 +137,7 @@ and confirm it lands on `/about`, with the About item shown as the current page.
   (not hardcoded into the page), consistent with the existing profile, skills, and experience
   content.
 - **FR-013**: The About page MUST reuse the site's existing shared layout, bottom navigation, and
-  theme (light/dark) and MUST follow the design system defined in `design.md` (design tokens,
+  theme (light/dark) and MUST follow the design system defined in `.skills/design.md` (design tokens,
   typography, color, spacing, components, and motion) as a long-form, reading-optimized
   single-column page, so it is visually consistent with the rest of the site.
 - **FR-014**: The About page MUST end with a closing call-to-action, placed after the Education
@@ -197,11 +197,11 @@ and confirm it lands on `/about`, with the About item shown as the current page.
   separate long-form section.
 - The About page is limited to the five requested sections. Certifications are represented within
   the Achievements section (an achievement carries title, issuer/company, optional date, optional
-  link). Engineering philosophy and interests (listed in design.md's About IA) are out of scope
-  for this feature; design.md's About information architecture is reconciled to this spec.
+  link). Engineering philosophy and interests (listed in .skills/design.md's About IA) are out of scope
+  for this feature; .skills/design.md's About information architecture is reconciled to this spec.
 - The page is a static, content-first reading page consistent with the site constitution: no
   required client-side interactivity beyond the shared theme toggle and navigation.
-- design.md prescribes a vertical experience timeline (§5, §7.5) for the About page; per the
+- .skills/design.md prescribes a vertical experience timeline (§5, §7.5) for the About page; per the
   2026-07-15 clarification this is superseded here by a LinkedIn-style, hairline-separated list
   with a left-aligned company logo, and no timeline UI is built.
 - A closing "Looking for more details?" call-to-action links to `/cv`. The `/cv` page is a

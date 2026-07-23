@@ -22,7 +22,7 @@ Add a `/cv` route that renders a document-style, print-ready CV built from the e
 
 **Project Type**: Astro static web app (single project, island architecture).
 
-**Performance Goals**: Reading-page budgets from `design.md`/constitution — Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05. Zero client JS except hydrated islands (share modal, print button, alert dismiss).
+**Performance Goals**: Reading-page budgets from `.skills/design.md`/constitution — Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05. Zero client JS except hydrated islands (share modal, print button, alert dismiss).
 
 **Constraints**: WCAG 2.1 AA, mobile-first, no animation on the CV page, no CLS (explicit QR dimensions), print output ATS-friendly + selectable text on A4.
 

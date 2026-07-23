@@ -31,8 +31,8 @@ in the spec are complete, clear, consistent, and measurable — before implement
 
 ## Accessibility Requirement Coverage
 
-- [x] CHK009 - Are keyboard operability, visible focus, and touch-target size (≥44px) required for both hero CTAs? [Coverage, Spec §FR-014, design.md §9]
-- [x] CHK010 - Is a color-contrast requirement stated for text and UI in *both* light and dark themes (not just one)? [Completeness, Spec §FR-014, design.md §9]
+- [x] CHK009 - Are keyboard operability, visible focus, and touch-target size (≥44px) required for both hero CTAs? [Coverage, Spec §FR-014, .skills/design.md §9]
+- [x] CHK010 - Is a color-contrast requirement stated for text and UI in *both* light and dark themes (not just one)? [Completeness, Spec §FR-014, .skills/design.md §9]
 - [x] CHK011 - Are requirements defined for reduced-motion users so content is fully usable with all animation disabled? [Coverage, Spec §FR-013]
 - [x] CHK012 - Are semantic-structure requirements (single `<h1>`, landmark regions, skip link) specified for the page? [Gap]
 - [x] CHK013 - Is alternative-text / non-visual fallback specified for the experience photos and hero portrait? [Coverage, Spec Edge Cases]

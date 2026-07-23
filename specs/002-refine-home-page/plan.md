@@ -24,7 +24,7 @@ Technical approach: all changes are static Astro components + Zod-validated cont
 
 **Project Type**: Single Astro static site (island architecture); frontend only.
 
-**Performance Goals**: Lighthouse Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05 (per `design.md`).
+**Performance Goals**: Lighthouse Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05 (per `.skills/design.md`).
 
 **Constraints**: Mobile-first; shared mobile/tablet tier below 1024px `lg`; tap targets ≥ 44px; effectively zero client JS on reading pages; all motion respects `prefers-reduced-motion`; content must be Zod-validated (build fails on malformed content); external links open in a new tab with `rel="noopener noreferrer"`.
 

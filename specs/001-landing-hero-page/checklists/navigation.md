@@ -39,15 +39,15 @@ embedded theme toggle are complete, clear, consistent, and measurable — before
 - [x] CHK016 - Is "takes effect immediately" for the theme switch defined with an observable threshold? [Measurability, Spec §SC-003]
 - [x] CHK017 - Is "no flash of the incorrect theme" defined in an observable way (correct theme applied before first paint)? [Measurability, Spec §FR-008, §SC-007]
 - [x] CHK018 - Is the nav bar's responsive behavior (spacing/size from mobile to desktop) expressed against a specific breakpoint or container rule? [Clarity, Spec §FR-015]
-- [x] CHK019 - Are tap-target size requirements (≥44px) stated for the nav items and toggle on small viewports? [Measurability, Spec §FR-015, design.md §9]
+- [x] CHK019 - Are tap-target size requirements (≥44px) stated for the nav items and toggle on small viewports? [Measurability, Spec §FR-015, .skills/design.md §9]
 
 ## Requirement Consistency
 
 - [x] CHK020 - Do the navigation destinations in FR-004 align with the route list in Assumptions and the CTA targets in FR-003 (no `/projects` vs `#projects` conflict)? [Consistency, Spec §FR-003, §FR-004]
 - [x] CHK021 - Are FR-004 (pill nav) and FR-017 (active-state highlight, no magnify) consistent with one another and free of leftover macOS "dock/magnify" language? [Consistency, Spec §FR-004, §FR-017]
 - [x] CHK022 - Is the "Projects" destination handled consistently as a route (`/projects`), with no contradictory on-page-anchor statement? [Conflict, Spec §FR-004]
-- [x] CHK023 - Are the nav/theme motion requirements consistent between FR-017 (glow, no scale), FR-012/013 (enter animation + reduced-motion), and design.md §8 motion budgets? [Consistency, Spec §FR-012, §FR-013, §FR-017]
-- [x] CHK024 - Is the deviation from design.md §7.1 (top bar, underlined active, "not a colored pill") explicitly reconciled so plan and design system do not silently conflict? [Conflict, plan.md design-system note, design.md §7.1]
+- [x] CHK023 - Are the nav/theme motion requirements consistent between FR-017 (glow, no scale), FR-012/013 (enter animation + reduced-motion), and .skills/design.md §8 motion budgets? [Consistency, Spec §FR-012, §FR-013, §FR-017]
+- [x] CHK024 - Is the deviation from .skills/design.md §7.1 (top bar, underlined active, "not a colored pill") explicitly reconciled so plan and design system do not silently conflict? [Conflict, plan.md design-system note, .skills/design.md §7.1]
 
 ## Accessibility Requirement Coverage
 
@@ -55,7 +55,7 @@ embedded theme toggle are complete, clear, consistent, and measurable — before
 - [x] CHK026 - Are accessible-name requirements specified for the icon-only nav items and the theme toggle? [Gap]
 - [x] CHK027 - Is the active navigation state required to be exposed to assistive tech (e.g. `aria-current="page"`), not signalled by highlight alone? [Coverage, Spec §FR-017]
 - [x] CHK028 - Is the theme toggle's state exposure specified (e.g. pressed/label reflecting current theme) for screen-reader users? [Gap, Spec §FR-006]
-- [x] CHK029 - Is AA color contrast required for the nav text/icons and the active-pill highlight in *both* light and dark themes? [Coverage, Spec §FR-014, design.md §9]
+- [x] CHK029 - Is AA color contrast required for the nav text/icons and the active-pill highlight in *both* light and dark themes? [Coverage, Spec §FR-014, .skills/design.md §9]
 - [x] CHK030 - Are reduced-motion requirements defined for the nav/toggle so the active highlight stays visible with animation disabled? [Coverage, Spec §FR-013, §FR-017]
 
 ## Edge Case & Scenario Coverage

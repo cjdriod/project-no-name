@@ -22,7 +22,7 @@ Add a static `/projects` index page that renders the author's curated projects a
 
 **Project Type**: Single static Astro web project (frontend only)
 
-**Performance Goals**: design.md Lighthouse budgets — Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05
+**Performance Goals**: .skills/design.md Lighthouse budgets — Performance ≥ 95, Accessibility 100, SEO 100, LCP < 1.5s, CLS < 0.05
 
 **Constraints**: Effectively zero client JS on the reading page (only a minimal inline image `onerror` fallback); no layout shift (fixed card image aspect ratio); WCAG 2.1 AA; `prefers-reduced-motion` respected; touch targets ≥ 44px
 
@@ -34,9 +34,9 @@ Add a static `/projects` index page that renders the author's curated projects a
 
 | Principle | Compliance |
 | --- | --- |
-| **I. Content-First Reading Experience** | PASS — card grid uses design.md tokens/spacing; descriptions are short prose; no text baked into images; no animation mid-read. |
+| **I. Content-First Reading Experience** | PASS — card grid uses .skills/design.md tokens/spacing; descriptions are short prose; no text baked into images; no animation mid-read. |
 | **II. Performance & Accessibility as Baseline** | PASS — static page, near-zero JS; images lazy with fixed aspect ratio (no CLS); semantic list/landmarks, one `<h1>`, external links labelled "opens in a new tab", AA contrast via tokens. The only JS is a tiny inline `onerror` that swaps to the placeholder SVG — progressive, not an island, negligible cost. |
-| **III. Mobile-First Responsive Design** | PASS — base is single column; multi-column grid added at `lg`+ per design.md §4/§5; Projects nav tab hidden below `lg`; tap targets ≥ 44px. |
+| **III. Mobile-First Responsive Design** | PASS — base is single column; multi-column grid added at `lg`+ per .skills/design.md §4/§5; Projects nav tab hidden below `lg`; tap targets ≥ 44px. |
 | **IV. Minimal, Purposeful Interactivity** | PASS — reuses existing `data-reveal` fade/lift + card hover lift only; reduced-motion respected; no new island, no gimmicks. |
 | **V. Type-Safe Content Model** | PASS — new `projects` collection with Zod schema; missing/invalid fields fail the build; nothing hardcoded in components. |
 | **Technology Constraints** | PASS — Astro + TS + Tailwind tokens + Iconify + YAML/Zod; `projects (index + details)` scope respected (index only this feature, details explicitly deferred per spec). |

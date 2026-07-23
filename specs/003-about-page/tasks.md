@@ -1,4 +1,4 @@
-﻿---
+---
 description: "Task list for About Page feature implementation"
 ---
 
@@ -43,7 +43,7 @@ Single Astro project at repository root: content schema in `src/content.config.t
 **Purpose**: Extend and add the type-safe content model. **No user story rendering can begin until
 this phase is complete**, because `/about` reads all of these collections.
 
-**âš ï¸ CRITICAL**: Schema edits (T003, T004) touch the same file `src/content.config.ts` and must be
+**⚠️ CRITICAL**: Schema edits (T003, T004) touch the same file `src/content.config.ts` and must be
 done sequentially, before the content-authoring tasks that they validate.
 
 - [X] T003 Extend `src/content.config.ts`: add `highlights: z.array(z.string().min(1)).min(1)` to
@@ -66,10 +66,10 @@ done sequentially, before the content-authoring tasks that they validate.
 
 ---
 
-## Phase 3: User Story 1 - Read a complete professional profile on /about (Priority: P1) ðŸŽ¯ MVP
+## Phase 3: User Story 1 - Read a complete professional profile on /about (Priority: P1) 🎯 MVP
 
-**Goal**: A visitor at `/about` reads all five sections in fixed order â€” Professional Summary &
-Highlights, Skills by category, Work Experience, Achievements, Education â€” plus a closing "Looking
+**Goal**: A visitor at `/about` reads all five sections in fixed order — Professional Summary &
+Highlights, Skills by category, Work Experience, Achievements, Education — plus a closing "Looking
 for more details?" CTA linking to `/cv`.
 
 **Independent Test**: Visit `/about` directly; confirm the five sections render in order with real
@@ -86,22 +86,22 @@ page is legible single-column on mobile and desktop.
   `SkillPill` component.
 - [X] T011 [P] [US1] Create `src/components/WorkExperienceList.astro` rendering a LinkedIn-style,
   hairline-separated list (no timeline): company logo (`photo`) on the left; `company`, `position`,
-  period `start` â€“ `end` (`end` may be "Present"), and `summary` on the right. Images carry explicit
+  period `start` – `end` (`end` may be "Present"), and `summary` on the right. Images carry explicit
   `width`/`height` and alt text.
 - [X] T012 [P] [US1] Create `src/components/EducationList.astro` using the same visual format as
-  `WorkExperienceList` (image left; `school`, `course`, and year range `start` â€“ `end` right).
+  `WorkExperienceList` (image left; `school`, `course`, and year range `start` – `end` right).
 - [X] T013 [P] [US1] Create `src/components/AchievementList.astro` rendering each `title` name-first;
   when `issuer`/`date` are present show them, and when `link` is present render an "open in new tab"
   affordance (`material-symbols:open-in-new-rounded`) with `target="_blank" rel="noopener noreferrer"`
   and an accessible new-tab label.
 - [X] T014 [P] [US1] Create `src/components/CvCallout.astro` rendering the prompt "Looking for more
-  details?" and an accent primary link/button labeled "View my complete Curriculum Vitae (CV) â†’"
-  pointing to `/cv`, per design.md CTA styling.
+  details?" and an accent primary link/button labeled "View my complete Curriculum Vitae (CV) →"
+  pointing to `/cv`, per .skills/design.md CTA styling.
 - [X] T015 [US1] Create `src/pages/about.astro`: wrap in the shared `Layout`, include `NavBar`, add a
-  single page `<h1>`, load the collections and derive display data â€” `profile` (summary +
+  single page `<h1>`, load the collections and derive display data — `profile` (summary +
   highlights), `skills` filtered by `pages` includes `about`, `experience`/`education`/`achievements`
-  reversed to latest-first â€” and compose the sections in the fixed order followed by `CvCallout`
-  (depends on T009â€“T014).
+  reversed to latest-first — and compose the sections in the fixed order followed by `CvCallout`
+  (depends on T009–T014).
 - [X] T016 [US1] In `src/pages/about.astro`, omit the Achievements and/or Education sections entirely
   (no empty heading) when their collections are empty (FR-011) (depends on T015).
 
@@ -140,7 +140,7 @@ lands on `/about` with the About item indicated as current; verify keyboard-only
   motion under `prefers-reduced-motion`.
 - [X] T021 Run `npm run build` (TypeScript + Zod validation) and resolve any errors.
 - [X] T022 Execute the quickstart.md validation scenarios and a manual Lighthouse check on `/about`
-  (Performance â‰¥ 95, Accessibility 100, LCP < 1.5s, CLS < 0.05).
+  (Performance ≥ 95, Accessibility 100, LCP < 1.5s, CLS < 0.05).
 
 ---
 
@@ -148,8 +148,8 @@ lands on `/about` with the About item indicated as current; verify keyboard-only
 
 ### Phase Dependencies
 
-- **Setup (Phase 1)**: No dependencies â€” can start immediately.
-- **Foundational (Phase 2)**: Depends on Setup â€” **blocks both user stories**.
+- **Setup (Phase 1)**: No dependencies — can start immediately.
+- **Foundational (Phase 2)**: Depends on Setup — **blocks both user stories**.
 - **User Story 1 (Phase 3)**: Depends on Foundational.
 - **User Story 2 (Phase 4)**: Depends on Foundational; T017 depends on T015 (route must exist).
 - **Polish (Phase 5)**: Depends on US1 (and US2) being complete.
@@ -162,16 +162,16 @@ lands on `/about` with the About item indicated as current; verify keyboard-only
 
 ### Within User Story 1
 
-- Component tasks T009â€“T014 are independent (different files) â†’ parallelizable.
+- Component tasks T009–T014 are independent (different files) → parallelizable.
 - Page assembly T015 depends on all component tasks; empty-section handling T016 depends on T015.
 
 ### Parallel Opportunities
 
 - Setup: T001, T002 in parallel.
-- Foundational: schema edits T003 â†’ T004 (same file, sequential); then content authoring T005, T006,
+- Foundational: schema edits T003 → T004 (same file, sequential); then content authoring T005, T006,
   T007, T008 in parallel.
-- US1: T009, T010, T011, T012, T013, T014 in parallel; then T015 â†’ T016.
-- Polish: T018, T019, T020 in parallel; then T021 â†’ T022.
+- US1: T009, T010, T011, T012, T013, T014 in parallel; then T015 → T016.
+- Polish: T018, T019, T020 in parallel; then T021 → T022.
 
 ---
 
@@ -197,14 +197,14 @@ Task: "Create src/components/CvCallout.astro"
 1. Complete Phase 1 (Setup) and Phase 2 (Foundational content model).
 2. Complete Phase 3 (US1): build components, assemble `/about`, handle empty sections.
 3. **STOP and VALIDATE**: visit `/about`, confirm section order/content and a passing build.
-4. This is a demoable MVP â€” the full readable About page.
+4. This is a demoable MVP — the full readable About page.
 
 ### Incremental Delivery
 
-1. Setup + Foundational â†’ content model ready.
-2. US1 â†’ `/about` renders â†’ validate â†’ demo (MVP).
-3. US2 â†’ verify bottom-nav reachability/current-state â†’ validate.
-4. Polish â†’ accessibility, CLS, motion, build, quickstart + Lighthouse.
+1. Setup + Foundational → content model ready.
+2. US1 → `/about` renders → validate → demo (MVP).
+3. US2 → verify bottom-nav reachability/current-state → validate.
+4. Polish → accessibility, CLS, motion, build, quickstart + Lighthouse.
 
 ---
 
@@ -212,7 +212,7 @@ Task: "Create src/components/CvCallout.astro"
 
 - [P] = different files, no dependency on incomplete tasks.
 - Schema tasks T003/T004 share `src/content.config.ts` and are intentionally sequential.
-- Reuse existing components/tokens: `SkillPill`, `NavBar`, `Layout`, `design.md` tokens, and the
-  `data-reveal` motion pattern â€” do not introduce new client JavaScript.
+- Reuse existing components/tokens: `SkillPill`, `NavBar`, `Layout`, `.skills/design.md` tokens, and the
+  `data-reveal` motion pattern — do not introduce new client JavaScript.
 - Experience/Education/Achievements all display **index-descending** (latest first) via reversal.
 - Commit after each task or logical group; run `npm run build` at each checkpoint.
