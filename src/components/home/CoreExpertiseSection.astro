@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SkillPill from '../SkillPill.astro';
+
+interface Props {
+  categories: CollectionEntry<'skills'>[];
+}
+
+const { categories } = Astro.props;
+const homeCategories = categories.filter((category) => category.data.pages.includes('home'));
+---
+
+<section class="py-12" id="core-expertise" aria-labelledby="core-expertise-title">
+  <div class="section__intro mb-8" data-reveal>
+    <p class="section__eyebrow mb-2 text-sm font-semibold uppercase text-accent">Core expertise</p>
+    <h2 id="core-expertise-title" class="section__title m-0 text-3xl leading-tight text-text">Focused delivery across
+      the full platform</h2>
+  </div>
+  <div class="divide-y divide-border border-y border-border">
+    {homeCategories.map((category, index) => (
+      <article class="expertise-row grid gap-4 py-6 lg:items-center lg:gap-8" data-reveal
+               style={`--reveal-delay: ${index * 70}ms`}>
+        <div class="expertise-row__heading items-baseline gap-3">
+          <span class="expertise-row__index font-mono text-xs font-medium text-faint" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3 class="m-0 text-xl leading-snug text-text">{category.data.name}</h3>
+        </div>
+        <ul class="m-0 flex flex-wrap gap-3 p-0" aria-label={`${category.data.name} skills`}>
+          {category.data.skills.slice(0, 3).map((skill) => (
+            <li>
+              <SkillPill name={skill.name} icon={skill.icon}/>
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section__intro {
+    max-width: var(--container-prose);
+  }
+
+  .section__eyebrow {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .section__title {
+    letter-spacing: -0.015em;
+  }
+
+  .expertise-row__heading {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .expertise-row__index {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  @media (min-width: 1024px) {
+    .expertise-row {
+      grid-template-columns: minmax(12rem, 0.36fr) minmax(0, 1fr);
+    }
+  }
+</style>

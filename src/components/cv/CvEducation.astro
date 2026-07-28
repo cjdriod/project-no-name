@@ -10,20 +10,20 @@ const { items } = Astro.props;
 ---
 
 <CvSection title="Education" id="education">
-  <ul class="cv-edu-list" role="list">
+  <ul class="flex flex-col gap-6 m-0 p-0 list-none" role="list">
     {items.map((item) => {
       const { school, course, start, end, achievements } = item.data;
       return (
-        <li class="cv-edu-entry">
-          <div class="cv-edu-entry__header">
-            <h3 class="cv-edu-entry__school">{school}</h3>
-            <span class="cv-edu-entry__period">{start} — {end}</span>
+        <li class="break-inside-avoid">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="m-0 text-lg font-semibold text-text">{school}</h3>
+            <span class="font-mono text-sm whitespace-nowrap text-faint">{start} — {end}</span>
           </div>
-          <p class="cv-edu-entry__course">{course}</p>
+          <p class="mt-1 font-medium text-accent">{course}</p>
           {achievements && achievements.length > 0 && (
-            <ul class="cv-edu-entry__achievements">
+            <ul class="mt-2 flex flex-col gap-1 list-disc pl-6">
               {achievements.map((achievement) =>
-                <li>{achievement}</li>)}
+                <li class="list-item">{achievement}</li>)}
             </ul>
           )}
         </li>
@@ -31,60 +31,3 @@ const { items } = Astro.props;
     })}
   </ul>
 </CvSection>
-
-<style>
-  .cv-edu-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .cv-edu-entry {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .cv-edu-entry__header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-2);
-  }
-
-  .cv-edu-entry__school {
-    margin: 0;
-    color: var(--text);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-  }
-
-  .cv-edu-entry__period {
-    color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    white-space: nowrap;
-  }
-
-  .cv-edu-entry__course {
-    margin: var(--space-1) 0 0;
-    color: var(--accent);
-    font-weight: var(--weight-medium);
-  }
-
-  .cv-edu-entry__achievements {
-    margin: var(--space-2) 0 0;
-    padding-left: var(--space-6);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    list-style: disc;
-  }
-
-  .cv-edu-entry__achievements li {
-    display: list-item;
-  }
-</style>

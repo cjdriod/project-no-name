@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  technologies: string[];
+  sourceHref: string;
+  siteHref?: string;
+}
+
+const { title, description, image, imageAlt, technologies, sourceHref, siteHref } = Astro.props;
+---
+
+<article
+  class="project-card flex h-full w-full flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-sm transition duration-150 ease-out hover:-translate-y-0.5 motion-reduce:hover:translate-y-0">
+  <div class="flex items-start gap-4 px-4 pt-4 lg:flex-col lg:gap-0 lg:p-0">
+    <div
+      class="aspect-square w-16 shrink-0 grow-0 basis-16 overflow-hidden rounded-lg bg-surface-muted lg:w-full lg:basis-auto lg:rounded-none">
+      <Image class="block h-full w-full object-cover" src={image} alt={imageAlt} loading="lazy" decoding="async"
+             width={400} height={400}/>
+    </div>
+    <div class="min-w-0 lg:px-6 lg:pt-6">
+      <h3 class="m-0 text-lg font-semibold leading-snug text-text lg:text-xl">{title}</h3>
+      <p class="mt-2 text-sm leading-relaxed text-muted lg:text-base">{description}</p>
+    </div>
+  </div>
+  <div class="flex min-w-0 flex-1 flex-col p-4 lg:p-6">
+    <ul class="mb-4 flex list-none flex-wrap gap-2 p-0 lg:mb-6" role="list">
+      {technologies.map((tech) => (
+        <li class="rounded-full bg-surface-muted px-3 py-1 text-sm text-muted">{tech}</li>
+      ))}
+    </ul>
+    <div class="mt-auto flex flex-wrap items-center gap-2 border-t border-border pt-2">
+      <a
+        class="project-card__link inline-flex min-h-8 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold text-text no-underline transition-colors duration-150 ease-out hover:bg-surface-muted hover:text-accent focus-visible:bg-surface-muted focus-visible:text-accent"
+        href={sourceHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${title} source code (opens in a new tab)`}
+      >
+        <Icon class="flex-none" name="material-symbols:code-rounded" aria-hidden="true"/>
+        <span>Source</span>
+      </a>
+      {siteHref && (
+        <>
+          <span class="text-sm text-border" aria-hidden="true">|</span>
+          <a
+            class="project-card__link inline-flex min-h-8 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold text-text no-underline transition-colors duration-150 ease-out hover:bg-surface-muted hover:text-accent focus-visible:bg-surface-muted focus-visible:text-accent"
+            href={siteHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} live website (opens in a new tab)`}
+          >
+            <Icon class="flex-none" name="material-symbols:public" aria-hidden="true"/>
+            <span>Website</span>
+          </a>
+        </>
+      )}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .project-card__link {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .project-card__link svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+</style>

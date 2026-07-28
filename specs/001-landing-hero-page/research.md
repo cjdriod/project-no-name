@@ -1,12 +1,12 @@
 # Phase 0 Research: Landing Hero Page
 
-All Technical Context items were resolvable from the existing stack, `design.md`, and the
+All Technical Context items were resolvable from the existing stack, `.skills/design.md`, and the
 clarified spec. No open `NEEDS CLARIFICATION` markers remain. Findings below.
 
 ## 1. Tailwind CSS v4 + design tokens
 
 - **Decision**: Use Tailwind v4 (already wired via `@tailwindcss/vite`). Declare the
-  `design.md` tokens as CSS custom properties in `src/styles/global.css` and expose them to
+  `.skills/design.md` tokens as CSS custom properties in `src/styles/global.css` and expose them to
   Tailwind utilities through the `@theme` block (v4's CSS-first config). Author styles with
   Tailwind utility classes in markup; use CSS variables for theme-swappable colors.
 - **Rationale**: v4 has no `tailwind.config.js` by default; `@theme` is the idiomatic way to
@@ -23,7 +23,7 @@ clarified spec. No open `NEEDS CLARIFICATION` markers remain. Findings below.
   `prefers-color-scheme`, else `light`, and sets the attribute. A small `ThemeToggle` island
   flips the attribute and persists to `localStorage`. Suppress color transitions on first
   paint (`no-transition` class removed on `requestAnimationFrame`).
-- **Rationale**: Matches `design.md` §6.3 / §7.13 exactly (attribute-driven, localStorage
+- **Rationale**: Matches `.skills/design.md` §6.3 / §7.13 exactly (attribute-driven, localStorage
   override, prefers-color-scheme default, no flash, no layout shift). Inline head script is
   the standard no-flash pattern; it is the one unavoidable bit of blocking JS.
 - **Alternatives considered**: CSS-only `prefers-color-scheme` (rejected — no manual
@@ -72,10 +72,10 @@ clarified spec. No open `NEEDS CLARIFICATION` markers remain. Findings below.
 
 - **Decision**: Author base (mobile) styles with full-bleed sections and `20–24px` gutters.
   At `lg` (1024px) and up, cap the content to a centered container (`--container-wide`
-  = 1200px, the home-sections container per `design.md` §4.1) via `max-w-[1200px] mx-auto`.
+  = 1200px, the home-sections container per `.skills/design.md` §4.1) via `max-w-[1200px] mx-auto`.
   Sections stack in a single column at all sizes; experience is a vertical list; skills wrap
   with flex.
-- **Rationale**: Directly implements the user's requirement and `design.md` §4/§10 (single
+- **Rationale**: Directly implements the user's requirement and `.skills/design.md` §4/§10 (single
   layout tier below `lg`; wider screens add margin, not line length; home sections use the
   1200px wide container). Mobile-first ordering (base + `min-width` breakpoints) satisfies
   Constitution III.
@@ -90,7 +90,7 @@ clarified spec. No open `NEEDS CLARIFICATION` markers remain. Findings below.
   them to visible with a per-element `--reveal-delay`. Under
   `@media (prefers-reduced-motion: reduce)`, `data-reveal` is shown immediately with no
   transform/transition.
-- **Rationale**: Satisfies FR-012/FR-013 and `design.md` §8 (fade + `<=8px` translate,
+- **Rationale**: Satisfies FR-012/FR-013 and `.skills/design.md` §8 (fade + `<=8px` translate,
   `250ms`, `ease-out`) with zero animation-runtime JS, preserving the performance budget.
   **Confirmed by owner (2026-07-08): motion is minimal and CSS is sufficient** — no Motion One
   is added. Documented as a justified deviation from Principle IV's Motion One default (see
@@ -117,7 +117,7 @@ clarified spec. No open `NEEDS CLARIFICATION` markers remain. Findings below.
   hidden destinations remain reachable via the hero CTAs and their real routes.
 - **Rationale**: Meets FR-004/006/017/018 and keeps ≥44px targets (Constitution III). A pill-shaped
   bottom bar is a modern, thumb-reachable mobile pattern (primary audience is on phones). This
-  deviates from `design.md` §7.1 (top bar, underlined active, "not a colored pill") — an
+  deviates from `.skills/design.md` §7.1 (top bar, underlined active, "not a colored pill") — an
   owner-directed change documented in plan.md; tokens (§7.4 pill, §7.13 toggle, §8 motion) are
   otherwise reused. Per owner
   clarification (2026-07-08) the destinations are real routes, so the nav bar is a persistent
@@ -150,5 +150,5 @@ npm i -D @iconify-json/logos
 ```
 
 No other new runtime dependencies (motion is CSS-only — no Motion One). Google Fonts (Inter,
-JetBrains Mono) loaded via `<link>` in `Layout.astro` per `design.md` §5 (or self-hosted
+JetBrains Mono) loaded via `<link>` in `Layout.astro` per `.skills/design.md` §5 (or self-hosted
 later).

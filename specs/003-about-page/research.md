@@ -11,7 +11,7 @@ remain.
   company logo on the left and, to its right, the employer, position, working period
   (`{month} {year}`, ongoing → "Present"), and a short summary. Consecutive entries are separated
   by a thin hairline divider. No timeline spine/rail is drawn.
-- **Rationale**: The 2026-07-15 clarification supersedes `design.md` §5/§7.5 (which specified a
+- **Rationale**: The 2026-07-15 clarification supersedes `.skills/design.md` §5/§7.5 (which specified a
   vertical timeline). A hairline-separated list matches the calm/minimal pattern already used by
   Core Expertise and keeps the reading flow single-column and legible on mobile.
 - **Alternatives considered**: (a) Vertical timeline with spine — rejected per clarification;
@@ -84,7 +84,7 @@ remain.
 
 - **Decision**: End the page with a CTA section: the prompt "Looking for more details?" and a
   link/button labeled "View my complete Curriculum Vitae (CV) →" pointing at `/cv`. Styled as an
-  accent primary link/button per `design.md` (accent reserved for CTAs/links). Building `/cv` is
+  accent primary link/button per `.skills/design.md` (accent reserved for CTAs/links). Building `/cv` is
   out of scope (2026-07-15 clarification).
 - **Rationale**: Matches the user's request and the design system's CTA guidance. `/cv` already
   exists as the profile's `cvHref` default, so the target is the canonical CV route.

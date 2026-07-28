@@ -70,7 +70,7 @@ Expected: build completes; `dist/cv/index.html` exists; no schema errors from th
 5. QR **is** present in print.
 6. Select-all in the resulting PDF → all text is selectable/copyable.
 
-**Pass**: matches print contract + design.md §10.1.
+**Pass**: matches print contract + .skills/design.md §10.1.
 
 ## Scenario F — Share (US4)
 

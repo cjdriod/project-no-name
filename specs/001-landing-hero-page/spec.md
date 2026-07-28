@@ -19,10 +19,10 @@
 ### Session 2026-07-08
 
 - Q: How should the hero present the professional title/identity? → A: "Full Stack Developer" — keep the simple identity line; senior/technical-lead substance is conveyed in the description copy, not the title.
-- Q: What should the "View CV" call-to-action do? → A: Navigate to a dedicated `/cv` page (per `design.md`), keeping the CV selectable and ATS-friendly.
+- Q: What should the "View CV" call-to-action do? → A: Navigate to a dedicated `/cv` page (per `.skills/design.md`), keeping the CV selectable and ATS-friendly.
 - Q: Should "Passionate about System Design & Sustainable Solutions" be a hero tagline? → A: Yes — use a refined version as the hero eyebrow/tagline above the name.
 - Q: Should skill badges reflect the specific stack/domains from the bio? → A: Yes — ground the pills in the bio (AWS, Azure, DevSecOps, CI/CD, observability, etc.).
-- Q: What tone should the refined website copy take? → A: Calm, confident, professional — understated and aligned with `design.md`; not sales-oriented.
+- Q: What tone should the refined website copy take? → A: Calm, confident, professional — understated and aligned with `.skills/design.md`; not sales-oriented.
 
 ### Session 2026-07-08 (plan clarifications)
 
@@ -40,7 +40,7 @@
 - Q: Where is the nav bar positioned? → A: Fixed to the bottom of the viewport, horizontally centered, and persistent (stays visible while scrolling).
 - Q: What does "pill-style" mean concretely? → A: The UI component appearance — a pill shape (fully rounded radius) with a solid surface fill, a hairline border, and a subtle shadow.
 - Q: Is the active state driven by scroll position or URL? → A: By the current URL route only (no scroll-spy). The item matching the current page shows a filled/glowing pill; on `/` that is Home. It must have an active effect.
-- Q: Must the active state be conveyed by more than color alone? → A: Yes — per `design.md`'s accessibility principle, the active item is distinguished by shape + fill + `aria-current="page"`, not by color alone. (Reconciled 2026-07-08 to follow `design.md` as source of truth.)
+- Q: Must the active state be conveyed by more than color alone? → A: Yes — per `.skills/design.md`'s accessibility principle, the active item is distinguished by shape + fill + `aria-current="page"`, not by color alone. (Reconciled 2026-07-08 to follow `.skills/design.md` as source of truth.)
 - Q: Theme-toggle placement/affordance and accessibility? → A: Lives within the nav bar (separated from the links), with distinct light/dark icon states (sun/moon) and an accessible name; an explicit pressed-state exposure is not required.
 - Q: Default theme when no stored preference? → A: Check saved preference → else system preference (`prefers-color-scheme`) → else light.
 - Q: Hover/focus/active interaction states, "no magnify", persistence, immediate theme switch, accessible names — confirmed? → A: Yes.
@@ -51,21 +51,21 @@
 - Q: How is "no flash of the incorrect theme" made observable? → A: The correct theme MUST be applied before first paint (a blocking inline script sets it pre-render).
 - Q: How does the nav bar scale responsively? → A: Against the project's single breakpoint (`lg` = 1024px per Constitution III); spacing/size step once between the mobile and desktop tiers.
 - Q: Minimum tap-target size for nav items and toggle? → A: At least 44px on all viewports.
-- Q: Is the active state conveyed by more than color alone? → A: Yes — follow `design.md`; shape + fill + `aria-current="page"`, not color alone.
+- Q: Is the active state conveyed by more than color alone? → A: Yes — follow `.skills/design.md`; shape + fill + `aria-current="page"`, not color alone.
 - Q: Must the active nav state be exposed to assistive tech? → A: Yes — `aria-current="page"` on the current-route item.
 - Q: Contrast for nav text/icons and the active highlight? → A: MUST meet WCAG AA in both light and dark themes.
 - Q: Reduced-motion behavior of the active highlight? → A: The highlight MUST remain visible with animation disabled.
 - Q: How are the out-of-scope routes handled? → A: Links are preserved and point at the real routes (`/about`, `/projects`, `/contact`, `/cv`); those pages are not built here. Visiting a not-yet-built route returns the site 404 page (yet to be developed) — no test required, only that the link target exists.
 - Q: Any remaining `#projects` anchor vs `/projects` route conflict? → A: None — Projects is a `/projects` route only; the pill nav fully replaces the original macOS dock idea with no leftover magnify/anchor language.
-- Q: Is `design.md` the source of truth for nav visual/interaction/a11y detail? → A: Yes — `design.md` governs tokens, active-state indication, motion, and contrast; the bottom-center pill placement remains the sole owner-approved deviation (tracked in `plan.md`).
+- Q: Is `.skills/design.md` the source of truth for nav visual/interaction/a11y detail? → A: Yes — `.skills/design.md` governs tokens, active-state indication, motion, and contrast; the bottom-center pill placement remains the sole owner-approved deviation (tracked in `plan.md`).
 
 ### Session 2026-07-08 (hero, content & a11y detail)
 
 - Q: Does the hero include a portrait, and is its presence/placement specified? → A: Yes — the hero presents a portrait image alongside the identity/description block; a placeholder is allowed until a final image exists.
 - Q: Do the CTAs need hover/focus/active states and a tap-target size? → A: Yes — both CTAs expose distinct hover/focus/active states and present ≥44px touch targets.
-- Q: What are the enter-animation properties (elements, sequence, direction, duration, easing)? → A: Hero elements fade in and translate slightly upward in a staggered top-to-bottom sequence; ~250ms per element, easing `ease-out` / cubic-bezier(0.16, 1, 0.3, 1) per `design.md` §8, with a short stagger.
-- Q: Is a container width defined for the hero/home sections? → A: Yes — full-width on small viewports, centered within `--container-wide` (1200px) on desktop (`design.md` §4.1).
-- Q: Are semantic-structure requirements defined (single h1, landmarks, skip link)? → A: Yes — exactly one `<h1>`, landmark regions, and a "Skip to content" link as the first focusable element (`design.md` §9).
+- Q: What are the enter-animation properties (elements, sequence, direction, duration, easing)? → A: Hero elements fade in and translate slightly upward in a staggered top-to-bottom sequence; ~250ms per element, easing `ease-out` / cubic-bezier(0.16, 1, 0.3, 1) per `.skills/design.md` §8, with a short stagger.
+- Q: Is a container width defined for the hero/home sections? → A: Yes — full-width on small viewports, centered within `--container-wide` (1200px) on desktop (`.skills/design.md` §4.1).
+- Q: Are semantic-structure requirements defined (single h1, landmarks, skip link)? → A: Yes — exactly one `<h1>`, landmark regions, and a "Skip to content" link as the first focusable element (`.skills/design.md` §9).
 - Q: Is AA contrast required in both themes, and alt text for images? → A: Yes — all text/UI meets WCAG AA in light and dark; experience photos and the hero portrait carry descriptive alt text.
 - Q: Do skill pills pair an icon with text, and what if no brand icon exists? → A: Pills MAY pair a brand/tech icon with the label; with no suitable brand icon they render text-only without breaking layout (resolves the open brand-icon-pack dependency).
 - Q: Behavior for fewer than three experiences or overflowing skills? → A: Render only the available experience entries (no empty placeholders); skill pills wrap onto multiple lines on narrow viewports.
@@ -202,7 +202,7 @@ set of skills renders as pill-shaped badges.
   (`/about`), Projects (`/projects`), and Contact me (`/contact`). The bar MUST be fixed to the
   bottom of the viewport, horizontally centered, and remain visible while the page scrolls. It
   MUST be rendered as a pill-shaped component: a fully rounded radius with a solid surface fill,
-  a hairline border, and a subtle shadow (design tokens per `design.md`).
+  a hairline border, and a subtle shadow (design tokens per `.skills/design.md`).
 - **FR-006**: The bottom navigation MUST include a control to toggle between light and dark
   appearance. The toggle lives within the nav bar, visually separated from the destination
   links, uses distinct light/dark icon states (e.g. sun/moon), and has an accessible name. An
@@ -227,7 +227,7 @@ set of skills renders as pill-shaped badges.
   MUST render as text-only without breaking the layout.
 - **FR-012**: The page MUST present its content with an enter animation on load: the hero's
   elements MUST fade in and translate slightly upward into place in a staggered, top-to-bottom
-  sequence. Per-element entrance duration and easing MUST follow `design.md` §8 (~250ms, easing
+  sequence. Per-element entrance duration and easing MUST follow `.skills/design.md` §8 (~250ms, easing
   `ease-out` / cubic-bezier(0.16, 1, 0.3, 1)) with a short stagger between elements; the
   animation MUST NOT block legibility or interaction.
 - **FR-013**: The enter animation MUST be suppressed for visitors who prefer reduced motion,
@@ -235,16 +235,16 @@ set of skills renders as pill-shaped badges.
 - **FR-014**: All interactive elements (navigation destinations, theme toggle, and
   calls-to-action) MUST be reachable and operable by keyboard, with visible focus states. All
   text and interactive UI MUST meet WCAG AA color contrast in both light and dark themes
-  (`design.md` §9).
+  (`.skills/design.md` §9).
 - **FR-015**: The layout MUST adapt from small mobile viewports up through desktop, keeping
   navigation, calls-to-action, and content legible and usable at every size. The navigation
   bar's spacing and sizing MUST scale against the project's single breakpoint (`lg` = 1024px per
   Constitution III), stepping once between the mobile and desktop tiers; every nav item and the
   theme toggle MUST present a tap target of at least 44px on all viewports. Hero and home
   sections MUST sit full-width on small viewports and center within the design system's
-  `--container-wide` (1200px) on desktop, per `design.md` §4.1.
+  `--container-wide` (1200px) on desktop, per `.skills/design.md` §4.1.
 - **FR-016**: All page copy MUST use a calm, confident, professional tone consistent with
-  `design.md` (Calm · Professional · Trustworthy · Mature). Copy MUST avoid hype,
+  `.skills/design.md` (Calm · Professional · Trustworthy · Mature). Copy MUST avoid hype,
   superlatives, and sales-oriented language, and MUST NOT be redundant.
 - **FR-017**: The bottom navigation MUST indicate the active/current destination based on the
   current URL route (not scroll position). The item whose route matches the current page MUST be
@@ -253,7 +253,7 @@ set of skills renders as pill-shaped badges.
   a subtle glow/ring, not a color change alone — is the interaction cue: the navigation MUST NOT
   use a macOS-style magnify/scale effect, and the highlight MUST remain visible under reduced
   motion. The nav text/icons and the active-pill highlight MUST meet WCAG AA contrast in both
-  light and dark themes (per `design.md` §9).
+  light and dark themes (per `.skills/design.md` §9).
 - **FR-018**: On very narrow viewports where the four destinations plus the theme toggle cannot
   all fit, the navigation MUST degrade gracefully: lower-priority destinations MUST collapse into
   an overflow/dropdown control, or be hidden in priority order (Projects first, then Contact me),
@@ -261,7 +261,7 @@ set of skills renders as pill-shaped badges.
   unreachable and the bar MUST NOT overflow the viewport.
 - **FR-019**: The page MUST use a sound semantic structure: exactly one `<h1>`, landmark regions
   for navigation and main content, and a "Skip to content" link as the first focusable element
-  (`design.md` §9).
+  (`.skills/design.md` §9).
 - **FR-020**: Every experience photo and the hero portrait MUST provide descriptive alternative
   text (or an equivalent non-visual fallback) so the content stays meaningful without images.
 
@@ -301,7 +301,7 @@ set of skills renders as pill-shaped badges.
 - The primary audience is recruiters, hiring managers, and technical reviewers evaluating the
   person quickly, often on mobile devices.
 - "View Projects" navigates to the `/projects` route; "View CV" navigates to the `/cv` route
-  (see FR-003), which itself may offer a downloadable/ATS-friendly export per `design.md`. The
+  (see FR-003), which itself may offer a downloadable/ATS-friendly export per `.skills/design.md`. The
   bottom navigation links are cross-route (Home `/`, About `/about`, Projects `/projects`,
   Contact me `/contact`), not in-page anchors. `/about`, `/projects`, `/contact`, and `/cv` are
   separate routes outside this feature's build scope; this feature only guarantees the links
@@ -314,10 +314,10 @@ set of skills renders as pill-shaped badges.
 - Default appearance when neither a stored choice nor a system preference is available is
   light mode, consistent with the project's "high-quality paper" light theme.
 - Iconography, colors, spacing, typography, and motion follow the tokens and rules defined in
-  the project's design system (`design.md`). `design.md` is the source of truth for the
+  the project's design system (`.skills/design.md`). `.skills/design.md` is the source of truth for the
   navigation's visual, interaction, and accessibility detail (active-state indication, motion,
   and contrast); the fixed bottom-center pill placement is the sole owner-approved deviation
-  from `design.md` §7.1, tracked in `plan.md`.
+  from `.skills/design.md` §7.1, tracked in `plan.md`.
 - The hero portrait MAY be a placeholder image until a final photo is supplied; the layout and
   its alternative text MUST hold regardless.
 - Skill brand icons are provided via an icon pack where available; skills without a suitable

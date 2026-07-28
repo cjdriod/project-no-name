@@ -9,7 +9,7 @@ const { languages } = Astro.props;
 ---
 
 <CvSection title="Language" id="language">
-  <ul class="cv-languages" aria-label="Languages">
+  <ul class="flex flex-wrap items-center gap-2 m-0 p-0 list-none text-muted" aria-label="Languages">
     {languages.map((language) => (
       <li class="cv-languages__item">{language}</li>
     ))}
@@ -17,17 +17,6 @@ const { languages } = Astro.props;
 </CvSection>
 
 <style>
-  .cv-languages {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    color: var(--text-muted);
-  }
-
   .cv-languages__item + .cv-languages__item::before {
     content: '\2022';
     margin-inline-end: var(--space-2);

@@ -80,7 +80,7 @@ vars). Accessibility notes are binding (Constitution II).
   experience by `order`, caps to 3, passes props down. Nav links are cross-route (`/`,
   `/about`, `/projects`, `/contact`); CTAs link to `/projects` and `/cv`.
 - **Responsive contract**: `<main>` is full-width with mobile gutters; at `lg`+ it is capped
-  to `--container-wide` (1200px, home-sections container per `design.md` §4.1) and centered.
+  to `--container-wide` (1200px, home-sections container per `.skills/design.md` §4.1) and centered.
 
 ## Interaction contracts (behavioral)
 

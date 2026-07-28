@@ -1,0 +1,44 @@
+---
+interface Props {
+  cvHref: string;
+}
+
+const { cvHref } = Astro.props;
+---
+
+<section class="py-12" id="cv-callout" aria-labelledby="cv-title" data-reveal>
+  <div class="section__intro mb-4">
+    <p class="section__eyebrow mb-2 text-sm font-semibold uppercase text-accent">Resources</p>
+    <h2 id="cv-title" class="section__title m-0 text-3xl leading-tight text-text">Looking for more details?</h2>
+  </div>
+  <p class="section__body mb-8 text-lg leading-relaxed text-muted">Get a comprehensive view of my full experience, qualifications, and achievements in my
+    Curriculum Vitae.</p>
+  <a href={cvHref} class="cta-btn group inline-flex min-h-11 items-center gap-3 rounded-md border border-accent bg-accent px-6 py-3 font-semibold text-surface! no-underline transition-colors duration-150 ease-out hover:border-accent-hover hover:bg-accent-hover active:translate-y-px"
+     aria-label="View my complete Curriculum Vitae (opens PDF)">
+    <span>View Complete CV</span>
+    <span class="inline-block transition-transform duration-150 ease-out group-hover:translate-x-1" aria-hidden="true">→</span>
+  </a>
+</section>
+
+<style>
+  .section__eyebrow {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .section__title {
+    letter-spacing: -0.015em;
+  }
+
+  .section__body {
+    max-width: var(--container-prose);
+  }
+
+  .cta-btn {
+    letter-spacing: 0.04em;
+  }
+
+  .cta-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>

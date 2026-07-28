@@ -193,6 +193,33 @@ button, a {
   transform: translateY(0);
 }
 
+.page-shell {
+  width: min(100%, var(--container-wide));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-bottom: calc(var(--space-32) + env(safe-area-inset-bottom));
+}
+
+.page-shell--narrow {
+  width: min(100%, var(--container-content));
+}
+
+.page-title {
+  margin: 0;
+  padding-top: var(--space-12);
+  color: var(--text);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+}
+
+@media (min-width: 1024px) {
+  .page-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(8px);

@@ -11,7 +11,7 @@ sections plus a closing call-to-action: (1) Professional Summary & Highlights, (
 category, (3) Work Experience, (4) Achievements, (5) Education, then a "Looking for more details?"
 CTA linking to `/cv`. All content is sourced from type-safe Astro Content Collections. The page
 reuses the existing shared layout, bottom navigation (which already lists "About"), theme, and
-`design.md` design tokens. Work Experience is rendered LinkedIn-style (no timeline UI): a
+`.skills/design.md` design tokens. Work Experience is rendered LinkedIn-style (no timeline UI): a
 hairline-separated list with a company logo on the left. The content model is extended by reusing
 `profile` (add `highlights`), reusing `skills` (filtered by the `about` page flag), extending
 `experience` (add `summary`), and adding two new collections: `education` and `achievements`.
@@ -35,7 +35,7 @@ validation + Lighthouse + manual review are the gates).
 **Project Type**: Single static web application (Astro), single project structure.
 
 **Performance Goals**: Lighthouse Performance ≥ 95, Accessibility 100, SEO 100; LCP < 1.5s;
-CLS < 0.05 (per `design.md` / Constitution Principle II).
+CLS < 0.05 (per `.skills/design.md` / Constitution Principle II).
 
 **Constraints**: Zero client JavaScript on the reading page beyond the existing theme-toggle and
 navigation islands. Explicit media dimensions on all images to preserve no-CLS. WCAG 2.1 AA in

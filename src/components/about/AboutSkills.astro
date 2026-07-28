@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SkillPill from '../SkillPill.astro';
+
+interface Props {
+  categories: CollectionEntry<'skills'>[];
+}
+
+const { categories } = Astro.props;
+const aboutCategories = categories.filter((c) => c.data.pages.includes('about'));
+---
+
+<section class="py-12" id="skills" aria-labelledby="skills-title">
+  <div class="section__intro mb-8" data-reveal>
+    <p class="section__eyebrow mb-2 text-sm font-semibold uppercase text-accent">Skills</p>
+    <h2 id="skills-title" class="section__title m-0 text-3xl leading-tight text-text">What I work with</h2>
+  </div>
+  <div class="flex flex-col gap-8 lg:block lg:columns-2">
+    {aboutCategories.map((category, i) => (
+      <div class="lg:mb-8 lg:break-inside-avoid" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
+        <h3 class="m-0 mb-4 text-lg font-semibold text-text">{category.data.name}</h3>
+        <ul class="m-0 flex list-none flex-wrap gap-2 p-0" aria-label={`${category.data.name} skills`}>
+          {category.data.skills.map((skill) => (
+            <li>
+              <SkillPill name={skill.name} icon={skill.icon}/>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section__eyebrow {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .section__title {
+    letter-spacing: -0.015em;
+    line-height: var(--leading-tight);
+  }
+
+</style>

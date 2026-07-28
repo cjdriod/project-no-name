@@ -7,33 +7,26 @@ interface Props {
 const { title, id } = Astro.props;
 ---
 
-<section class="cv-section" id={id} aria-labelledby={`${id}-title`}>
-  <h2 class="cv-section__title" id={`${id}-title`}>{title}</h2>
-  <div class="cv-section__body">
+<section class="cv-section border-b border-border py-6" id={id} aria-labelledby={`${id}-title`}>
+  <h2 class="cv-section__title mb-4 inline-block border-b-2 border-accent pb-1 text-2xl font-bold text-text" id={`${id}-title`}>{title}</h2>
+  <div class="cv-section__body text-muted">
     <slot/>
   </div>
 </section>
 
 <style>
-  .cv-section {
-    padding-block: var(--space-6);
-    border-bottom: var(--border-thin) solid var(--border);
-  }
-
+  /*
+    letter-spacing/line-height use project tokens (--tracking-tight,
+    --leading-tight, --leading-relaxed) whose values don't match Tailwind's
+    default type scale, so they stay as scoped CSS rather than approximated
+    utility classes.
+  */
   .cv-section__title {
-    margin: 0 0 var(--space-4);
-    display: inline-block;
-    border-bottom: var(--border-thick) solid var(--accent);
-    padding-bottom: var(--space-1);
-    color: var(--text);
-    font-size: var(--text-2xl);
-    font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
     line-height: var(--leading-tight);
   }
 
   .cv-section__body {
-    color: var(--text-muted);
     line-height: var(--leading-relaxed);
   }
 

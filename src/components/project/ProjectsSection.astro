@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import ProjectCard from './ProjectCard.astro';
+
+interface Contact {
+  channel: 'email' | 'linkedin' | 'github';
+  label: string;
+  href: string;
+  icon: string;
+}
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+  contacts: Contact[];
+}
+
+const { projects, contacts } = Astro.props;
+const items = projects.toReversed();
+const githubHref = contacts.find((contact) => contact.channel === 'github')?.href;
+---
+
+<section class="projects-section py-12" id="projects" aria-labelledby="projects-title">
+  <div class="mb-6" data-reveal>
+    <p class="section__eyebrow mb-2 text-sm font-semibold uppercase text-accent">Selected work</p>
+    <h2 id="projects-title">Projects</h2>
+  </div>
+  <ul class="m-0 grid list-none grid-cols-1 items-stretch gap-6 p-0 lg:grid-cols-3" role="list">
+    {items.map((item, index) => (
+      <li class="list-none" data-reveal style={`--reveal-delay: ${index * 70}ms`}>
+        <ProjectCard {...item.data}/>
+      </li>
+    ))}
+    {githubHref && (
+      <li class="list-none" data-reveal style={`--reveal-delay: ${items.length * 70}ms`}>
+        <a
+          class="view-more-card group flex h-full w-full min-h-48 flex-col items-center justify-center gap-2 px-6 py-8 text-center bg-surface rounded-xl border border-dashed border-border shadow-sm no-underline transition duration-150 ease-out hover:-translate-y-0.5 hover:border-accent focus-visible:-translate-y-0.5 focus-visible:border-accent motion-reduce:hover:translate-y-0 motion-reduce:focus-visible:translate-y-0"
+          href={githubHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View more projects on GitHub (opens in a new tab)"
+        >
+          <Icon class="h-8 w-8 text-text" name="logos:github-icon" aria-hidden="true"/>
+          <span class="text-lg font-semibold text-text">More on GitHub</span>
+          <p class="view-more-card__description m-0 text-sm leading-relaxed text-muted">Explore the rest of my repositories and open-source
+            work.</p>
+          <span
+            class="mt-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 font-semibold text-text no-underline pointer-events-none transition duration-150 ease-out group-hover:border-accent group-hover:text-accent group-focus-visible:border-accent group-focus-visible:text-accent">View profile</span>
+        </a>
+      </li>
+    )}
+  </ul>
+</section>
+
+<style>
+  .section__eyebrow {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--text);
+    font-size: var(--text-3xl);
+    letter-spacing: -0.015em;
+    line-height: var(--leading-tight);
+  }
+
+  .view-more-card:hover, .view-more-card:focus-visible {
+    box-shadow: var(--shadow-md);
+  }
+
+  .view-more-card__description {
+    max-width: 26ch;
+  }
+</style>

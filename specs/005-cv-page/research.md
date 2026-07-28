@@ -1,6 +1,6 @@
 # Phase 0 Research: CV Page
 
-All Technical Context items were resolvable from the existing codebase, the constitution, `design.md`, and the user's plan-time direction. No open `NEEDS CLARIFICATION` remain (the GitHub Pages URL is a deferred value carried as a documented placeholder, not a design unknown).
+All Technical Context items were resolvable from the existing codebase, the constitution, `.skills/design.md`, and the user's plan-time direction. No open `NEEDS CLARIFICATION` remain (the GitHub Pages URL is a deferred value carried as a documented placeholder, not a design unknown).
 
 ## Decision 1 — QR code generation (build-time, inline SVG)
 
@@ -40,7 +40,7 @@ All Technical Context items were resolvable from the existing codebase, the cons
 ## Decision 5 — Print pipeline (A4, forced light, hidden chrome)
 
 - **Decision**: A `@media print` block (scoped to the CV page) that: sets `@page { size: A4; margin: 18mm; }`; forces light theme by re-declaring the light token values under print regardless of `data-theme`; sets `display: none` on nav, the top alert (FR-007b), and the print/share section (FR-029a); collapses to a single column; keeps the QR visible (FR-013b); applies point-based type and `break-inside: avoid` on entries to prevent mid-entry page breaks.
-- **Rationale**: Directly satisfies design.md §10.1 and constitution Gate 7; browser-native `window.print()` needs no server-side PDF. Low technical risk (already flagged in spec).
+- **Rationale**: Directly satisfies .skills/design.md §10.1 and constitution Gate 7; browser-native `window.print()` needs no server-side PDF. Low technical risk (already flagged in spec).
 - **Forced light in print**: Because theme is applied via `:root[data-theme="dark"]` custom properties, the print block overrides the relevant color custom properties (or wraps content in a forced `data-theme="light"` scope for print) so dark-mode users still get a light printout.
 - **Screen QR breakpoint**: On screen the QR is hidden below the print/A4 width (~794px, aligned to the `md` 768px breakpoint) and shown at/above it; print always shows it (independent rules — resolves the earlier print/breakpoint conflict).
 

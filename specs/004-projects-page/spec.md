@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "I want to develop a project page. This page will mainly show a list of projects that I previously worked with. The projects will be displayed in card view UI presentation. In the card, it should include an image, title, simple description, technology used and some link where it navigates to source code. Some projects will have a link to the website itself. Lastly a 'view more' button at the end of the section navigates to GitHub (the link can be gotten from profile contacts). So far only have 5 projects. Same as usual, when they click on the source code tab or website tab, it will open a new tab and the external page icon will be there. Next, in the bottom navigator, the project tab links to this new page (/projects), and the index page hero section project CTA will navigate to this page. The design of the page must be consistent and comply with the design.md file."
+**Input**: User description: "I want to develop a project page. This page will mainly show a list of projects that I previously worked with. The projects will be displayed in card view UI presentation. In the card, it should include an image, title, simple description, technology used and some link where it navigates to source code. Some projects will have a link to the website itself. Lastly a 'view more' button at the end of the section navigates to GitHub (the link can be gotten from profile contacts). So far only have 5 projects. Same as usual, when they click on the source code tab or website tab, it will open a new tab and the external page icon will be there. Next, in the bottom navigator, the project tab links to this new page (/projects), and the index page hero section project CTA will navigate to this page. The design of the page must be consistent and comply with the .skills/design.md file."
 
 ## Clarifications
 
@@ -114,7 +114,7 @@ A visitor anywhere on the site can reach the projects page through the persisten
 - **FR-018**: This feature MUST NOT include per-project detail pages; the Projects page is a single list/index view only.
 - **FR-019**: Each project card's links (source code and, when present, website) MUST be grouped together as a card action group anchored at the bottom of the card.
 - **FR-012**: The home page hero section's projects call-to-action MUST navigate to `/projects`.
-- **FR-013**: The Projects page layout, spacing, typography, cards, tags, colors, and interactions MUST comply with the project's design system (design.md), including the single-column layout below the desktop breakpoint and the multi-column project grid on desktop.
+- **FR-013**: The Projects page layout, spacing, typography, cards, tags, colors, and interactions MUST comply with the project's design system (.skills/design.md), including the single-column layout below the desktop breakpoint and the multi-column project grid on desktop.
 - **FR-014**: Project card and page interactions (hover, reveal, motion) MUST respect the visitor's reduced-motion preference.
 - **FR-015**: The Projects page MUST be responsive and remain legible and usable across mobile, tablet, and desktop viewports, with touch targets of at least 44px.
 
@@ -139,9 +139,9 @@ A visitor anywhere on the site can reach the projects page through the persisten
 
 ## Assumptions
 
-- The Projects page is a single list/index view only. Per-project detail pages (`/projects/[slug]` case studies) are explicitly **not** designed or built in this feature, and the project filter controls described in design.md are also out of scope; both may be addressed separately later.
+- The Projects page is a single list/index view only. Per-project detail pages (`/projects/[slug]` case studies) are explicitly **not** designed or built in this feature, and the project filter controls described in .skills/design.md are also out of scope; both may be addressed separately later.
 - Project content (image, title, description, technologies, source link, optional website link) is maintained as structured content consistent with the existing content-collection approach used elsewhere in the site.
 - The bottom navigator already includes a Projects tab pointing at `/projects`, and the hero projects call-to-action already targets `/projects`; this feature makes those entry points resolve to a real page and verifies their behavior.
 - The GitHub URL for the "View more" action reuses the existing GitHub entry in the profile contacts; no new contact channel is introduced.
-- Standard, project-appropriate defaults apply for image aspect ratio, lazy loading, and hover/reveal motion, as defined by design.md.
+- Standard, project-appropriate defaults apply for image aspect ratio, lazy loading, and hover/reveal motion, as defined by .skills/design.md.
 - Exactly five projects exist today; the design accommodates a modest, curated set rather than a large paginated catalogue.

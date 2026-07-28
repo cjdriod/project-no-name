@@ -1,0 +1,83 @@
+﻿---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  profile: CollectionEntry<'profile'>;
+}
+
+const { profile } = Astro.props;
+const data = profile.data;
+---
+
+<section class="hero grid items-center gap-12 py-12" aria-labelledby="hero-title">
+  <div class="hero__content">
+    <p class="hero__tagline w-fit m-0 mb-6 rounded-full bg-surface-muted px-4 py-2 text-sm font-semibold uppercase text-accent"
+       data-reveal style="--reveal-delay: 0ms">{data.tagline}</p>
+    <p class="m-0 text-lg font-medium text-muted" data-reveal style="--reveal-delay: 60ms">{data.greeting}</p>
+    <h1 id="hero-title" class="hero__title my-3 text-5xl font-bold text-text" data-reveal
+        style="--reveal-delay: 120ms">{data.name}</h1>
+    <p class="m-0 text-xl font-semibold text-accent" data-reveal style="--reveal-delay: 180ms">{data.role}</p>
+    <p class="hero__description mt-6 text-lg leading-relaxed text-muted" data-reveal style="--reveal-delay: 240ms">{data.description}</p>
+    <div class="mt-8 flex flex-wrap gap-3 max-[420px]:flex-col" data-reveal style="--reveal-delay: 300ms">
+      <a
+        class="button button--primary max-[420px]:w-full inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-6 py-3 font-semibold text-surface! no-underline transition duration-150 ease-out hover:border-accent-hover hover:bg-accent-hover active:translate-y-px"
+        href={data.projectsHref}>
+        <span>View Projects</span>
+        <Icon class="button__icon" name="material-symbols:grid-view-outline-rounded" aria-hidden="true"/>
+      </a>
+      <a
+        class="button button--secondary max-[420px]:w-full inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 py-3 font-semibold text-text no-underline transition duration-150 ease-out hover:border-accent hover:text-accent active:translate-y-px"
+        href={data.cvHref}>
+        <span>View CV</span>
+        <Icon class="button__icon" name="material-symbols:description-outline-rounded" aria-hidden="true"/>
+      </a>
+    </div>
+  </div>
+  <figure class="hero__portrait m-0 m justify-self-center lg:justify-self-end" data-reveal
+          style="--reveal-delay: 360ms">
+    <Image class="hero__portrait-img h-auto w-full border border-border bg-surface-muted"
+           src={data.photo} alt={data.photoAlt} width={640} height={640} loading="eager" decoding="async"/>
+  </figure>
+</section>
+
+<style>
+  .hero__content {
+    max-width: var(--container-prose);
+  }
+
+  .hero__tagline {
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .hero__title {
+    max-width: 12ch;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.05;
+  }
+
+  .hero__description {
+    max-width: 62ch;
+  }
+
+  .button__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .hero__portrait {
+    max-width: min(100%, 22rem);
+  }
+
+  .hero__portrait-img {
+    border-radius: clamp(2rem, 8vw, 6rem);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem);
+    }
+  }
+</style>

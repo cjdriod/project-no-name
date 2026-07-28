@@ -99,4 +99,4 @@ Map to spec user stories / FRs. Check each manually.
 - Data shapes: [data-model.md](./data-model.md)
 - Content schema: [contracts/content-schema.md](./contracts/content-schema.md)
 - Component props/a11y: [contracts/components.md](./contracts/components.md)
-- Design tokens & rules: `design.md`
+- Design tokens & rules: `.skills/design.md`
