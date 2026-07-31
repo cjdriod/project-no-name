@@ -1,9 +1,4 @@
 ---
-interface Props {
-  cvHref: string;
-}
-
-const { cvHref } = Astro.props;
 ---
 
 <section class="py-12" id="cv-callout" aria-labelledby="cv-title" data-reveal>
@@ -13,7 +8,7 @@ const { cvHref } = Astro.props;
   </div>
   <p class="section__body mb-8 text-lg leading-relaxed text-muted">Get a comprehensive view of my full experience, qualifications, and achievements in my
     Curriculum Vitae.</p>
-  <a href={cvHref} class="cta-btn group inline-flex min-h-11 items-center gap-3 rounded-md border border-accent bg-accent px-6 py-3 font-semibold text-surface! no-underline transition-colors duration-150 ease-out hover:border-accent-hover hover:bg-accent-hover active:translate-y-px"
+  <a href="/cv" class="cta-btn group inline-flex min-h-11 items-center gap-3 rounded-md border border-accent bg-accent px-6 py-3 font-semibold text-surface! no-underline transition-colors duration-150 ease-out hover:border-accent-hover hover:bg-accent-hover active:translate-y-px"
      aria-label="View my complete Curriculum Vitae (opens PDF)">
     <span>View Complete CV</span>
     <span class="inline-block transition-transform duration-150 ease-out group-hover:translate-x-1" aria-hidden="true">→</span>

@@ -1,16 +1,33 @@
-- id: backend-development
-  name: Backend Development
-  pages: [ home, about, cv ]
+- id: 001-programming-language
+  name: Programing Language
+  pages: [ about, cv ]
   skills:
     - name: Java
       icon: logos:java
+    - name: JavaScript
+      icon: logos:javascript
+    - name: Python
+      icon: logos:python
+    - name: Golang
+      icon: logos:gopher
+    - name: TypeScript
+      icon: logos:typescript-icon
+
+- id: 002-backend-development
+  name: Backend Development
+  pages: [ home, about, cv ]
+  skills:
     - name: Spring Boot
       icon: logos:spring-icon
     - name: Node.js
       icon: logos:nodejs-icon
-    - name: TypeScript
-      icon: logos:typescript-icon
-- id: cloud-architecture
+    - name: Flask
+      icon: logos:flask
+    - name: Gin
+      icon: logos:gin
+    - name: REST API
+
+- id: 003-cloud-architecture
   name: Cloud Architecture
   pages: [ home, about, cv ]
   skills:
@@ -19,8 +36,9 @@
     - name: Azure
       icon: logos:microsoft-azure
     - name: Serverless
-    - name: Cloud-native Platforms
-- id: frontend-development
+      icon: logos:serverless
+
+- id: 004-frontend-development
   name: Frontend Development
   pages: [ home, about, cv ]
   skills:
@@ -28,44 +46,102 @@
       icon: logos:react
     - name: Vue
       icon: logos:vue
-    - name: JavaScript
-      icon: logos:javascript
     - name: Angular
       icon: logos:angular-icon
-- id: microservices-apis
-  name: Microservices & APIs
-  pages: [ home, cv ]
+    - name: Ionic
+      icon: logos:ionic-icon
+    - name: HTML5
+      icon: logos:html-5
+    - name: Bootstrap
+      icon: logos:bootstrap
+    - name: Tailwind CSS
+      icon: logos:tailwindcss-icon
+
+- id: 005-database
+  name: Database
+  pages: [ home, about, cv ]
   skills:
-    - name: RESTful services
-    - name: Event-driven systems
-    - name: System Design
-      icon: material-symbols:account-tree-outline-rounded
-    - name: Observability
-      icon: material-symbols:monitoring-rounded
-- id: devops
+    - name: MS/Azure SQL
+      icon: logos:microsoft-icon
+    - name: PostgreSQL
+      icon: logos:postgresql
+    - name: MongoDB
+      icon: logos:mongodb-icon
+    - name: MySQL
+      icon: logos:mysql-icon
+    - name: JPA/Hibernate
+      icon: logos:hibernate
+    - name: ORM
+
+- id: 006-devops
   name: DevOps
   pages: [ home, about, cv ]
   skills:
     - name: Docker
       icon: logos:docker-icon
-    - name: CI/CD
-      icon: material-symbols:sync-alt-rounded
     - name: GitHub Actions
       icon: logos:github-actions
-    - name: DevSecOps
-      icon: material-symbols:security-rounded
-- id: data
-  name: Data
-  pages: [ cv ]
+    - name: Teamcity
+      icon: logos:teamcity
+    - name: JUnit
+    - name: Jest
+      icon: logos:jest
+    - name: WSL
+      icon: logos:linux-tux
+    - name: Various Source Code Management tools
+      icon: logos:git-icon
+
+- id: 007-observability
+  name: Observability
+  pages: [ about, cv ]
   skills:
-    - name: Data modeling
-    - name: Reporting pipelines
-    - name: Analytics-ready services
-- id: others
-  name: others
+    - name: New Relic
+      icon: logos:new-relic-icon
+    - name: Google Analytics
+      icon: logos:google-analytics
+    - name: Piano Analytics
+      icon: logos:tealium
+
+- id: 008-security-and-identity
+  name: Security & Identity
+  pages: [ about, cv ]
+  skills:
+    - name: OAuth 2.0
+    - name: JWT
+    - name: SSO
+
+- id: 009-architecture
+  name: Architecture
+  pages: [ about, cv ]
+  skills:
+    - name: SOLID Principles
+    - name: Object Oriented Programing
+    - name: Resilient Microservice
+    - name: Test Driven Development
+
+- id: 010-others
+  name: Others
   pages: [ about, cv ]
   skills:
     - name: Incident Management
-      icon: material-symbols:crisis-alert-rounded
     - name: QA Governance
-      icon: material-symbols:fact-check-outline-rounded
+    - name: Requirement engineering
+
+- id: hidden
+  name: un-group-keyword
+  pages: [ about, cv ]
+  skills:
+    - name: git
+    - name: github
+    - name: gitlab
+    - name: bitbucket
+    - name: Azure DevOps
+    - name: NPM
+    - name: Maven
+    - name: Webpack
+    - name: Vite
+    - name: NumPy
+    - name: Pandas
+    - name: Responsive design
+    - name: Scrum
+    - name: Socket-io

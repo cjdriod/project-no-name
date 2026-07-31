@@ -34,7 +34,7 @@ const education = (await getCollection('education')).toReversed();
     {achievements.length > 0 &&
       <AchievementList items={achievements}/>}
     <EducationList items={education}/>
-    <CvCallout cvHref={profile.data.cvHref}/>
+    <CvCallout />
   </main>
   <NavBar/>
 </Layout>

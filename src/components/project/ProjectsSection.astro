@@ -40,7 +40,7 @@ const githubHref = contacts.find((contact) => contact.channel === 'github')?.hre
           rel="noopener noreferrer"
           aria-label="View more projects on GitHub (opens in a new tab)"
         >
-          <Icon class="h-8 w-8 text-text" name="logos:github-icon" aria-hidden="true"/>
+          <Icon class="h-8 w-8 text-text view-more-card__github-icon" name="logos:github-icon" aria-hidden="true"/>
           <span class="text-lg font-semibold text-text">More on GitHub</span>
           <p class="view-more-card__description m-0 text-sm leading-relaxed text-muted">Explore the rest of my repositories and open-source
             work.</p>
@@ -71,5 +71,9 @@ const githubHref = contacts.find((contact) => contact.channel === 'github')?.hre
 
   .view-more-card__description {
     max-width: 26ch;
+  }
+
+  :global(html[data-theme='dark']) .view-more-card__github-icon {
+    filter: invert(1);
   }
 </style>

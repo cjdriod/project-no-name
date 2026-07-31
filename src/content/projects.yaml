@@ -1,56 +1,68 @@
-- id: 001-task-forge
-  title: Task Forge
-  description: A collaborative task board with real-time updates and role-based access.
-  image: ../assets/images/projects/task-forge.svg
-  imageAlt: Task Forge kanban board interface with columns of task cards
+#- id: 001-cyber-farm
+#  title: Cyber Farm (Prototype)
+#  description: CYBERFARM is a prototype Data driven farm management platform which make use of IoT, AI and ML for enhanced crops production with minimal environmental risk.
+#  image: ../assets/images/projects/cyber-farm-project.png
+#  imageAlt: High tech AI driven farm illustration
+#  technologies:
+#    - HTML5
+#    - Bootstrap
+#    - CSS
+#  sourceHref: https://github.com/cjdriod/CyberFarm
+#  siteHref: https://cjdriod.github.io/CyberFarm/farmer.html
+
+- id: 002-my-secret-santa
+  title: My Secret Santa
+  description: An application which randomly assign a person for each player (directional relationship). specifically design for bonding game like secret (Santa / Angle) game.
+  image: ../assets/images/projects/my-secret-santa-project.png
+  imageAlt: A Santa performing person matching.
   technologies:
-    - TypeScript
-    - React
+    - JavaScript
     - Node.js
-  sourceHref: https://github.com/alex-carter-dev/task-forge
-  siteHref: https://task-forge.example.com
+  sourceHref: https://github.com/cjdriod/my-secret-santa
 
-- id: 002-harvest-insights
-  title: Harvest Insights
-  description: An agriculture analytics dashboard turning sensor data into yield forecasts.
-  image: ../assets/images/projects/harvest-insights.svg
-  imageAlt: Harvest Insights dashboard showing charts of crop yield metrics
+- id: 003-spreadsheet-to-json-converter
+  title: Spreadsheet to JSON converter
+  description: An open source Python scripts which designed to pull data from Google Spreadsheet and transform collected data into several JSON files. Useful for translation files generation or sort out questionnaire responses.
+  image: ../assets/images/projects/spreadsheet-to-json-project.png
+  imageAlt: Converting spreadsheet document to JSON file
   technologies:
-    - Vue
-    - AWS
-  sourceHref: https://github.com/alex-carter-dev/harvest-insights
+    - Python
+    - Pandas
+    - Google API
+  sourceHref: https://github.com/cjdriod/Spreadsheet-to-Json
 
-- id: 003-ledger-lens
-  title: Ledger Lens
-  description: A self-hosted personal finance tracker with automated categorisation.
-  image: ../assets/images/projects/ledger-lens.svg
-  imageAlt: Ledger Lens transaction list with categorised spending chart
+- id: 004-task-management-system
+  title: Task Management System
+  description: A Multi Hierarchy Support Task Management System that helps you to organize your day to day task.
+  image: ../assets/images/projects/task-management-system-project.png
+  imageAlt: A multilayer task item mountain
   technologies:
-    - TypeScript
-    - PostgreSQL
+    - JavaScript
+    - React.js
+    - Vercel
+  sourceHref: https://github.com/cjdriod/task-management-system
+  siteHref: https://jack-task-management-system.vercel.app/
+
+- id: 005-credit-card-verifier
+  title: Credit Card Verifier
+  description: A simple CRUD GoLang application that provides a RESTful API for credit card verification.
+  image: ../assets/images/projects/credit-card-verifier-project.png
+  imageAlt: Verifying credit card details
+  technologies:
+    - go
+    - Gin
     - Docker
-  sourceHref: https://github.com/alex-carter-dev/ledger-lens
-  siteHref: https://ledger-lens.example.com
+    - mySql
+  sourceHref: https://github.com/cjdriod/go-credit-card-verifier
 
-- id: 004-signal-relay
-  title: Signal Relay
-  description: A lightweight incident-alerting service that routes alerts to on-call engineers.
-  image: ../assets/images/projects/signal-relay.svg
-  imageAlt: Signal Relay dashboard showing active on-call incident alerts
+- id: 006-portfolio
+  title: Personal website
+  description: A personal website with CV builder functionality for professional experience management.
+  image: ../assets/images/projects/portfolio-project.png
+  imageAlt: A person profile demo
   technologies:
-    - Java
-    - Spring Boot
-    - AWS
-  sourceHref: https://github.com/alex-carter-dev/signal-relay
-
-- id: 005-orbit-notes
-  title: Orbit Notes
-  description: A fast, offline-first note-taking app with end-to-end encrypted sync.
-  image: ../assets/images/projects/orbit-notes.svg
-  imageAlt: Orbit Notes editor showing a synced note list and encrypted note view
-  technologies:
-    - React
-    - Node.js
-    - Docker
-  sourceHref: https://github.com/alex-carter-dev/orbit-notes
-  siteHref: https://orbit-notes.example.com
+    - Astro
+    - Typescript
+    - Tailwind
+  sourceHref: https://github.com/cjdriod/cjdriod.github.io
+  siteHref: 'https://cjdriod.github.io/'

@@ -1,27 +1,29 @@
 ﻿profile:
   tagline: System design & sustainable solutions
-  greeting: Hi, I'm
-  name: Alex Carter
-  legalName: Alex J Carter
-  role: Full Stack Developer
+  name: Jack Lim
+  legalName: Lim Chun Jie
+  role: Technical Lead | Full-Stack Engineer
   description: >-
     I design and build secure, scalable cloud-native platforms on AWS and Azure,
     and lead engineering teams to ship high-traffic systems across e-commerce and
     agriculture. My focus is DevSecOps, reliable services, and mentoring the
     engineers around me — building software that keeps delivering long after launch.
-  professionalSummary: >-
-    Full Stack Developer with 8+ years designing and delivering secure, scalable
-    cloud-native platforms on AWS and Azure. Proven track record leading
-    engineering teams across e-commerce and agriculture, with a focus on
-    DevSecOps, reliability, and mentoring engineers to grow high-performing teams.
+  professionalSummary:
+    - >
+      Technical Lead and Senior Full-Stack Engineer with a strong track record of building secure, scalable, and
+      resilient digital platforms. Experienced in leading cross-functional teams, maturing engineering practices,
+      and delivering enterprise-grade reliability across high-traffic E-commerce and agriculture-sector systems.
+      Adept at strengthening DevSecOps pipelines, implementing standardized QA governance, and reducing
+      outages through proactive monitoring and automation.
+    - >
+      Known for mentoring teams, strengthening incident management and service reliability, and ensuring
+      long-term product sustainability through secure, cloud-native architecture on Microsoft Azure.
   languages:
     - English
     - Malay
     - Mandarin
   photo: ../assets/images/profile-portrait.png
-  photoAlt: 3D-style illustration of a happy developer working at a laptop with blurred code and system diagrams behind them
-  projectsHref: /projects
-  cvHref: /cv
+  photoAlt: 3D-style illustration of jack lim working with laptop
   highlights:
     - 8+ years building cloud-native platforms on AWS and Azure
     - Led platform engineering across reliability, CI/CD, and developer experience
@@ -31,19 +33,16 @@
   contacts:
     - channel: email
       label: Email
-      description: alex.carter@example.com
-      href: mailto:alex.carter@example.com
+      description: jacklim.cj@gmail.com
+      href: mailto:jacklim.cj@gmail.com
       icon: logos:google-gmail
-      monoIcon: simple-icons:gmail
     - channel: linkedin
       label: LinkedIn
       description: Connect professionally
-      href: https://www.linkedin.com/in/alex-carter-dev
+      href: https://linkedin.com/in/lim-chun-jie
       icon: logos:linkedin-icon
-      monoIcon: simple-icons:linkedin
     - channel: github
       label: GitHub
       description: View my projects
-      href: https://github.com/alex-carter-dev
+      href: https://github.com/cjdriod
       icon: logos:github-icon
-      monoIcon: simple-icons:github

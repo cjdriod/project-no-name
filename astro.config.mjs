@@ -1,10 +1,7 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-
+import {defineConfig} from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-
 import icon from 'astro-icon';
-
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
@@ -26,28 +23,23 @@ export default defineConfig({
       'simple-icons': [
         'linkedin',
         'github',
-        'gmail'
       ],
       'material-symbols': [
-        'account-tree-outline-rounded',
-        'crisis-alert-rounded',
         'dark-mode-outline-rounded',
         'description-outline-rounded',
-        'fact-check-outline-rounded',
         'folder-outline-rounded',
         'grid-view-outline-rounded',
         'home-outline-rounded',
         'light-mode-outline-rounded',
-        'monitoring-rounded',
         'check-rounded',
         'code-rounded',
         'open-in-new-rounded',
         'public',
         'person-outline-rounded',
-        'security-rounded',
-        'sync-alt-rounded',
         'print-outline-rounded',
-        'send-rounded'
+        'send-rounded',
+        'mail',
+        'call'
       ],
       'logos': [
         'angular-icon',
@@ -64,9 +56,30 @@ export default defineConfig({
         'vue',
         'google-gmail',
         'linkedin-icon',
-        'github-icon'
+        'github-icon',
+        'python',
+        'gopher',
+        'flask',
+        'gin',
+        'serverless',
+        'ionic-icon',
+        'html-5',
+        'bootstrap',
+        'tailwindcss-icon',
+        'microsoft-icon',
+        'postgresql',
+        'mongodb-icon',
+        'mysql-icon',
+        'hibernate',
+        'teamcity',
+        'jest',
+        'linux-tux',
+        'git-icon',
+        'new-relic-icon',
+        'google-analytics',
+        'tealium',
       ]
     }
   }),
-  sitemap()]
+    sitemap()]
 });

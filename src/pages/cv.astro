@@ -57,7 +57,9 @@ try {
       cvUrl={cvUrl}
     />
     <CvSection title="Profile" id="profile">
-      <p class="cv-summary">{profile.data.professionalSummary}</p>
+      <div class="flex flex-col gap-4">
+        {profile.data.professionalSummary.map(content => <p>{content}</p>)}
+      </div>
     </CvSection>
     <CvExperience items={experience}/>
     <CvCertifications items={certifications}/>
@@ -91,6 +93,10 @@ try {
     margin: 0;
     max-width: var(--container-prose);
     color: var(--text-muted);
+  }
+
+  .cv-summary:not(:last-child) {
+    //margin-bottom: 1em;
   }
 
   @media print {

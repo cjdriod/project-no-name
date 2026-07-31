@@ -1,4 +1,5 @@
-name: Build and deploy personal site
+name: Build and deploy
+run-name: 🚀 Updating new content
 
 on:
   # Runs on pushes targeting the default branch

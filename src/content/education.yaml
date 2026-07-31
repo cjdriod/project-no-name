@@ -1,20 +1,11 @@
-- id: 001-metro-college
-  photo: ../assets/images/education/metro-college.svg
-  photoAlt: Metro College logo placeholder
-  school: Metro College
-  course: Diploma in Software Engineering
-  start: "2011"
-  end: "2013"
+- id: 001-asia-pacific-university
+  photo: ../assets/images/education/apu.jpg
+  photoAlt: Asia Pacific University logo
+  school: Asia Pacific University of Technology and Innovation
+  course: Bachelor of Science in Software Engineering
+  start: "2016"
+  end: "2019"
   achievements:
-    - Graduated with distinction
-- id: 002-state-university
-  photo: ../assets/images/education/state-university.svg
-  photoAlt: State University logo placeholder
-  school: State University
-  course: BSc Computer Science
-  start: "2013"
-  end: "2016"
-  achievements:
-    - Dean's List, all six semesters
-    - Final-year project on distributed systems scheduling
-
+    - Dual degree program with Asia Pacific University and Staffordshire University
+    - Manage Google developer and business day event 2016
+    - APU Technical Assistants Trainee
