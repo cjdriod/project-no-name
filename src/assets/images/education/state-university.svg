@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img"
-     aria-labelledby="title">
-  <title id="title">State University logo placeholder</title>
-  <rect width="160" height="160" rx="36" fill="#F0FDF4"/>
-  <path
-    d="M80 28a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-44 96 14-52h12l8 28 8-28h12l14 52h-14l-7-26-7 26h-7l-7-26-7 26H36Zm44-52h8l12 52h-14l-3-12h-8l-3 12H102l12-52Zm4 16-2 12h6l-4-12Z"
-    fill="#3F7A57"/>
-</svg>

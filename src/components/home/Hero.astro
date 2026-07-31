@@ -1,35 +1,39 @@
 ﻿---
-import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
+import {Icon} from 'astro-icon/components';
+import {Image} from 'astro:assets';
+import type {CollectionEntry} from 'astro:content';
 
 interface Props {
   profile: CollectionEntry<'profile'>;
 }
 
-const { profile } = Astro.props;
+const {profile} = Astro.props;
 const data = profile.data;
 ---
 
 <section class="hero grid items-center gap-12 py-12" aria-labelledby="hero-title">
   <div class="hero__content">
-    <p class="hero__tagline w-fit m-0 mb-6 rounded-full bg-surface-muted px-4 py-2 text-sm font-semibold uppercase text-accent"
-       data-reveal style="--reveal-delay: 0ms">{data.tagline}</p>
-    <p class="m-0 text-lg font-medium text-muted" data-reveal style="--reveal-delay: 60ms">{data.greeting}</p>
+    <p
+      class="hero__tagline w-fit m-0 mb-6 rounded-full bg-surface-muted px-4 py-2 text-sm font-semibold uppercase text-accent"
+      data-reveal style="--reveal-delay: 0ms">{data.tagline}</p>
+    <p class="m-0 text-lg font-medium text-muted" data-reveal style="--reveal-delay: 60ms">Hi, I'm</p>
     <h1 id="hero-title" class="hero__title my-3 text-5xl font-bold text-text" data-reveal
         style="--reveal-delay: 120ms">{data.name}</h1>
     <p class="m-0 text-xl font-semibold text-accent" data-reveal style="--reveal-delay: 180ms">{data.role}</p>
-    <p class="hero__description mt-6 text-lg leading-relaxed text-muted" data-reveal style="--reveal-delay: 240ms">{data.description}</p>
+    <p class="hero__description mt-6 text-lg leading-relaxed text-muted" data-reveal
+       style="--reveal-delay: 240ms">{data.description}</p>
     <div class="mt-8 flex flex-wrap gap-3 max-[420px]:flex-col" data-reveal style="--reveal-delay: 300ms">
       <a
         class="button button--primary max-[420px]:w-full inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-accent bg-accent px-6 py-3 font-semibold text-surface! no-underline transition duration-150 ease-out hover:border-accent-hover hover:bg-accent-hover active:translate-y-px"
-        href={data.projectsHref}>
+        href="/projects">
         <span>View Projects</span>
         <Icon class="button__icon" name="material-symbols:grid-view-outline-rounded" aria-hidden="true"/>
       </a>
       <a
         class="button button--secondary max-[420px]:w-full inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-border bg-transparent px-6 py-3 font-semibold text-text no-underline transition duration-150 ease-out hover:border-accent hover:text-accent active:translate-y-px"
-        href={data.cvHref}>
+        href="/cv"
+        data-astro-prefetch="viewport"
+      >
         <span>View CV</span>
         <Icon class="button__icon" name="material-symbols:description-outline-rounded" aria-hidden="true"/>
       </a>

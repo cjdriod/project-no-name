@@ -1,9 +1,15 @@
-- id: 001-community-meetup
-  title: Organized monthly cloud-native community meetup
-  year: "2024"
-- id: 002-oss-contributions
-  title: Contributed to open-source observability tooling
-  year: "2024"
-- id: 003-mentorship-program
-  title: Volunteer mentor, regional coding bootcamp
-  year: "2023"
+- id: 001-solana-renaissance-global-online-hackathon
+  title: Solana Renaissance Global Online Hackathon
+  year: '2024'
+
+- id: 002-basf-cyberheroes-asia-pacific-champion
+  title: BASF Cyber heroes Asia Pacific Champion
+  year: '2025'
+
+- id: 003-basf-spot-award
+  title: BASF SPOT Award
+  year: '2025'
+
+- id: 004-az-305
+  title: Designing Microsoft Azure Infrastructure Solutions Training
+  year: '2025'

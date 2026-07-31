@@ -16,16 +16,16 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
   class="bottom-nav fixed left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-surface p-2 lg:gap-3 lg:px-3"
   aria-label="Primary">
   <ul class="m-0 flex list-none items-center gap-1 p-0 lg:gap-2">
-    {items.map((item) => {
+    {items.map((item, index) => {
       const isCurrent = pathname === item.href;
-      const orderClass = item.priority === 'cv' ? 'order-1' : item.priority === 'projects' ? 'order-2' : '';
-      const visibilityClass = item.priority === 'cv' || item.priority === 'projects' ? 'hidden md:block' : 'block';
+      const visibilityClass = item.priority === 'projects' ? 'sr-only md:not-sr-only md:block' : 'block';
       return (
-        <li class={`${visibilityClass} ${orderClass}`}>
+        <li class={visibilityClass}>
           <a
             class="bottom-nav__link relative inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 text-sm font-semibold text-muted no-underline transition duration-150 ease-out hover:bg-surface-muted hover:text-text focus-visible:bg-surface-muted focus-visible:text-text lg:px-4"
             href={item.href} aria-label={item.label}
-            aria-current={isCurrent ? 'page' : undefined} data-tooltip={item.label}>
+            aria-current={isCurrent ? 'page' : undefined} data-tooltip={item.label}
+          >
             <Icon class="h-5 w-5 flex-none" name={item.icon} aria-hidden="true"/>
             <span>{item.label}</span>
           </a>

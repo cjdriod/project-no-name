@@ -1,14 +1,18 @@
-- id: 001-aws-hackathon
-  title: AWS Regional Hackathon Winner
+- id: 001-new-relic-observability-foundations
+  title: New Relic Observability Foundations
+  issuer: New Relic
+  date: '2024'
+  link: 'https://credentials.newrelic.com/0a1d41ca-3aec-4e7a-be3c-fd347699b499'
+
+- id: 002-aws-certified-solutions-architect-associate
+  title: AWS Certified Solutions Architect - Associate
   issuer: Amazon Web Services
-  date: "2021"
-- id: 002-devcon-speaker
-  title: Featured Speaker — Cloud-Native Patterns
-  issuer: DevCon Asia
-  date: "2022"
-  link: https://example.com/devcon-2022
-- id: 003-aws-sa-pro
-  title: AWS Certified Solutions Architect — Professional
-  issuer: Amazon Web Services
-  date: "2023"
-  link: https://example.com/aws-sa-pro
+  date: '2025'
+  link: 'https://www.credly.com/earner/earned/badge/b168d727-fd6a-43f4-a3bc-d288f527dd8d'
+
+- id: 003-designing-microsoft-azure-infrastructure-solutions-az-305
+  title: Designing Microsoft Azure Infrastructure Solutions (AZ-305)
+  issuer: Microsoft
+  date: '2026'
+  link: 'https://learn.microsoft.com/en-us/users/jack-3396/transcript/vye1eh3n53z31gj?tab=credentials-tab'
+

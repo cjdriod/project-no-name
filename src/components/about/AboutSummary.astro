@@ -15,7 +15,7 @@ const { description, highlights } = Astro.props;
     <h2 id="summary-title" class="section__title m-0 text-3xl leading-tight text-text">Professional Summary</h2>
   </div>
   <div class="summary-body" data-reveal style="--reveal-delay: 80ms">
-    <p class="mb-6 text-lg leading-relaxed text-muted">{description}</p>
+    <p class="mb-6 text-lg leading-relaxed text-muted text-justify">{description}</p>
     <ul class="m-0 flex list-none flex-col gap-3 p-0" aria-label="Highlights">
       {highlights.map((item) => (
         <li class="flex items-start gap-2 leading-relaxed text-muted">
@@ -38,7 +38,7 @@ const { description, highlights } = Astro.props;
   }
 
   .summary-body {
-    max-width: var(--container-prose);
+    max-width: var(--container-content);
   }
 
   .highlights-icon {
