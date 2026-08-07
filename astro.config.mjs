@@ -6,8 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with the real personal GitHub Pages URL before production deploy.
-  site: 'https://yourdomain.com',
+  site: 'http://localhost:4321',
   base: '/',
   prefetch: {
     defaultStrategy: 'hover',
@@ -82,5 +81,8 @@ export default defineConfig({
       ]
     }
   }),
-    sitemap()]
+    sitemap()],
+  redirects: {
+    '/404': '/'
+  }
 });

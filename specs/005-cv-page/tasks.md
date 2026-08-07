@@ -119,6 +119,8 @@ Single Astro project. Source at repository root under `src/`. New CV components 
 
 **Checkpoint**: Sharing works with native share and graceful copy fallback
 
+- [X] T032 [US4] Persist the recipient's phone number in `sessionStorage` (key `cv:tel`) within the General-info island in `src/components/cv/CvGeneralInfo.astro`: a fresh `tel` query value takes precedence and refreshes the store; when the query string is absent, fall back to the stored value so the number survives navigating away from and back to `/cv`; store the canonical `toTelParam` value and guard all storage access in try/catch (progressive enhancement for private mode / disabled storage)
+
 ---
 
 ## Phase 7: Polish & Cross-Cutting Concerns

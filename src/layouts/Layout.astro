@@ -6,10 +6,7 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = 'Alex Carter | Full Stack Developer',
-  description = 'Full Stack Developer designing secure, scalable cloud-native platforms on AWS and Azure.',
-} = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>

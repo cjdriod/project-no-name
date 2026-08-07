@@ -29,6 +29,8 @@ const profile = defineCollection({
     })).min(1),
     resumeSummary: z.string().min(1),
     highlights: z.array(z.string().min(1)).min(1),
+    landingSeoRole: z.string().optional(),
+    landingSeoDescription: z.string().optional(),
   }),
 });
 

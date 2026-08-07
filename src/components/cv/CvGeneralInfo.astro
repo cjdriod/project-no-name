@@ -79,14 +79,20 @@ const stripProtocol = (href: string) => href.replace(/^https?:\/\//, '');
 </div>
 
 <script>
-  import {fromTelParam} from '../../scripts/cv-phone';
-  import {format} from '../../scripts/cv-phone';
+  import {fromTelParam, toTelParam, format} from '../../scripts/cv-phone';
 
+  const STORAGE_KEY = 'cv:tel';
   const params = new URLSearchParams(location.search);
-  const digits = fromTelParam(params.get('tel'));
-  if (digits) {
+
+  const fromUrl = fromTelParam(params.get('tel'));
+  if (fromUrl) {
+    sessionStorage.setItem(STORAGE_KEY, fromUrl)
+  }
+
+  const phoneNumber = fromUrl ?? sessionStorage.getItem(STORAGE_KEY);
+  if (phoneNumber) {
     const el = document.querySelector('[data-cv-phone-value]');
-    if (el) el.textContent = format(digits);
+    if (el) el.textContent = format(phoneNumber);
   }
 </script>
 
