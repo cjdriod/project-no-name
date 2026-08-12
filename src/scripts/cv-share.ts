@@ -93,8 +93,12 @@ export function initCvShare(options: CvShareOptions): void {
   phoneInputEl.addEventListener('input', () => {
     // Restrict to digits only, max 10 local digits (country code shown separately as a prefix).
     let digits = phoneInputEl.value.replace(/\D/g, '');
-    if (digits.length > MAX_LOCAL_DIGITS) digits = digits.slice(0, MAX_LOCAL_DIGITS);
+    if (digits.length > MAX_LOCAL_DIGITS) {
+      digits = digits.slice(0, MAX_LOCAL_DIGITS);
+    }
     phoneInputEl.value = digits;
+    submitBtnEl.getElementsByTagName('span')[0].innerText = digits.length > MAX_LOCAL_DIGITS - 2 ? 'Share' : 'Skip & Share';
+
   });
 
   triggerEl.addEventListener('click', openModal);

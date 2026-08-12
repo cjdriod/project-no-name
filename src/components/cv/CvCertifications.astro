@@ -20,7 +20,8 @@ const { items } = Astro.props;
           <p class="m-0 font-semibold text-text">
             {link ? (
               <a class="text-inherit no-underline hover:text-accent! focus-visible:text-accent!" href={link} target="_blank" rel="noopener noreferrer"
-                 aria-label={`${title} (opens in a new tab)`}>
+                 aria-label={`${title} (opens in a new tab)`}
+              >
                 {title}
                 <Icon name="material-symbols:open-in-new-rounded" aria-hidden="true"
                       class="cv-cert-entry__icon inline-block! align-middle ms-1 text-faint"/>

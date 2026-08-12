@@ -14,7 +14,7 @@ const { company, position, photo, photoAlt, start, end } = Astro.props;
 ---
 
 <article class="experience-card grid items-center gap-4 rounded-lg border border-border bg-surface p-4">
-  <Image class="h-16 w-16 rounded-md border border-border bg-surface-muted object-cover" src={photo}
+  <Image class="h-16 w-16 rounded-md  object-cover" src={photo}
          alt={photoAlt ?? `${company} logo`} width={160} height={160} loading="lazy" decoding="async"/>
   <div>
     <h3 class="m-0 text-xl leading-snug text-text">{company}</h3>

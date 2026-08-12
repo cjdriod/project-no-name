@@ -12,7 +12,7 @@ const { items } = Astro.props;
 <CvSection title="Professional experience" id="experience">
   <ul class="flex flex-col gap-6 m-0 p-0 list-none" role="list">
     {items.map((item) => {
-      const { company, position, start, end, summary, achievements } = item.data;
+      const { company, position, start, end, achievements } = item.data;
       return (
         <li class="break-inside-avoid">
           <div class="flex flex-wrap items-baseline justify-between gap-2">
@@ -20,7 +20,6 @@ const { items } = Astro.props;
             <span class="font-mono text-sm whitespace-nowrap text-faint">{start} — {end}</span>
           </div>
           <p class="my-1 font-medium text-accent">{position}</p>
-          <p class="m-0">{summary}</p>
           {achievements && achievements.length > 0 && (
             <ul class="mt-2 flex flex-col gap-1 list-disc pl-6">
               {achievements.map((achievement) =>

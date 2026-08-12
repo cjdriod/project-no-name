@@ -63,7 +63,8 @@ const { shareTitle, shareText, shareUrl } = Astro.props;
     aria-labelledby="cv-share-title"
     data-cv-share-dialog
   >
-    <h2 id="cv-share-title" class="mb-4 text-lg font-semibold text-text">Share this CV</h2>
+    <h2 id="cv-share-title" class="text-lg font-semibold text-text">Share this CV</h2>
+    <p class="mb-4 text-sm">Share with phone number (Optional)</p>
     <label class="mb-1 block text-sm text-muted" for="cv-share-phone">Phone</label>
     <div class="flex items-stretch">
       <span
@@ -84,11 +85,11 @@ const { shareTitle, shareText, shareUrl } = Astro.props;
     </div>
     <button
       type="button"
-      class="mt-6 flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-accent bg-accent font-semibold text-surface hover:bg-accent-hover focus-visible:bg-accent-hover"
+      class="mt-6 text-base inline-flex relative min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-accent bg-accent font-semibold text-surface hover:bg-accent-hover focus-visible:bg-accent-hover"
       data-cv-share-submit
     >
       <Icon name="material-symbols:send-rounded" class="cv-share-modal__submit-icon" aria-hidden="true"/>
-      <span>Share</span>
+      <span>Skip & Share</span>
     </button>
   </div>
 </div>

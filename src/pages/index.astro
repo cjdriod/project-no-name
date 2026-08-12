@@ -20,7 +20,10 @@ const experience = (await getCollection('experience')).toReversed().slice(0, 3);
 const skillCategories = await getCollection('skills');
 ---
 
-<Layout>
+<Layout
+  title={`${profile.data.name} | ${profile.data.landingSeoRole}`}
+  description={profile.data.landingSeoDescription}
+>
   <a class="skip-link" href="#home">Skip to content</a>
   <main id="home" class="page-shell" aria-labelledby="hero-title">
     <Hero profile={profile}/>

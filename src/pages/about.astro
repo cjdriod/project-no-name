@@ -28,13 +28,13 @@ const education = (await getCollection('education')).toReversed();
   <a class="skip-link" href="#about">Skip to content</a>
   <main id="about" class="page-shell">
     <h1 class="page-title" data-reveal>{profile.data.name}</h1>
-    <AboutSummary description={profile.data.description} highlights={profile.data.highlights}/>
+    <AboutSummary description={profile.data.resumeSummary} highlights={profile.data.highlights}/>
     <AboutSkills categories={skillCategories}/>
     <WorkExperienceList items={experience}/>
     {achievements.length > 0 &&
       <AchievementList items={achievements}/>}
     <EducationList items={education}/>
-    <CvCallout cvHref={profile.data.cvHref}/>
+    <CvCallout />
   </main>
   <NavBar/>
 </Layout>

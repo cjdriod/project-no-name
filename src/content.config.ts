@@ -1,7 +1,5 @@
-﻿import {
-  defineCollection,
-  z
-} from 'astro:content';
+﻿import { defineCollection, } from 'astro:content';
+import { z } from 'astro/zod'
 import { file } from 'astro/loaders';
 
 const period = /^[A-Z][a-z]{2}-\d{4}$/;
@@ -14,26 +12,25 @@ const profile = defineCollection({
   loader: file('src/content/profile.yaml'),
   schema: ({ image }) => z.object({
     tagline: z.string().min(1),
-    greeting: z.string().min(1),
     name: z.string().min(1),
     legalName: z.string().min(1),
     role: z.string().min(1),
     description: z.string().min(1),
-    professionalSummary: z.string().min(1),
+    professionalSummary: z.array(z.string().min(1)).min(1),
     languages: z.array(z.string().min(1)).min(1),
     photo: image(),
     photoAlt: z.string().min(1),
-    projectsHref: z.string().default('/projects'),
-    cvHref: z.string().default('/cv'),
     contacts: z.array(z.object({
       channel: contactChannel,
       label: z.string().min(1),
       description: z.string().min(1),
       href: z.string().min(1),
-      icon: z.string().regex(iconName),
-      monoIcon: z.string().regex(iconName),
+      icon: z.string().regex(iconName)
     })).min(1),
+    resumeSummary: z.string().min(1),
     highlights: z.array(z.string().min(1)).min(1),
+    landingSeoRole: z.string().optional(),
+    landingSeoDescription: z.string().optional(),
   }),
 });
 
