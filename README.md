@@ -1,4 +1,5 @@
 # Personal Portfolio
+[![Build and deploy personal site](https://github.com/cjdriod/cjdriod.github.io/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/cjdriod/cjdriod.github.io/actions/workflows/deploy.yml)
 
 > A calm, reading-first personal portfolio — built to be read comfortably for ten minutes, printed to A4 without a hiccup, and shared with a single tap.
 
@@ -37,10 +38,10 @@ This is a static, content-driven portfolio built with **Astro** and **Tailwind C
 ## 🚀 Getting Started
 
 ```sh
-# 1. Install dependencies (Node >= 22.12)
+# 1. Install dependencies (Node >= 24.12)
 npm install
 
-# 2. Start the dev server at http://localhost:4321
+# 2. Start the dev server at http://localhost:4321 default
 npm run dev
 
 # 3. Type-check + build the production site to ./dist/
