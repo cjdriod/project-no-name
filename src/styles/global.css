@@ -174,8 +174,8 @@ button, a {
 
 .skip-link {
   position: fixed;
-  top: var(--space-4);
-  left: var(--space-4);
+  top: calc(var(--space-4) + env(safe-area-inset-top));
+  left: calc(var(--space-4) + env(safe-area-inset-left));
   z-index: var(--z-tooltip);
   transform: translateY(calc(-100% - var(--space-8)));
   border: var(--border-thin) solid var(--border);
