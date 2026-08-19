@@ -77,4 +77,5 @@
       that improved MTTR by 60% while maintaining a 99.93% SLA.
     - >
       Improved engineering and QA workflows by introducing standardised processes and quality gates, reducing production
-      outages from 8 to 1 within a year; also automated daily reporting, reducing manual effort from 1.5 hours to 4 minutes.
+      outages from 8 to 1 within a year.
+#    - ; also automated daily reporting, reducing manual effort from 1.5 hours to 4 minutes.
